@@ -1,448 +1,520 @@
 
-<!DOCTYPE html>
-<html lang="cs">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Petr Jakl | Technologie & Geopolitika</title>
-
-    <meta name="description"
-    content="Osobní prezentace Petra Jakla – technologie, geopolitika, mezinárodní vztahy a strategické myšlení.">
-
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Leaflet mapa -->
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
-
-</head>
-
-<body>
-
-<!-- NAVIGACE -->
-
-<nav>
-
-    <div class="logo">
-        PETR JAKL
-    </div>
-
-    <a href="#" class="home-btn"
-       onclick="showHome(); return false;"
-       aria-label="Domů">
-
-        <svg width="21" height="21"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="1.7"
-             stroke-linecap="round"
-             stroke-linejoin="round">
-
-            <path d="m3 10 9-7 9 7"/>
-            <path d="M5 9v12h14V9"/>
-            <path d="M9 21v-7h6v7"/>
-
-        </svg>
-
-    </a>
-
-</nav>
+/* =========================================
+   PETR JAKL - INTERACTIVE WORLD MAP
+========================================= */
 
 
-<!-- HLAVNÍ STRÁNKA -->
+/* =========================================
+   NAVIGACE WEBU
+========================================= */
 
-<main id="home">
+function showPage(pageId) {
 
-    <section class="hero">
+    document.getElementById("home").style.display = "none";
 
-        <div class="subtitle">
-            OSOBNÍ WEBOVÁ PREZENTACE
-        </div>
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-        <h1>
-            PETR <span>JAKL</span>
-        </h1>
+    const selectedPage = document.getElementById(pageId);
 
-        <p>
-            TECHNOLOGIE · GEOPOLITIKA · STRATEGICKÉ MYŠLENÍ
-        </p>
+    if (selectedPage) {
+        selectedPage.classList.add("active");
+    }
 
-        <div class="divider"></div>
-
-
-        <!-- INTERAKTIVNÍ MAPA SVĚTA -->
-
-        <section class="world-section">
-
-            <div class="world-header">
-
-                <span class="world-eyebrow">
-                    TECHNOLOGIE & SVĚT
-                </span>
-
-                <h2>
-                    SVĚT V <span>POHYBU</span>
-                </h2>
-
-                <p>
-                    Technologie, bezpečnost a globální propojení.
-                </p>
-
-            </div>
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
 
-            <div class="visual map-visual">
+function showHome() {
 
-                <!-- Samotná mapa -->
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
 
-                <div id="world-map"></div>
+    document.getElementById("home").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if (window.worldMap) {
+        setTimeout(() => {
+            window.worldMap.invalidateSize();
+        }, 300);
+    }
+}
 
 
-                <!-- Horní informační lišta -->
+/* =========================================
+   INICIALIZACE MAPY
+========================================= */
 
-                <div class="map-topbar">
+document.addEventListener("DOMContentLoaded", function () {
 
-                    <div class="map-brand">
-                        GLOBAL OVERVIEW
-                    </div>
+    const mapElement = document.getElementById("world-map");
 
-                    <div class="map-status">
-                        <span class="status-dot"></span>
-                        WORLD NETWORK
-                    </div>
+    if (!mapElement || typeof L === "undefined") {
+        console.error("Mapa Leaflet nebyla načtena.");
+        return;
+    }
 
+    // Vytvoření mapy
+
+    const map = L.map("world-map", {
+        center: [25, 10],
+        zoom: 2,
+        minZoom: 2,
+        maxZoom: 7,
+        zoomControl: true,
+        scrollWheelZoom: true,
+        worldCopyJump: true
+    });
+
+    window.worldMap = map;
+
+
+    /* =====================================
+       TMAVÝ MAPOVÝ PODKLAD
+    ===================================== */
+
+    L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+        {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+
+            subdomains: "abcd",
+
+            maxZoom: 19
+        }
+    ).addTo(map);
+
+
+    /* =====================================
+       VLASTNÍ IKONY
+    ===================================== */
+
+    function createIcon(symbol, type) {
+
+        return L.divIcon({
+
+            className: "custom-map-marker",
+
+            html: `
+                <div class="marker-wrapper ${type}">
+                    <div class="marker-pulse"></div>
+                    <div class="marker-symbol">${symbol}</div>
+                </div>
+            `,
+
+            iconSize: [34, 34],
+
+            iconAnchor: [17, 17],
+
+            popupAnchor: [0, -18]
+
+        });
+
+    }
+
+
+    /* =====================================
+       STYLOVANÉ POPUP OKNO
+    ===================================== */
+
+    function createPopup(title, description, category) {
+
+        return `
+            <div style="
+                min-width:180px;
+                padding:5px;
+                font-family:Montserrat,sans-serif;
+            ">
+
+                <div style="
+                    color:#c8a96e;
+                    font-size:9px;
+                    letter-spacing:3px;
+                    margin-bottom:9px;
+                ">
+                    ${category}
                 </div>
 
-
-                <!-- Dekorativní informační panel -->
-
-                <div class="map-info">
-
-                    <span>GLOBAL PERSPECTIVE</span>
-
-                    <h3>
-                        WORLD
-                        <strong>NETWORK</strong>
-                    </h3>
-
-                    <p>
-                        Technologie · Geopolitika · Bezpečnost
-                    </p>
-
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    margin-bottom:8px;
+                ">
+                    ${title}
                 </div>
 
-
-                <!-- Legenda -->
-
-                <div class="map-legend">
-
-                    <div class="legend-item">
-                        <span class="legend-dot gold"></span>
-                        Strategická centra
-                    </div>
-
-                    <div class="legend-item">
-                        <span class="legend-dot blue"></span>
-                        Technologie
-                    </div>
-
-                    <div class="legend-item">
-                        <span class="legend-dot red"></span>
-                        Vojenská technika
-                    </div>
-
-                    <div class="legend-item">
-                        <span class="legend-line"></span>
-                        Datové propojení
-                    </div>
-
-                </div>
-
-
-                <!-- Spodní informační lišta -->
-
-                <div class="map-bottom">
-
-                    <span>GLOBAL CONNECTIONS</span>
-
-                    <span>INTERACTIVE WORLD MAP</span>
-
+                <div style="
+                    color:#999;
+                    font-size:11px;
+                    line-height:1.8;
+                ">
+                    ${description}
                 </div>
 
             </div>
+        `;
+
+    }
+
+
+    /* =====================================
+       STRATEGICKÉ A TECHNOLOGICKÉ UZLY
+       
+       Demonstrační geografické body.
+    ===================================== */
+
+    const locations = [
+
+        {
+            name: "Evropa",
+            coords: [50, 15],
+            symbol: "✦",
+            type: "gold",
+            category: "TECHNOLOGIE",
+            description:
+                "Technologický vývoj, průmysl, inovace a mezinárodní spolupráce."
+        },
+
+        {
+            name: "Severní Amerika",
+            coords: [39, -98],
+            symbol: "✈",
+            type: "military",
+            category: "LETECKÉ TECHNOLOGIE",
+            description:
+                "Letecký průmysl, výzkum, moderní technologie a vývoj autonomních systémů."
+        },
+
+        {
+            name: "Východní Asie",
+            coords: [35, 110],
+            symbol: "◎",
+            type: "blue",
+            category: "TECHNOLOGICKÁ CENTRA",
+            description:
+                "Elektronika, robotika, výroba polovodičů a technologické inovace."
+        },
+
+        {
+            name: "Severní Atlantik",
+            coords: [48, -35],
+            symbol: "◈",
+            type: "military",
+            category: "NÁMOŘNÍ TECHNOLOGIE",
+            description:
+                "Námořní doprava, navigace a sledování globálních obchodních tras."
+        },
+
+        {
+            name: "Indický oceán",
+            coords: [-15, 75],
+            symbol: "◉",
+            type: "blue",
+            category: "SATELITNÍ TECHNOLOGIE",
+            description:
+                "Satelitní komunikace, navigace a globální datová infrastruktura."
+        },
+
+        {
+            name: "Blízký východ",
+            coords: [28, 45],
+            symbol: "⌖",
+            type: "red",
+            category: "GEOPOLITIKA",
+            description:
+                "Významná oblast z hlediska energetiky, mezinárodních vztahů a bezpečnosti."
+        },
 
-        </section>
+        {
+            name: "Jižní Amerika",
+            coords: [-15, -60],
+            symbol: "✦",
+            type: "gold",
+            category: "GLOBÁLNÍ PROPOJENÍ",
+            description:
+                "Přírodní zdroje, infrastruktura a mezinárodní obchod."
+        },
 
-    </section>
+        {
+            name: "Afrika",
+            coords: [5, 20],
+            symbol: "◎",
+            type: "blue",
+            category: "ROZVOJ TECHNOLOGIÍ",
+            description:
+                "Digitální infrastruktura, energetika a rozvoj moderních technologií."
+        }
 
+    ];
 
-    <!-- HLAVNÍ OBLASTI -->
 
-    <section class="cards-section">
+    /* =====================================
+       VYKRESLENÍ UZLŮ
+    ===================================== */
 
-        <div class="section-heading">
-            OBLASTI MÉHO ZÁJMU
-        </div>
+    locations.forEach(location => {
 
+        const marker = L.marker(
+            location.coords,
+            {
+                icon: createIcon(
+                    location.symbol,
+                    location.type
+                )
+            }
+        ).addTo(map);
 
-        <div class="cards">
+        marker.bindPopup(
+            createPopup(
+                location.name,
+                location.description,
+                location.category
+            )
+        );
 
+    });
 
-            <!-- TECHNIKA -->
 
-            <a href="#technology"
-               class="card"
-               onclick="showPage('technology'); return false;">
+    /* =====================================
+       RADAROVÉ KRUHY
+    ===================================== */
 
-                <div class="arrow">↗</div>
+    const radarPositions = [
 
-                <h2>
-                    TECHNIKA
-                </h2>
+        [50, 15],
+        [35, 110],
+        [39, -98],
+        [28, 45]
 
-                <p>
-                    Umělá inteligence, drony, robotika,
-                    moderní technologie, inženýrství
-                    a technologické inovace.
-                </p>
+    ];
 
-            </a>
+    radarPositions.forEach(position => {
 
+        // Vnější radarový kruh
 
-            <!-- MEZINÁRODNÍ VZTAHY -->
+        L.circle(position, {
 
-            <a href="#relations"
-               class="card"
-               onclick="showPage('relations'); return false;">
+            radius: 450000,
 
-                <div class="arrow">↗</div>
+            color: "#c8a96e",
 
-                <h2>
-                    MEZINÁRODNÍ VZTAHY
-                </h2>
+            weight: 1,
 
-                <p>
-                    Geopolitika, diplomacie, globální
-                    mocenské vztahy, světová bezpečnost
-                    a mezinárodní dění.
-                </p>
+            opacity: 0.45,
 
-            </a>
+            fillColor: "#c8a96e",
 
+            fillOpacity: 0.025,
 
-        </div>
+            interactive: false
 
-    </section>
+        }).addTo(map);
 
-</main>
 
+        // Vnitřní radarový kruh
 
+        L.circle(position, {
 
-<!-- PODSTRÁNKA TECHNIKA -->
+            radius: 180000,
 
-<section class="page" id="technology">
+            color: "#c8a96e",
 
-    <div class="page-tag">
-        TECHNOLOGIE
-    </div>
+            weight: 1,
 
-    <h1>
-        SVĚT <span>TECHNIKY</span>
-    </h1>
+            opacity: 0.6,
 
-    <p class="page-intro">
+            dashArray: "4 7",
 
-        Technologie formují svět, ve kterém žijeme.
-        Zajímám se o inovace, moderní systémy a vynálezy,
-        které mění současnost a budou utvářet budoucnost.
+            fillOpacity: 0,
 
-    </p>
+            interactive: false
 
+        }).addTo(map);
 
-    <div class="content-block">
+    });
 
-        <h2>UMĚLÁ INTELIGENCE</h2>
 
-        <p>
-            Umělá inteligence mění způsob, jakým pracujeme,
-            komunikujeme a poznáváme svět. Představuje jednu
-            z nejvýznamnějších technologických revolucí současnosti.
-        </p>
+    /* =====================================
+       DATOVÉ TRASY
+    ===================================== */
 
-    </div>
+    const connections = [
 
+        {
+            from: [50, 15],
+            to: [39, -98]
+        },
 
-    <div class="content-block">
+        {
+            from: [50, 15],
+            to: [35, 110]
+        },
 
-        <h2>DRONY A AUTONOMNÍ SYSTÉMY</h2>
+        {
+            from: [35, 110],
+            to: [28, 45]
+        },
 
-        <p>
-            Bezpilotní technologie, autonomní systémy,
-            robotika a moderní senzory představují důležitou
-            součást technologického vývoje.
-        </p>
+        {
+            from: [39, -98],
+            to: [48, -35]
+        },
 
-    </div>
+        {
+            from: [-15, 75],
+            to: [35, 110]
+        },
 
+        {
+            from: [5, 20],
+            to: [50, 15]
+        }
 
-    <div class="content-block">
+    ];
 
-        <h2>VOJENSKÉ TECHNOLOGIE</h2>
 
-        <p>
-            Moderní letectví, radarové systémy, satelitní
-            technologie, obranné systémy a vývoj vojenské
-            techniky představují významnou oblast technologického pokroku.
-        </p>
+    connections.forEach(connection => {
 
-    </div>
+        L.polyline(
 
+            [
+                connection.from,
+                connection.to
+            ],
 
-    <div class="content-block">
+            {
 
-        <h2>INOVACE A INŽENÝRSTVÍ</h2>
+                color: "#c8a96e",
 
-        <p>
-            Od pokročilého strojírenství až po revoluční
-            vynálezy. Technologie neustále posouvají hranice
-            lidských možností.
-        </p>
+                weight: 1.2,
 
-    </div>
+                opacity: 0.55,
 
+                dashArray: "5 9",
 
-    <div class="content-block">
+                interactive: false
 
-        <h2>BUDOUCNOST</h2>
+            }
 
-        <p>
-            Robotika, vesmírný výzkum, výpočetní technologie
-            a nové objevy budou utvářet další kapitolu
-            lidského vývoje.
-        </p>
+        ).addTo(map);
 
-    </div>
+    });
 
 
-    <a href="#" class="back-link"
-       onclick="showHome(); return false;">
+    /* =====================================
+       STYLOVANÉ ZNAČKY TECHNOLOGIÍ
+    ===================================== */
 
-        ← ZPĚT NA ÚVOD
+    const technologyMarkers = [
 
-    </a>
+        {
+            coords: [52, 30],
+            symbol: "✈",
+            type: "military",
+            title: "Letecké technologie",
+            description:
+                "Ilustrační značka moderního letectví."
+        },
 
-</section>
+        {
+            coords: [10, 90],
+            symbol: "◉",
+            type: "blue",
+            title: "Satelitní systémy",
+            description:
+                "Ilustrační značka satelitních technologií."
+        },
 
+        {
+            coords: [-5, -25],
+            symbol: "◆",
+            type: "gold",
+            title: "Digitální infrastruktura",
+            description:
+                "Ilustrační značka globální datové infrastruktury."
+        },
 
+        {
+            coords: [25, -45],
+            symbol: "✥",
+            type: "red",
+            title: "Radarové technologie",
+            description:
+                "Ilustrační značka radarových a senzorových systémů."
+        },
 
-<!-- PODSTRÁNKA MEZINÁRODNÍ VZTAHY -->
+        {
+            coords: [-30, 120],
+            symbol: "⚓",
+            type: "military",
+            title: "Námořní technologie",
+            description:
+                "Ilustrační značka námořních technologií."
+        }
 
-<section class="page" id="relations">
+    ];
 
-    <div class="page-tag">
-        SVĚTOVÉ DĚNÍ
-    </div>
 
-    <h1>
-        MEZINÁRODNÍ <span>VZTAHY</span>
-    </h1>
+    technologyMarkers.forEach(item => {
 
-    <p class="page-intro">
+        L.marker(
 
-        Porozumět světu znamená chápat vztahy mezi státy,
-        rovnováhu moci, strategické zájmy a síly,
-        které utvářejí globální politiku.
+            item.coords,
 
-    </p>
+            {
+                icon: createIcon(
+                    item.symbol,
+                    item.type
+                )
+            }
 
+        )
 
-    <div class="content-block">
+        .addTo(map)
 
-        <h2>GEOPOLITIKA</h2>
+        .bindPopup(
+            createPopup(
+                item.title,
+                item.description,
+                "TECHNOLOGIE"
+            )
+        );
 
-        <p>
-            Geografie, přírodní zdroje, strategické zájmy
-            a moc ovlivňují způsob, jakým státy spolupracují
-            a soupeří v mezinárodním prostředí.
-        </p>
+    });
 
-    </div>
 
+    /* =====================================
+       ZÁVĚREČNÉ NASTAVENÍ
+    ===================================== */
 
-    <div class="content-block">
+    setTimeout(() => {
 
-        <h2>DIPLOMACIE</h2>
+        map.invalidateSize();
 
-        <p>
-            Diplomacie je uměním vyjednávání,
-            mezinárodní spolupráce a udržování vztahů
-            mezi jednotlivými státy.
-        </p>
+    }, 500);
 
-    </div>
 
+    // Jemný návrat na výchozí pohled
 
-    <div class="content-block">
+    map.on("click", function () {
 
-        <h2>GLOBÁLNÍ DĚNÍ</h2>
+        // Mapa zůstává plně ovladatelná.
 
-        <p>
-            Mezinárodní bezpečnost, světová ekonomika,
-            mezinárodní organizace a aktuální události
-            ovlivňují budoucnost naší planety.
-        </p>
+    });
 
-    </div>
+});
 
 
-    <div class="content-block">
-
-        <h2>STRATEGICKÉ ZÁJMY</h2>
-
-        <p>
-            Mezinárodní vztahy jsou formovány bezpečnostními
-            prioritami, hospodářskými zájmy, technologickým
-            rozvojem a postavením jednotlivých států.
-        </p>
-
-    </div>
-
-
-    <a href="#" class="back-link"
-       onclick="showHome(); return false;">
-
-        ← ZPĚT NA ÚVOD
-
-    </a>
-
-</section>
-
-
-
-<!-- PATIČKA -->
-
-<footer>
-
-    PETR JAKL · TECHNOLOGIE A MEZINÁRODNÍ VZTAHY
-
-</footer>
-
-
-<!-- JAVASCRIPT KNIHOVNA MAPY -->
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- VLASTNÍ JAVASCRIPT -->
-
-<script src="script.js"></script>
-
-
-</body>
-</html>
+/* =========================================
+   KONEC SCRIPTU
+========================================= */
