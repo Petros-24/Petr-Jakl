@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My World | Technology & International Relations</title>
+<title>Petr Jakl | Osobní svět</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -14,62 +15,61 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background: #050505;
-    color: white;
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
 
 :root {
     --gold: #c8a96e;
-    --white: #f5f5f5;
 }
 
-/* NAVIGATION */
+/* HORNÍ LIŠTA */
 
 nav {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    padding: 27px 7%;
+    padding: 23px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(5,5,5,0.75);
+    background: rgba(5,5,5,.8);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,.07);
 }
 
 .logo {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 5px;
     font-weight: 700;
 }
 
 .home-btn {
-    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(200,169,110,.6);
+    border-radius: 50%;
+    color: var(--gold);
     text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 3px;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 12px 25px;
     transition: .3s;
 }
 
 .home-btn:hover {
     background: var(--gold);
-    color: black;
-    border-color: var(--gold);
+    color: #000;
+    transform: scale(1.1);
 }
 
-/* HERO */
+/* ÚVOD */
 
 .hero {
     min-height: 100vh;
@@ -80,7 +80,6 @@ nav {
     text-align: center;
     padding: 130px 20px 70px;
     position: relative;
-    overflow: hidden;
 }
 
 .hero::before {
@@ -88,8 +87,7 @@ nav {
     position: absolute;
     width: 650px;
     height: 650px;
-    background: radial-gradient(circle, rgba(200,169,110,.12), transparent 70%);
-    top: 10%;
+    background: radial-gradient(circle,rgba(200,169,110,.13),transparent 70%);
     z-index: -1;
 }
 
@@ -101,20 +99,19 @@ nav {
 }
 
 .hero h1 {
-    font-size: clamp(45px, 9vw, 110px);
+    font-size: clamp(43px,9vw,105px);
     font-weight: 300;
-    letter-spacing: 8px;
-    line-height: 1.1;
+    letter-spacing: 7px;
 }
 
 .hero h1 span {
-    font-weight: 800;
     color: var(--gold);
+    font-weight: 800;
 }
 
 .hero p {
     color: #888;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 3px;
     margin-top: 25px;
     line-height: 2;
@@ -127,52 +124,49 @@ nav {
     margin: 35px auto;
 }
 
-/* VISUAL */
+/* ÚVODNÍ OBRÁZEK */
 
 .visual {
-    width: min(850px, 95%);
+    width: min(850px,95%);
     height: 280px;
     position: relative;
-    margin: 25px auto 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 20px auto 45px;
 }
 
 .visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: .75;
+    opacity: .72;
     filter: grayscale(100%) brightness(.65);
     border-radius: 4px;
-    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom,black 60%,transparent 100%);
 }
 
 .visual-label {
     position: absolute;
     bottom: 35px;
+    left: 0;
+    right: 0;
     font-size: 10px;
     letter-spacing: 6px;
-    color: white;
-    text-shadow: 0 2px 10px black;
 }
 
-/* SECTIONS */
+/* KARTY */
 
 .section-heading {
     text-align: center;
     font-size: 11px;
     letter-spacing: 5px;
-    color: #777;
+    color: #888;
     margin-bottom: 35px;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     gap: 25px;
-    width: min(1050px, 90%);
+    width: min(1050px,90%);
     margin: 0 auto 100px;
 }
 
@@ -189,23 +183,20 @@ nav {
     color: white;
     transition: .5s;
     background: linear-gradient(145deg,#151515,#080808);
+    cursor: pointer;
 }
 
 .card::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(200,169,110,.18), transparent 55%);
+    background: radial-gradient(circle at 80% 20%,rgba(200,169,110,.18),transparent 55%);
     transition: .5s;
 }
 
 .card:hover {
     transform: translateY(-10px);
     border-color: var(--gold);
-}
-
-.card:hover::before {
-    background: radial-gradient(circle at 80% 20%, rgba(200,169,110,.3), transparent 65%);
 }
 
 .card-number {
@@ -217,17 +208,16 @@ nav {
 }
 
 .card h2 {
-    font-size: clamp(22px, 3vw, 35px);
-    font-weight: 600;
+    font-size: clamp(22px,3vw,35px);
     letter-spacing: 2px;
     position: relative;
 }
 
 .card p {
-    color: #888;
+    color: #999;
     font-size: 12px;
     margin-top: 15px;
-    line-height: 1.8;
+    line-height: 1.9;
     position: relative;
 }
 
@@ -244,17 +234,17 @@ nav {
     transform: translateX(8px);
 }
 
-/* DETAIL PAGES */
+/* PODSTRÁNKY */
 
 .page {
     min-height: 100vh;
     padding: 150px 10% 100px;
     display: none;
-    animation: enter .8s ease;
 }
 
 .page.active {
     display: block;
+    animation: enter .8s ease;
 }
 
 @keyframes enter {
@@ -276,7 +266,7 @@ nav {
 }
 
 .page h1 {
-    font-size: clamp(40px, 7vw, 85px);
+    font-size: clamp(38px,7vw,80px);
     font-weight: 300;
     letter-spacing: 4px;
     margin-bottom: 35px;
@@ -288,21 +278,21 @@ nav {
 }
 
 .page-intro {
-    max-width: 700px;
+    max-width: 750px;
     font-size: 15px;
     color: #999;
     line-height: 2.2;
 }
 
 .content-block {
-    margin-top: 90px;
-    padding: 40px;
+    margin-top: 65px;
+    padding: 35px;
     border-left: 1px solid var(--gold);
     background: linear-gradient(90deg,rgba(200,169,110,.07),transparent);
 }
 
 .content-block h2 {
-    font-size: 23px;
+    font-size: 21px;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
@@ -332,32 +322,13 @@ footer {
     letter-spacing: 3px;
 }
 
-/* MOBILE */
-
 @media(max-width:700px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: 280px;
-    }
-
-    .hero h1 {
-        letter-spacing: 3px;
-    }
-
-    nav {
-        padding: 22px 5%;
-    }
-
-    .page {
-        padding: 130px 7% 70px;
-    }
-
-    .visual {
-        height: 190px;
-    }
+    .cards { grid-template-columns: 1fr; }
+    .card { min-height: 280px; }
+    .hero h1 { letter-spacing: 3px; }
+    nav { padding: 18px 5%; }
+    .page { padding: 130px 7% 70px; }
+    .visual { height: 190px; }
 }
 </style>
 </head>
@@ -365,146 +336,153 @@ footer {
 <body>
 
 <nav>
-    <div class="logo">PERSONAL WORLD</div>
-    <a href="#" class="home-btn" onclick="showHome()">HOME</a>
+    <div class="logo">PETR JAKL</div>
+
+    <a href="#" class="home-btn" onclick="showHome(); return false;" aria-label="Domů" title="Domů">
+        <svg width="21" height="21" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="1.7" stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="m3 10 9-7 9 7"/>
+            <path d="M5 9v12h14V9"/>
+            <path d="M9 21v-7h6v7"/>
+        </svg>
+    </a>
 </nav>
 
-<!-- HOME PAGE -->
+<!-- ÚVODNÍ STRÁNKA -->
 
 <main id="home">
 
 <section class="hero">
 
-    <div class="subtitle">WELCOME TO MY WORLD</div>
+    <div class="subtitle">VÍTEJTE V MÉM SVĚTĚ</div>
 
-    <!-- ZDE SI ZMĚŇ JMÉNO -->
-    <h1>YOUR <span>NAME</span></h1>
+    <h1>PETR <span>JAKL</span></h1>
 
-    <p>TECHNOLOGY · GEOPOLITICS · FUTURE</p>
+    <p>TECHNOLOGIE · GEOPOLITIKA · BUDOUCNOST</p>
 
     <div class="divider"></div>
 
     <div class="visual">
-        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85" alt="Temná futuristická krajina">
-        <div class="visual-label">TWO WORLDS. ONE VISION.</div>
+        <img
+        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85"
+        alt="Futuristická krajina">
+        <div class="visual-label">DVA SVĚTY. JEDNA VIZE.</div>
     </div>
 
 </section>
 
-<div class="section-heading">EXPLORE MY INTERESTS</div>
+<div class="section-heading">PROZKOUMEJTE MÉ ZÁJMY</div>
 
 <section class="cards">
 
-    <a href="#" class="card" onclick="showPage('technology'); return false;">
+    <a class="card" onclick="showPage('technology')">
         <div class="arrow">↗</div>
-        <div class="card-number">01 / TECHNOLOGY</div>
+        <div class="card-number">01 / TECHNOLOGIE</div>
         <h2>TECHNIKA</h2>
-        <p>Innovation. Artificial Intelligence. Engineering. The future of technology.</p>
+        <p>Inovace. Umělá inteligence. Inženýrství. Budoucnost technologií.</p>
     </a>
 
-    <a href="#" class="card" onclick="showPage('relations'); return false;">
+    <a class="card" onclick="showPage('relations')">
         <div class="arrow">↗</div>
-        <div class="card-number">02 / WORLD AFFAIRS</div>
+        <div class="card-number">02 / SVĚTOVÉ DĚNÍ</div>
         <h2>MEZINÁRODNÍ VZTAHY</h2>
-        <p>Geopolitics. Diplomacy. Global power. International affairs.</p>
+        <p>Geopolitika. Diplomacie. Světová moc. Mezinárodní dění.</p>
     </a>
 
 </section>
-
 </main>
 
-<!-- TECHNOLOGY -->
+<!-- TECHNIKA -->
 
 <section class="page" id="technology">
 
-    <div class="page-tag">01 / TECHNOLOGY</div>
+    <div class="page-tag">01 / TECHNOLOGIE</div>
 
-    <h1>THE WORLD OF <span>TECHNOLOGY</span></h1>
+    <h1>SVĚT <span>TECHNIKY</span></h1>
 
     <p class="page-intro">
-        Technology shapes the world we live in.
-        Discover the innovations, ideas and inventions
-        that are transforming our future.
+        Technologie formují svět, ve kterém žijeme.
+        Objevujme společně inovace, myšlenky a vynálezy,
+        které mění naši budoucnost.
     </p>
 
     <div class="content-block">
-        <h2>ARTIFICIAL INTELLIGENCE</h2>
+        <h2>UMĚLÁ INTELIGENCE</h2>
         <p>
-            Artificial intelligence is changing the way we work,
-            communicate and understand the world.
-            It represents one of the most important technological
-            revolutions of our generation.
+            Umělá inteligence mění způsob, jakým pracujeme,
+            komunikujeme a poznáváme svět. Představuje jednu
+            z nejvýznamnějších technologických revolucí současnosti.
         </p>
     </div>
 
     <div class="content-block">
-        <h2>INNOVATION & ENGINEERING</h2>
+        <h2>INOVACE A INŽENÝRSTVÍ</h2>
         <p>
-            From advanced engineering to revolutionary inventions,
-            technology constantly pushes the boundaries
-            of what humanity can achieve.
+            Od pokročilého strojírenství až po revoluční vynálezy.
+            Technologie neustále posouvají hranice toho,
+            čeho může lidstvo dosáhnout.
         </p>
     </div>
 
     <div class="content-block">
-        <h2>THE FUTURE</h2>
+        <h2>BUDOUCNOST</h2>
         <p>
-            Robotics, space exploration, computing and new technologies
-            will define the next chapter of human development.
+            Robotika, vesmírný výzkum, výpočetní technologie
+            a nové objevy budou utvářet další kapitolu lidského vývoje.
         </p>
     </div>
 
-    <a class="back-link" onclick="showHome()">← BACK TO HOME</a>
+    <a class="back-link" onclick="showHome()">← ZPĚT NA ÚVOD</a>
 
 </section>
 
-<!-- INTERNATIONAL RELATIONS -->
+<!-- MEZINÁRODNÍ VZTAHY -->
 
 <section class="page" id="relations">
 
-    <div class="page-tag">02 / WORLD AFFAIRS</div>
+    <div class="page-tag">02 / SVĚTOVÉ DĚNÍ</div>
 
-    <h1>INTERNATIONAL <span>RELATIONS</span></h1>
+    <h1>MEZINÁRODNÍ <span>VZTAHY</span></h1>
 
     <p class="page-intro">
-        Understanding the world means understanding
-        the relationships between nations, the balance
-        of power and the forces shaping global politics.
+        Porozumět světu znamená chápat vztahy mezi státy,
+        rovnováhu moci a síly, které utvářejí globální politiku.
     </p>
 
     <div class="content-block">
-        <h2>GEOPOLITICS</h2>
+        <h2>GEOPOLITIKA</h2>
         <p>
-            Geography, resources, strategic interests and power
-            influence how states interact and compete
-            in the international system.
+            Geografie, přírodní zdroje, strategické zájmy
+            a moc ovlivňují způsob, jakým státy spolupracují
+            a soupeří v mezinárodním prostředí.
         </p>
     </div>
 
     <div class="content-block">
-        <h2>DIPLOMACY</h2>
+        <h2>DIPLOMACIE</h2>
         <p>
-            Diplomacy is the art of negotiation,
-            international cooperation and maintaining
-            relationships between countries.
+            Diplomacie je uměním vyjednávání, mezinárodní
+            spolupráce a udržování vztahů mezi jednotlivými státy.
         </p>
     </div>
 
     <div class="content-block">
-        <h2>GLOBAL AFFAIRS</h2>
+        <h2>GLOBÁLNÍ DĚNÍ</h2>
         <p>
-            International security, global economics,
-            international organizations and world events
-            shape the future of our planet.
+            Mezinárodní bezpečnost, světová ekonomika,
+            mezinárodní organizace a aktuální události
+            ovlivňují budoucnost naší planety.
         </p>
     </div>
 
-    <a class="back-link" onclick="showHome()">← BACK TO HOME</a>
+    <a class="back-link" onclick="showHome()">← ZPĚT NA ÚVOD</a>
 
 </section>
 
 <footer>
-    PERSONAL WORLD · TECHNOLOGY & INTERNATIONAL RELATIONS
+    PETR JAKL · TECHNIKA A MEZINÁRODNÍ VZTAHY
 </footer>
 
 <script>
