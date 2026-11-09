@@ -10,20 +10,24 @@
 
     <meta name="theme-color" content="#050505">
 
-    <meta name="description" content="Petr Jakl - Personal Portfolio">
+    <meta name="description" content="Petr Jakl – osobní portfolio">
 
-    <title>PETR JAKL | PERSONAL PORTFOLIO</title>
+    <title>Petr Jakl | Osobní portfolio</title>
 
-    <!-- GOOGLE FONTS -->
+
+    <!-- PÍSMO -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 
-    <!-- LEAFLET CSS -->
+    <!-- LEAFLET MAPA -->
 
     <link
         rel="stylesheet"
@@ -31,9 +35,10 @@
     >
 
 
-    <!-- HLAVNI CSS SOUBOR -->
+    <!-- HLAVNÍ STYLY -->
 
     <link rel="stylesheet" href="style.css">
+
 
 </head>
 
@@ -42,7 +47,7 @@
 
 
     <!-- =====================================
-         NAVIGACE
+         HORNÍ NAVIGACE
     ====================================== -->
 
     <nav>
@@ -65,18 +70,19 @@
 
 
     <!-- =====================================
-         HLAVNI STRANKA
+         HLAVNÍ STRÁNKA
     ====================================== -->
 
     <main id="home">
 
 
-        <!-- HERO SEKCE -->
+        <!-- ÚVODNÍ SEKCE -->
 
         <section class="hero">
 
+
             <div class="subtitle">
-                PERSONAL PORTFOLIO
+                OSOBNÍ PORTFOLIO
             </div>
 
 
@@ -86,7 +92,7 @@
 
 
             <p>
-                TECHNOLOGY · STRATEGY · GLOBAL VISION
+                TECHNOLOGIE · STRATEGIE · GLOBÁLNÍ PŘEHLED
             </p>
 
 
@@ -95,7 +101,7 @@
 
 
             <!-- =====================================
-                 INTERAKTIVNI SVETOVA MAPA
+                 INTERAKTIVNÍ MAPA SVĚTA
             ====================================== -->
 
             <section class="world-section">
@@ -104,26 +110,26 @@
                 <div class="world-header">
 
                     <span class="world-eyebrow">
-                        GLOBAL OVERVIEW
+                        GLOBÁLNÍ PŘEHLED
                     </span>
 
                     <h2>
-                        INTERACTIVE <span>WORLD MAP</span>
+                        INTERAKTIVNÍ <span>MAPA SVĚTA</span>
                     </h2>
 
                 </div>
 
 
 
-                <!-- MAPA -->
-
                 <div class="world-visual">
 
+
+                    <!-- MAPA -->
 
                     <div id="world-map"></div>
 
 
-                    <!-- PLYNULE OKRAJE -->
+                    <!-- PLYNULÉ OKRAJE -->
 
                     <div class="map-fade-top"></div>
 
@@ -144,7 +150,7 @@
 
                             <span class="legend-dot gold"></span>
 
-                            TECHNOLOGY
+                            TECHNOLOGIE
 
                         </div>
 
@@ -153,7 +159,7 @@
 
                             <span class="legend-dot blue"></span>
 
-                            INFRASTRUCTURE
+                            INFRASTRUKTURA
 
                         </div>
 
@@ -162,7 +168,7 @@
 
                             <span class="legend-dot red"></span>
 
-                            GEOPOLITICS
+                            MEZINÁRODNÍ VZTAHY
 
                         </div>
 
@@ -171,7 +177,7 @@
 
                             <span class="legend-line"></span>
 
-                            CONNECTIONS
+                            GLOBÁLNÍ PROPOJENÍ
 
                         </div>
 
@@ -185,7 +191,7 @@
 
                 <div class="world-caption">
 
-                    GLOBAL TECHNOLOGICAL AND STRATEGIC NETWORK
+                    TECHNOLOGICKÉ A MEZINÁRODNÍ PROPOJENÍ SVĚTA
 
                 </div>
 
@@ -198,7 +204,7 @@
 
 
         <!-- =====================================
-             OBLASTI ZAJMU
+             DVĚ HLAVNÍ DLAŽDICE
         ====================================== -->
 
         <section class="cards-section">
@@ -206,7 +212,7 @@
 
             <div class="section-heading">
 
-                AREAS OF INTEREST
+                HLAVNÍ OBLASTI ZÁJMU
 
             </div>
 
@@ -215,97 +221,67 @@
             <div class="cards">
 
 
-                <!-- TECHNOLOGIE -->
+                <!-- DLAŽDICE TECHNOLOGIE -->
 
                 <div
                     class="card"
                     onclick="showPage('technology')"
                     role="button"
                     tabindex="0"
-                    onkeydown="if(event.key==='Enter') showPage('technology')"
+                    onkeydown="if(event.key==='Enter' || event.key===' '){event.preventDefault();showPage('technology');}"
                 >
 
                     <span class="arrow">↗</span>
 
+                    <div class="card-number">
+                        01
+                    </div>
+
                     <h2>
-                        Technology
+                        Technologie
                     </h2>
 
                     <p>
-                        Innovation, development and modern technologies.
+                        Moderní technologie, inovace, digitální vývoj,
+                        robotika a technologická budoucnost.
                     </p>
+
+                    <div class="card-link">
+                        ZOBRAZIT VÍCE →
+                    </div>
 
                 </div>
 
 
 
-                <!-- STRATEGIE -->
+                <!-- DLAŽDICE MEZINÁRODNÍ VZTAHY -->
 
                 <div
                     class="card"
-                    onclick="showPage('strategy')"
+                    onclick="showPage('relations')"
                     role="button"
                     tabindex="0"
-                    onkeydown="if(event.key==='Enter') showPage('strategy')"
+                    onkeydown="if(event.key==='Enter' || event.key===' '){event.preventDefault();showPage('relations');}"
                 >
 
                     <span class="arrow">↗</span>
 
+                    <div class="card-number">
+                        02
+                    </div>
+
                     <h2>
-                        Strategy
+                        Mezinárodní vztahy
                     </h2>
 
                     <p>
-                        Global perspectives and international cooperation.
+                        Mezinárodní spolupráce, geopolitika,
+                        světová ekonomika a globální souvislosti.
                     </p>
 
-                </div>
-
-
-
-                <!-- LETECTVI -->
-
-                <div
-                    class="card"
-                    onclick="showPage('aviation')"
-                    role="button"
-                    tabindex="0"
-                    onkeydown="if(event.key==='Enter') showPage('aviation')"
-                >
-
-                    <span class="arrow">↗</span>
-
-                    <h2>
-                        Aviation
-                    </h2>
-
-                    <p>
-                        Aerospace technologies and modern aviation.
-                    </p>
-
-                </div>
-
-
-
-                <!-- GEOPOLITIKA -->
-
-                <div
-                    class="card"
-                    onclick="showPage('geopolitics')"
-                    role="button"
-                    tabindex="0"
-                    onkeydown="if(event.key==='Enter') showPage('geopolitics')"
-                >
-
-                    <span class="arrow">↗</span>
-
-                    <h2>
-                        Geopolitics
-                    </h2>
-
-                    <p>
-                        International relations and global developments.
-                    </p>
+                    <div class="card-link">
+                        ZOBRAZIT VÍCE →
+                    </div>
 
                 </div>
 
@@ -321,46 +297,91 @@
 
 
     <!-- =====================================
-         PODSTRANKA TECHNOLOGY
+         PODSTRÁNKA TECHNOLOGIE
     ====================================== -->
 
     <section id="technology" class="page">
 
 
         <div class="page-tag">
-            01 / TECHNOLOGY
+            01 / TECHNOLOGIE
         </div>
 
 
         <h1>
-            TECHNO<span>LOGY</span>
+            TECHNO<span>LOGIE</span>
         </h1>
 
 
         <p class="page-intro">
-            Technology, innovation and future development.
+
+            Technologie mění způsob, jakým funguje současný svět.
+            Zajímám se o moderní technologický vývoj, inovace
+            a možnosti jejich využití v budoucnosti.
+
         </p>
+
 
 
         <div class="content-block">
 
             <h2>
-                Innovation
+                Technologické inovace
             </h2>
 
             <p>
-                Exploration of modern technological developments,
-                digital infrastructure, robotics and innovation.
+
+                Moderní technologie, nové objevy a inovativní řešení,
+                která ovlivňují průmysl, společnost a každodenní život.
+
             </p>
 
         </div>
 
 
+
+        <div class="content-block">
+
+            <h2>
+                Umělá inteligence a robotika
+            </h2>
+
+            <p>
+
+                Vývoj umělé inteligence, automatizace, robotických
+                systémů a autonomních technologií.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="content-block">
+
+            <h2>
+                Digitální infrastruktura
+            </h2>
+
+            <p>
+
+                Globální datové sítě, satelitní komunikace,
+                moderní informační systémy a digitální propojení světa.
+
+            </p>
+
+        </div>
+
+
+
         <a
+            href="#"
             class="back-link"
-            onclick="showHome()"
+            onclick="showHome(); return false;"
         >
-            ← BACK TO HOME
+
+            ← ZPĚT NA HLAVNÍ STRÁNKU
+
         </a>
 
 
@@ -369,47 +390,92 @@
 
 
     <!-- =====================================
-         PODSTRANKA STRATEGY
+         PODSTRÁNKA MEZINÁRODNÍ VZTAHY
     ====================================== -->
 
-    <section id="strategy" class="page">
+    <section id="relations" class="page">
 
 
         <div class="page-tag">
-            02 / STRATEGY
+            02 / MEZINÁRODNÍ VZTAHY
         </div>
 
 
         <h1>
-            STRA<span>TEGY</span>
+            MEZINÁRODNÍ <span>VZTAHY</span>
         </h1>
 
 
         <p class="page-intro">
-            Strategic thinking, international cooperation
-            and global perspectives.
+
+            Svět je propojený sítí politických, ekonomických
+            a společenských vztahů. Důležitou roli hraje
+            mezinárodní spolupráce, diplomacie a porozumění
+            globálním událostem.
+
         </p>
+
 
 
         <div class="content-block">
 
             <h2>
-                Global Vision
+                Geopolitika
             </h2>
 
             <p>
-                Understanding global connections,
-                international opportunities and strategic development.
+
+                Mezinárodní politické vztahy, strategické zájmy států,
+                regionální vývoj a proměny světového uspořádání.
+
             </p>
 
         </div>
 
 
+
+        <div class="content-block">
+
+            <h2>
+                Mezinárodní spolupráce
+            </h2>
+
+            <p>
+
+                Diplomacie, mezinárodní organizace,
+                partnerství a spolupráce mezi jednotlivými státy.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="content-block">
+
+            <h2>
+                Světová ekonomika
+            </h2>
+
+            <p>
+
+                Mezinárodní obchod, energetika, infrastruktura
+                a ekonomické vztahy mezi světovými regiony.
+
+            </p>
+
+        </div>
+
+
+
         <a
+            href="#"
             class="back-link"
-            onclick="showHome()"
+            onclick="showHome(); return false;"
         >
-            ← BACK TO HOME
+
+            ← ZPĚT NA HLAVNÍ STRÁNKU
+
         </a>
 
 
@@ -418,110 +484,12 @@
 
 
     <!-- =====================================
-         PODSTRANKA AVIATION
-    ====================================== -->
-
-    <section id="aviation" class="page">
-
-
-        <div class="page-tag">
-            03 / AVIATION
-        </div>
-
-
-        <h1>
-            AVIA<span>TION</span>
-        </h1>
-
-
-        <p class="page-intro">
-            Aviation, aerospace technology and modern
-            technological development.
-        </p>
-
-
-        <div class="content-block">
-
-            <h2>
-                Modern Aviation
-            </h2>
-
-            <p>
-                Exploration of aerospace innovation,
-                aviation technologies and future development.
-            </p>
-
-        </div>
-
-
-        <a
-            class="back-link"
-            onclick="showHome()"
-        >
-            ← BACK TO HOME
-        </a>
-
-
-    </section>
-
-
-
-    <!-- =====================================
-         PODSTRANKA GEOPOLITICS
-    ====================================== -->
-
-    <section id="geopolitics" class="page">
-
-
-        <div class="page-tag">
-            04 / GEOPOLITICS
-        </div>
-
-
-        <h1>
-            GEO<span>POLITICS</span>
-        </h1>
-
-
-        <p class="page-intro">
-            International relations, global developments
-            and geopolitical perspectives.
-        </p>
-
-
-        <div class="content-block">
-
-            <h2>
-                Global Relations
-            </h2>
-
-            <p>
-                Understanding international developments,
-                global relationships and economic connections.
-            </p>
-
-        </div>
-
-
-        <a
-            class="back-link"
-            onclick="showHome()"
-        >
-            ← BACK TO HOME
-        </a>
-
-
-    </section>
-
-
-
-    <!-- =====================================
-         PATICKA
+         PATIČKA
     ====================================== -->
 
     <footer>
 
-        PETR JAKL · PERSONAL PORTFOLIO
+        PETR JAKL · OSOBNÍ PORTFOLIO
 
     </footer>
 
@@ -538,7 +506,7 @@
 
 
     <!-- =====================================
-         VLASTNI JAVASCRIPT
+         VLASTNÍ JAVASCRIPT
     ====================================== -->
 
     <script src="script.js"></script>
