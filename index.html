@@ -1,669 +1,448 @@
 
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Petr Jakl | Technologie & Geopolitika</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Petr Jakl | Technologie & Geopolitika</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <meta name="description"
+    content="Osobní prezentace Petra Jakla – technologie, geopolitika, mezinárodní vztahy a strategické myšlení.">
 
-html { scroll-behavior: smooth; }
+    <link rel="stylesheet" href="style.css">
 
-:root {
-    --gold: #c8a96e;
-    --black: #050505;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-body {
-    background: var(--black);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-}
+    <!-- Leaflet mapa -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
-/* NAVIGACE */
-
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 23px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: rgba(5,5,5,.82);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.07);
-}
-
-.logo {
-    font-size: 13px;
-    letter-spacing: 5px;
-    font-weight: 700;
-}
-
-.home-btn {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(200,169,110,.6);
-    border-radius: 50%;
-    color: var(--gold);
-    text-decoration: none;
-    transition: .3s;
-}
-
-.home-btn:hover {
-    background: var(--gold);
-    color: #000;
-}
-
-/* HLAVNÍ ÚVOD */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 140px 20px 70px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle,
-        rgba(200,169,110,.11),
-        transparent 70%);
-    pointer-events: none;
-}
-
-.subtitle {
-    color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 7px;
-    margin-bottom: 28px;
-}
-
-.hero h1 {
-    font-size: clamp(43px,9vw,105px);
-    font-weight: 300;
-    letter-spacing: 7px;
-}
-
-.hero h1 span {
-    color: var(--gold);
-    font-weight: 800;
-}
-
-.hero p {
-    color: #999;
-    font-size: 11px;
-    letter-spacing: 4px;
-    margin-top: 24px;
-    line-height: 2;
-}
-
-.divider {
-    width: 65px;
-    height: 1px;
-    background: var(--gold);
-    margin: 35px auto;
-}
-
-/* TECHNOLOGICKÝ VIZUÁL */
-
-.visual {
-    width: min(1050px,95%);
-    height: 390px;
-    position: relative;
-    margin: 20px auto 30px;
-    overflow: hidden;
-    border: 1px solid rgba(200,169,110,.2);
-    background: #080b0e;
-}
-
-.visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .65;
-    filter: grayscale(45%) brightness(.65);
-}
-
-.visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-    linear-gradient(90deg,rgba(0,0,0,.65),transparent 70%),
-    linear-gradient(0deg,#050505,transparent 55%);
-    pointer-events: none;
-}
-
-.visual-label {
-    position: absolute;
-    z-index: 2;
-    bottom: 35px;
-    left: 35px;
-    text-align: left;
-}
-
-.visual-label span {
-    display: block;
-    color: var(--gold);
-    font-size: 10px;
-    letter-spacing: 5px;
-    margin-bottom: 12px;
-}
-
-.visual-label h2 {
-    font-size: clamp(17px,3vw,27px);
-    font-weight: 400;
-    letter-spacing: 3px;
-}
-
-/* ANIMOVANÉ BODY */
-
-.visual-point {
-    position: absolute;
-    z-index: 3;
-    width: 7px;
-    height: 7px;
-    background: var(--gold);
-    border-radius: 50%;
-    box-shadow: 0 0 15px var(--gold);
-    animation: pulse 2.5s infinite;
-}
-
-.point-one { top: 30%; left: 65%; }
-.point-two { top: 55%; left: 78%; animation-delay: .8s; }
-.point-three { top: 25%; left: 42%; animation-delay: 1.3s; }
-
-@keyframes pulse {
-    0%,100% { opacity: .5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.8); }
-}
-
-/* SEKCE */
-
-.section-heading {
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: #888;
-    margin: 45px 0 35px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 25px;
-    width: min(1050px,90%);
-    margin: 0 auto 110px;
-}
-
-.card {
-    min-height: 340px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 40px;
-    border: 1px solid rgba(255,255,255,.13);
-    text-decoration: none;
-    color: white;
-    transition: .5s;
-    background: linear-gradient(145deg,#151515,#080808);
-    cursor: pointer;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 80% 20%,
-        rgba(200,169,110,.16),transparent 55%);
-    transition: .5s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-}
-
-.card-number {
-    color: var(--gold);
-    font-size: 12px;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.card h2 {
-    font-size: clamp(22px,3vw,35px);
-    letter-spacing: 2px;
-    position: relative;
-}
-
-.card p {
-    color: #999;
-    font-size: 12px;
-    margin-top: 15px;
-    line-height: 1.9;
-    position: relative;
-}
-
-.arrow {
-    position: absolute;
-    right: 35px;
-    top: 35px;
-    font-size: 25px;
-    color: var(--gold);
-    transition: .3s;
-}
-
-.card:hover .arrow {
-    transform: translateX(8px);
-}
-
-/* PODSTRÁNKY */
-
-.page {
-    min-height: 100vh;
-    padding: 150px 10% 100px;
-    display: none;
-}
-
-.page.active {
-    display: block;
-    animation: enter .8s ease;
-}
-
-@keyframes enter {
-    from {
-        opacity: 0;
-        transform: translateY(35px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.page-tag {
-    color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 6px;
-    margin-bottom: 30px;
-}
-
-.page h1 {
-    font-size: clamp(38px,7vw,80px);
-    font-weight: 300;
-    letter-spacing: 4px;
-    margin-bottom: 35px;
-}
-
-.page h1 span {
-    color: var(--gold);
-    font-weight: 700;
-}
-
-.page-intro {
-    max-width: 750px;
-    font-size: 15px;
-    color: #999;
-    line-height: 2.2;
-}
-
-.content-block {
-    margin-top: 45px;
-    padding: 35px;
-    border-left: 1px solid var(--gold);
-    background: linear-gradient(90deg,
-        rgba(200,169,110,.07),transparent);
-    transition: .3s;
-}
-
-.content-block:hover {
-    background: linear-gradient(90deg,
-        rgba(200,169,110,.12),transparent);
-}
-
-.content-block h2 {
-    font-size: 21px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.content-block p {
-    color: #999;
-    font-size: 14px;
-    line-height: 2;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 55px;
-    color: var(--gold);
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-size: 11px;
-    cursor: pointer;
-}
-
-.back-link:hover {
-    color: white;
-}
-
-/* PATIČKA */
-
-footer {
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding: 30px;
-    text-align: center;
-    color: #555;
-    font-size: 10px;
-    letter-spacing: 3px;
-}
-
-/* RESPONZIVITA */
-
-@media(max-width:700px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: 280px;
-    }
-
-    .hero h1 {
-        letter-spacing: 3px;
-    }
-
-    nav {
-        padding: 18px 5%;
-    }
-
-    .page {
-        padding: 130px 7% 70px;
-    }
-
-    .visual {
-        height: 230px;
-    }
-
-    .visual-label {
-        left: 20px;
-        bottom: 20px;
-    }
-}
-
-@media(prefers-reduced-motion:reduce) {
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-    }
-}
-</style>
 </head>
 
 <body>
 
+<!-- NAVIGACE -->
+
 <nav>
-    <div class="logo">PETR JAKL</div>
+
+    <div class="logo">
+        PETR JAKL
+    </div>
 
     <a href="#" class="home-btn"
        onclick="showHome(); return false;"
-       aria-label="Domů" title="Domů">
+       aria-label="Domů">
 
-        <svg width="21" height="21" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor"
-             stroke-width="1.7" stroke-linecap="round"
+        <svg width="21" height="21"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.7"
+             stroke-linecap="round"
              stroke-linejoin="round">
+
             <path d="m3 10 9-7 9 7"/>
             <path d="M5 9v12h14V9"/>
             <path d="M9 21v-7h6v7"/>
+
         </svg>
+
     </a>
+
 </nav>
 
-<!-- ÚVOD -->
+
+<!-- HLAVNÍ STRÁNKA -->
 
 <main id="home">
 
-<section class="hero">
+    <section class="hero">
 
-    <div class="subtitle">
-        OSOBNÍ WEBOVÁ PREZENTACE
-    </div>
-
-    <h1>PETR <span>JAKL</span></h1>
-
-    <p>
-        TECHNOLOGIE · GEOPOLITIKA · STRATEGICKÉ MYŠLENÍ
-    </p>
-
-    <div class="divider"></div>
-
-    <div class="visual">
-
-        <img
-        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85"
-        alt="Digitální a technologická krajina">
-
-        <div class="visual-point point-one"></div>
-        <div class="visual-point point-two"></div>
-        <div class="visual-point point-three"></div>
-
-        <div class="visual-label">
-            <span>TECHNOLOGIE A SVĚTOVÉ DĚNÍ</span>
-            <h2>MODERNÍ SVĚT V SOUVISLOSTECH</h2>
+        <div class="subtitle">
+            OSOBNÍ WEBOVÁ PREZENTACE
         </div>
 
-    </div>
+        <h1>
+            PETR <span>JAKL</span>
+        </h1>
 
-</section>
-
-<div class="section-heading">
-    OBLASTI MÉHO ZÁJMU
-</div>
-
-<section class="cards">
-
-    <a class="card" onclick="showPage('technology')">
-        <div class="arrow">↗</div>
-        <div class="card-number">01 / TECHNOLOGIE</div>
-        <h2>TECHNIKA</h2>
         <p>
-            Umělá inteligence. Drony. Robotika.
-            Inženýrství a technologické inovace.
+            TECHNOLOGIE · GEOPOLITIKA · STRATEGICKÉ MYŠLENÍ
         </p>
-    </a>
 
-    <a class="card" onclick="showPage('relations')">
-        <div class="arrow">↗</div>
-        <div class="card-number">02 / SVĚTOVÉ DĚNÍ</div>
-        <h2>MEZINÁRODNÍ VZTAHY</h2>
-        <p>
-            Geopolitika. Diplomacie. Globální mocenské
-            vztahy a mezinárodní dění.
-        </p>
-    </a>
+        <div class="divider"></div>
 
-</section>
+
+        <!-- INTERAKTIVNÍ MAPA SVĚTA -->
+
+        <section class="world-section">
+
+            <div class="world-header">
+
+                <span class="world-eyebrow">
+                    TECHNOLOGIE & SVĚT
+                </span>
+
+                <h2>
+                    SVĚT V <span>POHYBU</span>
+                </h2>
+
+                <p>
+                    Technologie, bezpečnost a globální propojení.
+                </p>
+
+            </div>
+
+
+            <div class="visual map-visual">
+
+                <!-- Samotná mapa -->
+
+                <div id="world-map"></div>
+
+
+                <!-- Horní informační lišta -->
+
+                <div class="map-topbar">
+
+                    <div class="map-brand">
+                        GLOBAL OVERVIEW
+                    </div>
+
+                    <div class="map-status">
+                        <span class="status-dot"></span>
+                        WORLD NETWORK
+                    </div>
+
+                </div>
+
+
+                <!-- Dekorativní informační panel -->
+
+                <div class="map-info">
+
+                    <span>GLOBAL PERSPECTIVE</span>
+
+                    <h3>
+                        WORLD
+                        <strong>NETWORK</strong>
+                    </h3>
+
+                    <p>
+                        Technologie · Geopolitika · Bezpečnost
+                    </p>
+
+                </div>
+
+
+                <!-- Legenda -->
+
+                <div class="map-legend">
+
+                    <div class="legend-item">
+                        <span class="legend-dot gold"></span>
+                        Strategická centra
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot blue"></span>
+                        Technologie
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-dot red"></span>
+                        Vojenská technika
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-line"></span>
+                        Datové propojení
+                    </div>
+
+                </div>
+
+
+                <!-- Spodní informační lišta -->
+
+                <div class="map-bottom">
+
+                    <span>GLOBAL CONNECTIONS</span>
+
+                    <span>INTERACTIVE WORLD MAP</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- HLAVNÍ OBLASTI -->
+
+    <section class="cards-section">
+
+        <div class="section-heading">
+            OBLASTI MÉHO ZÁJMU
+        </div>
+
+
+        <div class="cards">
+
+
+            <!-- TECHNIKA -->
+
+            <a href="#technology"
+               class="card"
+               onclick="showPage('technology'); return false;">
+
+                <div class="arrow">↗</div>
+
+                <h2>
+                    TECHNIKA
+                </h2>
+
+                <p>
+                    Umělá inteligence, drony, robotika,
+                    moderní technologie, inženýrství
+                    a technologické inovace.
+                </p>
+
+            </a>
+
+
+            <!-- MEZINÁRODNÍ VZTAHY -->
+
+            <a href="#relations"
+               class="card"
+               onclick="showPage('relations'); return false;">
+
+                <div class="arrow">↗</div>
+
+                <h2>
+                    MEZINÁRODNÍ VZTAHY
+                </h2>
+
+                <p>
+                    Geopolitika, diplomacie, globální
+                    mocenské vztahy, světová bezpečnost
+                    a mezinárodní dění.
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
 
 </main>
 
-<!-- TECHNOLOGIE -->
+
+
+<!-- PODSTRÁNKA TECHNIKA -->
 
 <section class="page" id="technology">
 
-    <div class="page-tag">01 / TECHNOLOGIE</div>
+    <div class="page-tag">
+        TECHNOLOGIE
+    </div>
 
-    <h1>SVĚT <span>TECHNIKY</span></h1>
+    <h1>
+        SVĚT <span>TECHNIKY</span>
+    </h1>
 
     <p class="page-intro">
+
         Technologie formují svět, ve kterém žijeme.
         Zajímám se o inovace, moderní systémy a vynálezy,
         které mění současnost a budou utvářet budoucnost.
+
     </p>
 
+
     <div class="content-block">
+
         <h2>UMĚLÁ INTELIGENCE</h2>
+
         <p>
             Umělá inteligence mění způsob, jakým pracujeme,
             komunikujeme a poznáváme svět. Představuje jednu
             z nejvýznamnějších technologických revolucí současnosti.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
         <h2>DRONY A AUTONOMNÍ SYSTÉMY</h2>
+
         <p>
             Bezpilotní technologie, autonomní systémy,
             robotika a moderní senzory představují důležitou
             součást technologického vývoje.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
+        <h2>VOJENSKÉ TECHNOLOGIE</h2>
+
+        <p>
+            Moderní letectví, radarové systémy, satelitní
+            technologie, obranné systémy a vývoj vojenské
+            techniky představují významnou oblast technologického pokroku.
+        </p>
+
+    </div>
+
+
+    <div class="content-block">
+
         <h2>INOVACE A INŽENÝRSTVÍ</h2>
+
         <p>
             Od pokročilého strojírenství až po revoluční
             vynálezy. Technologie neustále posouvají hranice
             lidských možností.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
         <h2>BUDOUCNOST</h2>
+
         <p>
             Robotika, vesmírný výzkum, výpočetní technologie
             a nové objevy budou utvářet další kapitolu
             lidského vývoje.
         </p>
+
     </div>
 
-    <a class="back-link" onclick="showHome()">
+
+    <a href="#" class="back-link"
+       onclick="showHome(); return false;">
+
         ← ZPĚT NA ÚVOD
+
     </a>
 
 </section>
 
-<!-- MEZINÁRODNÍ VZTAHY -->
+
+
+<!-- PODSTRÁNKA MEZINÁRODNÍ VZTAHY -->
 
 <section class="page" id="relations">
 
-    <div class="page-tag">02 / SVĚTOVÉ DĚNÍ</div>
+    <div class="page-tag">
+        SVĚTOVÉ DĚNÍ
+    </div>
 
-    <h1>MEZINÁRODNÍ <span>VZTAHY</span></h1>
+    <h1>
+        MEZINÁRODNÍ <span>VZTAHY</span>
+    </h1>
 
     <p class="page-intro">
+
         Porozumět světu znamená chápat vztahy mezi státy,
         rovnováhu moci, strategické zájmy a síly,
         které utvářejí globální politiku.
+
     </p>
 
+
     <div class="content-block">
+
         <h2>GEOPOLITIKA</h2>
+
         <p>
             Geografie, přírodní zdroje, strategické zájmy
             a moc ovlivňují způsob, jakým státy spolupracují
             a soupeří v mezinárodním prostředí.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
         <h2>DIPLOMACIE</h2>
+
         <p>
             Diplomacie je uměním vyjednávání,
             mezinárodní spolupráce a udržování vztahů
             mezi jednotlivými státy.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
         <h2>GLOBÁLNÍ DĚNÍ</h2>
+
         <p>
             Mezinárodní bezpečnost, světová ekonomika,
             mezinárodní organizace a aktuální události
             ovlivňují budoucnost naší planety.
         </p>
+
     </div>
 
+
     <div class="content-block">
+
         <h2>STRATEGICKÉ ZÁJMY</h2>
+
         <p>
             Mezinárodní vztahy jsou formovány bezpečnostními
             prioritami, hospodářskými zájmy, technologickým
             rozvojem a postavením jednotlivých států.
         </p>
+
     </div>
 
-    <a class="back-link" onclick="showHome()">
+
+    <a href="#" class="back-link"
+       onclick="showHome(); return false;">
+
         ← ZPĚT NA ÚVOD
+
     </a>
 
 </section>
 
+
+
+<!-- PATIČKA -->
+
 <footer>
+
     PETR JAKL · TECHNOLOGIE A MEZINÁRODNÍ VZTAHY
+
 </footer>
 
-<script>
 
-function showPage(pageId) {
+<!-- JAVASCRIPT KNIHOVNA MAPY -->
 
-    document.getElementById("home").style.display = "none";
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
+<!-- VLASTNÍ JAVASCRIPT -->
 
-    document.getElementById(pageId).classList.add("active");
+<script src="script.js"></script>
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-function showHome() {
-
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
-
-    document.getElementById("home").style.display = "block";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-</script>
 
 </body>
 </html>
