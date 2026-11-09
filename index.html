@@ -1,520 +1,549 @@
 
-/* =========================================
-   PETR JAKL - INTERACTIVE WORLD MAP
-========================================= */
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+
+    <meta name="description" content="Petr Jakl - Personal Portfolio">
+
+    <title>PETR JAKL | PERSONAL PORTFOLIO</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 
-/* =========================================
-   NAVIGACE WEBU
-========================================= */
+    <!-- LEAFLET CSS -->
 
-function showPage(pageId) {
-
-    document.getElementById("home").style.display = "none";
-
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
-
-    const selectedPage = document.getElementById(pageId);
-
-    if (selectedPage) {
-        selectedPage.classList.add("active");
-    }
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
 
-function showHome() {
+    <!-- HLAVNI CSS SOUBOR -->
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
+    <link rel="stylesheet" href="style.css">
 
-    document.getElementById("home").style.display = "block";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-    if (window.worldMap) {
-        setTimeout(() => {
-            window.worldMap.invalidateSize();
-        }, 300);
-    }
-}
+</head>
 
 
-/* =========================================
-   INICIALIZACE MAPY
-========================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const mapElement = document.getElementById("world-map");
-
-    if (!mapElement || typeof L === "undefined") {
-        console.error("Mapa Leaflet nebyla načtena.");
-        return;
-    }
-
-    // Vytvoření mapy
-
-    const map = L.map("world-map", {
-        center: [25, 10],
-        zoom: 2,
-        minZoom: 2,
-        maxZoom: 7,
-        zoomControl: true,
-        scrollWheelZoom: true,
-        worldCopyJump: true
-    });
-
-    window.worldMap = map;
+<body>
 
 
-    /* =====================================
-       TMAVÝ MAPOVÝ PODKLAD
-    ===================================== */
+    <!-- =====================================
+         NAVIGACE
+    ====================================== -->
 
-    L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-        {
-            attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    <nav>
 
-            subdomains: "abcd",
+        <div class="logo">
+            PETR JAKL
+        </div>
 
-            maxZoom: 19
-        }
-    ).addTo(map);
+        <a
+            href="#"
+            class="home-btn"
+            onclick="showHome(); return false;"
+            aria-label="Domů"
+        >
+            PJ
+        </a>
 
-
-    /* =====================================
-       VLASTNÍ IKONY
-    ===================================== */
-
-    function createIcon(symbol, type) {
-
-        return L.divIcon({
-
-            className: "custom-map-marker",
-
-            html: `
-                <div class="marker-wrapper ${type}">
-                    <div class="marker-pulse"></div>
-                    <div class="marker-symbol">${symbol}</div>
-                </div>
-            `,
-
-            iconSize: [34, 34],
-
-            iconAnchor: [17, 17],
-
-            popupAnchor: [0, -18]
-
-        });
-
-    }
+    </nav>
 
 
-    /* =====================================
-       STYLOVANÉ POPUP OKNO
-    ===================================== */
 
-    function createPopup(title, description, category) {
+    <!-- =====================================
+         HLAVNI STRANKA
+    ====================================== -->
 
-        return `
-            <div style="
-                min-width:180px;
-                padding:5px;
-                font-family:Montserrat,sans-serif;
-            ">
+    <main id="home">
 
-                <div style="
-                    color:#c8a96e;
-                    font-size:9px;
-                    letter-spacing:3px;
-                    margin-bottom:9px;
-                ">
-                    ${category}
+
+        <!-- HERO SEKCE -->
+
+        <section class="hero">
+
+            <div class="subtitle">
+                PERSONAL PORTFOLIO
+            </div>
+
+
+            <h1>
+                PETR <span>JAKL</span>
+            </h1>
+
+
+            <p>
+                TECHNOLOGY · STRATEGY · GLOBAL VISION
+            </p>
+
+
+            <div class="divider"></div>
+
+
+
+            <!-- =====================================
+                 INTERAKTIVNI SVETOVA MAPA
+            ====================================== -->
+
+            <section class="world-section">
+
+
+                <div class="world-header">
+
+                    <span class="world-eyebrow">
+                        GLOBAL OVERVIEW
+                    </span>
+
+                    <h2>
+                        INTERACTIVE <span>WORLD MAP</span>
+                    </h2>
+
                 </div>
 
-                <div style="
-                    font-size:14px;
-                    font-weight:600;
-                    margin-bottom:8px;
-                ">
-                    ${title}
+
+
+                <!-- MAPA -->
+
+                <div class="world-visual">
+
+
+                    <div id="world-map"></div>
+
+
+                    <!-- PLYNULE OKRAJE -->
+
+                    <div class="map-fade-top"></div>
+
+                    <div class="map-fade-bottom"></div>
+
+                    <div class="map-fade-left"></div>
+
+                    <div class="map-fade-right"></div>
+
+
+
+                    <!-- LEGENDA -->
+
+                    <div class="map-legend">
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-dot gold"></span>
+
+                            TECHNOLOGY
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-dot blue"></span>
+
+                            INFRASTRUCTURE
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-dot red"></span>
+
+                            GEOPOLITICS
+
+                        </div>
+
+
+                        <div class="legend-item">
+
+                            <span class="legend-line"></span>
+
+                            CONNECTIONS
+
+                        </div>
+
+
+                    </div>
+
+
                 </div>
 
-                <div style="
-                    color:#999;
-                    font-size:11px;
-                    line-height:1.8;
-                ">
-                    ${description}
+
+
+                <div class="world-caption">
+
+                    GLOBAL TECHNOLOGICAL AND STRATEGIC NETWORK
+
                 </div>
+
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             OBLASTI ZAJMU
+        ====================================== -->
+
+        <section class="cards-section">
+
+
+            <div class="section-heading">
+
+                AREAS OF INTEREST
 
             </div>
-        `;
-
-    }
-
-
-    /* =====================================
-       STRATEGICKÉ A TECHNOLOGICKÉ UZLY
-       
-       Demonstrační geografické body.
-    ===================================== */
-
-    const locations = [
-
-        {
-            name: "Evropa",
-            coords: [50, 15],
-            symbol: "✦",
-            type: "gold",
-            category: "TECHNOLOGIE",
-            description:
-                "Technologický vývoj, průmysl, inovace a mezinárodní spolupráce."
-        },
-
-        {
-            name: "Severní Amerika",
-            coords: [39, -98],
-            symbol: "✈",
-            type: "military",
-            category: "LETECKÉ TECHNOLOGIE",
-            description:
-                "Letecký průmysl, výzkum, moderní technologie a vývoj autonomních systémů."
-        },
-
-        {
-            name: "Východní Asie",
-            coords: [35, 110],
-            symbol: "◎",
-            type: "blue",
-            category: "TECHNOLOGICKÁ CENTRA",
-            description:
-                "Elektronika, robotika, výroba polovodičů a technologické inovace."
-        },
-
-        {
-            name: "Severní Atlantik",
-            coords: [48, -35],
-            symbol: "◈",
-            type: "military",
-            category: "NÁMOŘNÍ TECHNOLOGIE",
-            description:
-                "Námořní doprava, navigace a sledování globálních obchodních tras."
-        },
-
-        {
-            name: "Indický oceán",
-            coords: [-15, 75],
-            symbol: "◉",
-            type: "blue",
-            category: "SATELITNÍ TECHNOLOGIE",
-            description:
-                "Satelitní komunikace, navigace a globální datová infrastruktura."
-        },
-
-        {
-            name: "Blízký východ",
-            coords: [28, 45],
-            symbol: "⌖",
-            type: "red",
-            category: "GEOPOLITIKA",
-            description:
-                "Významná oblast z hlediska energetiky, mezinárodních vztahů a bezpečnosti."
-        },
 
-        {
-            name: "Jižní Amerika",
-            coords: [-15, -60],
-            symbol: "✦",
-            type: "gold",
-            category: "GLOBÁLNÍ PROPOJENÍ",
-            description:
-                "Přírodní zdroje, infrastruktura a mezinárodní obchod."
-        },
 
-        {
-            name: "Afrika",
-            coords: [5, 20],
-            symbol: "◎",
-            type: "blue",
-            category: "ROZVOJ TECHNOLOGIÍ",
-            description:
-                "Digitální infrastruktura, energetika a rozvoj moderních technologií."
-        }
 
-    ];
+            <div class="cards">
 
 
-    /* =====================================
-       VYKRESLENÍ UZLŮ
-    ===================================== */
+                <!-- TECHNOLOGIE -->
 
-    locations.forEach(location => {
+                <div
+                    class="card"
+                    onclick="showPage('technology')"
+                    role="button"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter') showPage('technology')"
+                >
 
-        const marker = L.marker(
-            location.coords,
-            {
-                icon: createIcon(
-                    location.symbol,
-                    location.type
-                )
-            }
-        ).addTo(map);
+                    <span class="arrow">↗</span>
 
-        marker.bindPopup(
-            createPopup(
-                location.name,
-                location.description,
-                location.category
-            )
-        );
+                    <h2>
+                        Technology
+                    </h2>
 
-    });
+                    <p>
+                        Innovation, development and modern technologies.
+                    </p>
 
+                </div>
 
-    /* =====================================
-       RADAROVÉ KRUHY
-    ===================================== */
 
-    const radarPositions = [
 
-        [50, 15],
-        [35, 110],
-        [39, -98],
-        [28, 45]
+                <!-- STRATEGIE -->
 
-    ];
+                <div
+                    class="card"
+                    onclick="showPage('strategy')"
+                    role="button"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter') showPage('strategy')"
+                >
 
-    radarPositions.forEach(position => {
+                    <span class="arrow">↗</span>
 
-        // Vnější radarový kruh
+                    <h2>
+                        Strategy
+                    </h2>
 
-        L.circle(position, {
+                    <p>
+                        Global perspectives and international cooperation.
+                    </p>
 
-            radius: 450000,
+                </div>
 
-            color: "#c8a96e",
 
-            weight: 1,
 
-            opacity: 0.45,
+                <!-- LETECTVI -->
 
-            fillColor: "#c8a96e",
+                <div
+                    class="card"
+                    onclick="showPage('aviation')"
+                    role="button"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter') showPage('aviation')"
+                >
 
-            fillOpacity: 0.025,
+                    <span class="arrow">↗</span>
 
-            interactive: false
+                    <h2>
+                        Aviation
+                    </h2>
 
-        }).addTo(map);
+                    <p>
+                        Aerospace technologies and modern aviation.
+                    </p>
 
+                </div>
 
-        // Vnitřní radarový kruh
 
-        L.circle(position, {
 
-            radius: 180000,
+                <!-- GEOPOLITIKA -->
 
-            color: "#c8a96e",
+                <div
+                    class="card"
+                    onclick="showPage('geopolitics')"
+                    role="button"
+                    tabindex="0"
+                    onkeydown="if(event.key==='Enter') showPage('geopolitics')"
+                >
 
-            weight: 1,
+                    <span class="arrow">↗</span>
 
-            opacity: 0.6,
+                    <h2>
+                        Geopolitics
+                    </h2>
 
-            dashArray: "4 7",
+                    <p>
+                        International relations and global developments.
+                    </p>
 
-            fillOpacity: 0,
+                </div>
 
-            interactive: false
 
-        }).addTo(map);
+            </div>
 
-    });
 
+        </section>
 
-    /* =====================================
-       DATOVÉ TRASY
-    ===================================== */
 
-    const connections = [
+    </main>
 
-        {
-            from: [50, 15],
-            to: [39, -98]
-        },
 
-        {
-            from: [50, 15],
-            to: [35, 110]
-        },
 
-        {
-            from: [35, 110],
-            to: [28, 45]
-        },
+    <!-- =====================================
+         PODSTRANKA TECHNOLOGY
+    ====================================== -->
 
-        {
-            from: [39, -98],
-            to: [48, -35]
-        },
+    <section id="technology" class="page">
 
-        {
-            from: [-15, 75],
-            to: [35, 110]
-        },
 
-        {
-            from: [5, 20],
-            to: [50, 15]
-        }
+        <div class="page-tag">
+            01 / TECHNOLOGY
+        </div>
 
-    ];
 
+        <h1>
+            TECHNO<span>LOGY</span>
+        </h1>
 
-    connections.forEach(connection => {
 
-        L.polyline(
+        <p class="page-intro">
+            Technology, innovation and future development.
+        </p>
 
-            [
-                connection.from,
-                connection.to
-            ],
 
-            {
+        <div class="content-block">
 
-                color: "#c8a96e",
+            <h2>
+                Innovation
+            </h2>
 
-                weight: 1.2,
+            <p>
+                Exploration of modern technological developments,
+                digital infrastructure, robotics and innovation.
+            </p>
 
-                opacity: 0.55,
+        </div>
 
-                dashArray: "5 9",
 
-                interactive: false
+        <a
+            class="back-link"
+            onclick="showHome()"
+        >
+            ← BACK TO HOME
+        </a>
 
-            }
 
-        ).addTo(map);
+    </section>
 
-    });
 
 
-    /* =====================================
-       STYLOVANÉ ZNAČKY TECHNOLOGIÍ
-    ===================================== */
+    <!-- =====================================
+         PODSTRANKA STRATEGY
+    ====================================== -->
 
-    const technologyMarkers = [
+    <section id="strategy" class="page">
 
-        {
-            coords: [52, 30],
-            symbol: "✈",
-            type: "military",
-            title: "Letecké technologie",
-            description:
-                "Ilustrační značka moderního letectví."
-        },
 
-        {
-            coords: [10, 90],
-            symbol: "◉",
-            type: "blue",
-            title: "Satelitní systémy",
-            description:
-                "Ilustrační značka satelitních technologií."
-        },
+        <div class="page-tag">
+            02 / STRATEGY
+        </div>
 
-        {
-            coords: [-5, -25],
-            symbol: "◆",
-            type: "gold",
-            title: "Digitální infrastruktura",
-            description:
-                "Ilustrační značka globální datové infrastruktury."
-        },
 
-        {
-            coords: [25, -45],
-            symbol: "✥",
-            type: "red",
-            title: "Radarové technologie",
-            description:
-                "Ilustrační značka radarových a senzorových systémů."
-        },
+        <h1>
+            STRA<span>TEGY</span>
+        </h1>
 
-        {
-            coords: [-30, 120],
-            symbol: "⚓",
-            type: "military",
-            title: "Námořní technologie",
-            description:
-                "Ilustrační značka námořních technologií."
-        }
 
-    ];
+        <p class="page-intro">
+            Strategic thinking, international cooperation
+            and global perspectives.
+        </p>
 
 
-    technologyMarkers.forEach(item => {
+        <div class="content-block">
 
-        L.marker(
+            <h2>
+                Global Vision
+            </h2>
 
-            item.coords,
+            <p>
+                Understanding global connections,
+                international opportunities and strategic development.
+            </p>
 
-            {
-                icon: createIcon(
-                    item.symbol,
-                    item.type
-                )
-            }
+        </div>
 
-        )
 
-        .addTo(map)
+        <a
+            class="back-link"
+            onclick="showHome()"
+        >
+            ← BACK TO HOME
+        </a>
 
-        .bindPopup(
-            createPopup(
-                item.title,
-                item.description,
-                "TECHNOLOGIE"
-            )
-        );
 
-    });
+    </section>
 
 
-    /* =====================================
-       ZÁVĚREČNÉ NASTAVENÍ
-    ===================================== */
 
-    setTimeout(() => {
+    <!-- =====================================
+         PODSTRANKA AVIATION
+    ====================================== -->
 
-        map.invalidateSize();
+    <section id="aviation" class="page">
 
-    }, 500);
 
+        <div class="page-tag">
+            03 / AVIATION
+        </div>
 
-    // Jemný návrat na výchozí pohled
 
-    map.on("click", function () {
+        <h1>
+            AVIA<span>TION</span>
+        </h1>
 
-        // Mapa zůstává plně ovladatelná.
 
-    });
+        <p class="page-intro">
+            Aviation, aerospace technology and modern
+            technological development.
+        </p>
 
-});
 
+        <div class="content-block">
 
-/* =========================================
-   KONEC SCRIPTU
-========================================= */
+            <h2>
+                Modern Aviation
+            </h2>
+
+            <p>
+                Exploration of aerospace innovation,
+                aviation technologies and future development.
+            </p>
+
+        </div>
+
+
+        <a
+            class="back-link"
+            onclick="showHome()"
+        >
+            ← BACK TO HOME
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PODSTRANKA GEOPOLITICS
+    ====================================== -->
+
+    <section id="geopolitics" class="page">
+
+
+        <div class="page-tag">
+            04 / GEOPOLITICS
+        </div>
+
+
+        <h1>
+            GEO<span>POLITICS</span>
+        </h1>
+
+
+        <p class="page-intro">
+            International relations, global developments
+            and geopolitical perspectives.
+        </p>
+
+
+        <div class="content-block">
+
+            <h2>
+                Global Relations
+            </h2>
+
+            <p>
+                Understanding international developments,
+                global relationships and economic connections.
+            </p>
+
+        </div>
+
+
+        <a
+            class="back-link"
+            onclick="showHome()"
+        >
+            ← BACK TO HOME
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PATICKA
+    ====================================== -->
+
+    <footer>
+
+        PETR JAKL · PERSONAL PORTFOLIO
+
+    </footer>
+
+
+
+    <!-- =====================================
+         LEAFLET JAVASCRIPT
+    ====================================== -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+
+
+    <!-- =====================================
+         VLASTNI JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
