@@ -1,41 +1,48 @@
 
 /* =========================================
-   PETR JAKL - INTERACTIVE WORLD MAP
+   PETR JAKL - PORTFOLIO
+   INTERAKTIVNI GEOPOLITICKA MAPA
 ========================================= */
 
 
 /* =========================================
-   NAVIGACE WEBU
+   1. NAVIGACE
 ========================================= */
 
 function showPage(pageId) {
 
-    document.getElementById("home").style.display = "none";
+    const home = document.getElementById("home");
+    const pages = document.querySelectorAll(".page");
+    const selectedPage = document.getElementById(pageId);
 
-    document.querySelectorAll(".page").forEach(page => {
+    if (!home || !selectedPage) return;
+
+    home.style.display = "none";
+
+    pages.forEach(page => {
         page.classList.remove("active");
     });
 
-    const selectedPage = document.getElementById(pageId);
-
-    if (selectedPage) {
-        selectedPage.classList.add("active");
-    }
+    selectedPage.classList.add("active");
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
 function showHome() {
 
-    document.querySelectorAll(".page").forEach(page => {
+    const home = document.getElementById("home");
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(page => {
         page.classList.remove("active");
     });
 
-    document.getElementById("home").style.display = "block";
+    home.style.display = "block";
 
     window.scrollTo({
         top: 0,
@@ -43,60 +50,108 @@ function showHome() {
     });
 
     if (window.worldMap) {
+
         setTimeout(() => {
             window.worldMap.invalidateSize();
-        }, 300);
+        }, 400);
+
     }
+
 }
 
 
 /* =========================================
-   INICIALIZACE MAPY
+   2. POCKANI NA NACTENI STRANKY
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const mapElement = document.getElementById("world-map");
 
-    if (!mapElement || typeof L === "undefined") {
-        console.error("Mapa Leaflet nebyla načtena.");
+    if (!mapElement) {
+        console.warn("Mapa nebyla nalezena.");
         return;
     }
 
-    // Vytvoření mapy
+    if (typeof L === "undefined") {
+        console.error("Knihovna Leaflet se nenačetla.");
+        mapElement.innerHTML =
+            '<div style="color:#c8a96e;text-align:center;padding:40px">Mapu se nepodařilo načíst. Zkontroluj připojení k internetu.</div>';
+        return;
+    }
+
+
+    /* =====================================
+       3. VYTVORENI MAPY
+    ===================================== */
 
     const map = L.map("world-map", {
+
         center: [25, 10],
+
         zoom: 2,
+
         minZoom: 2,
+
         maxZoom: 7,
-        zoomControl: true,
+
+        zoomControl: false,
+
         scrollWheelZoom: true,
-        worldCopyJump: true
+
+        worldCopyJump: true,
+
+        attributionControl: true
+
     });
 
     window.worldMap = map;
 
 
     /* =====================================
-       TMAVÝ MAPOVÝ PODKLAD
+       4. TMAVY MAPOVY PODKLAD
     ===================================== */
 
-    L.tileLayer(
+    const tileLayer = L.tileLayer(
+
         "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+
         {
+
             attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                '&copy; OpenStreetMap &copy; CARTO',
 
             subdomains: "abcd",
 
-            maxZoom: 19
+            maxZoom: 19,
+
+            crossOrigin: true
+
         }
-    ).addTo(map);
+
+    );
+
+    tileLayer.addTo(map);
+
+
+    tileLayer.on("tileerror", function () {
+        console.warn("Některý mapový podklad se nepodařilo načíst.");
+    });
 
 
     /* =====================================
-       VLASTNÍ IKONY
+       5. OVLADANI MAPY
+    ===================================== */
+
+    L.control.zoom({
+
+        position: "bottomright"
+
+    }).addTo(map);
+
+
+    /* =====================================
+       6. VLASTNI MAPOVE IKONY
     ===================================== */
 
     function createIcon(symbol, type) {
@@ -107,8 +162,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             html: `
                 <div class="marker-wrapper ${type}">
+
                     <div class="marker-pulse"></div>
-                    <div class="marker-symbol">${symbol}</div>
+
+                    <div class="marker-symbol">
+                        ${symbol}
+                    </div>
+
                 </div>
             `,
 
@@ -116,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             iconAnchor: [17, 17],
 
-            popupAnchor: [0, -18]
+            popupAnchor: [0, -20]
 
         });
 
@@ -124,12 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================
-       STYLOVANÉ POPUP OKNO
+       7. INFORMACNI OKNA
     ===================================== */
 
     function createPopup(title, description, category) {
 
         return `
+
             <div style="
                 min-width:180px;
                 padding:5px;
@@ -146,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <div style="
+                    color:#fff;
                     font-size:14px;
                     font-weight:600;
                     margin-bottom:8px;
@@ -162,15 +224,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
             </div>
+
         `;
 
     }
 
 
     /* =====================================
-       STRATEGICKÉ A TECHNOLOGICKÉ UZLY
-       
-       Demonstrační geografické body.
+       8. HLAVNI GEOPOLITICKE UZLY
     ===================================== */
 
     const locations = [
@@ -192,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "military",
             category: "LETECKÉ TECHNOLOGIE",
             description:
-                "Letecký průmysl, výzkum, moderní technologie a vývoj autonomních systémů."
+                "Letecký průmysl, výzkum a moderní autonomní systémy."
         },
 
         {
@@ -202,17 +263,17 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "blue",
             category: "TECHNOLOGICKÁ CENTRA",
             description:
-                "Elektronika, robotika, výroba polovodičů a technologické inovace."
+                "Elektronika, robotika, polovodiče a technologické inovace."
         },
 
         {
             name: "Severní Atlantik",
             coords: [48, -35],
-            symbol: "◈",
+            symbol: "⚓",
             type: "military",
             category: "NÁMOŘNÍ TECHNOLOGIE",
             description:
-                "Námořní doprava, navigace a sledování globálních obchodních tras."
+                "Námořní doprava, navigace a globální obchodní trasy."
         },
 
         {
@@ -232,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "red",
             category: "GEOPOLITIKA",
             description:
-                "Významná oblast z hlediska energetiky, mezinárodních vztahů a bezpečnosti."
+                "Energetika, mezinárodní vztahy a globální bezpečnost."
         },
 
         {
@@ -250,43 +311,48 @@ document.addEventListener("DOMContentLoaded", function () {
             coords: [5, 20],
             symbol: "◎",
             type: "blue",
-            category: "ROZVOJ TECHNOLOGIÍ",
+            category: "TECHNOLOGICKÝ ROZVOJ",
             description:
-                "Digitální infrastruktura, energetika a rozvoj moderních technologií."
+                "Digitální infrastruktura, energetika a moderní technologie."
         }
 
     ];
 
 
     /* =====================================
-       VYKRESLENÍ UZLŮ
+       9. VYKRESLENI HLAVNICH UZLU
     ===================================== */
 
     locations.forEach(location => {
 
         const marker = L.marker(
+
             location.coords,
+
             {
                 icon: createIcon(
                     location.symbol,
                     location.type
                 )
             }
+
         ).addTo(map);
 
         marker.bindPopup(
+
             createPopup(
                 location.name,
                 location.description,
                 location.category
             )
+
         );
 
     });
 
 
     /* =====================================
-       RADAROVÉ KRUHY
+       10. RADAROVE ZONY
     ===================================== */
 
     const radarPositions = [
@@ -300,8 +366,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     radarPositions.forEach(position => {
 
-        // Vnější radarový kruh
-
         L.circle(position, {
 
             radius: 450000,
@@ -310,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             weight: 1,
 
-            opacity: 0.45,
+            opacity: 0.4,
 
             fillColor: "#c8a96e",
 
@@ -320,8 +384,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }).addTo(map);
 
-
-        // Vnitřní radarový kruh
 
         L.circle(position, {
 
@@ -345,40 +407,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================
-       DATOVÉ TRASY
+       11. DATOVE PROPOJENI
     ===================================== */
 
     const connections = [
 
-        {
-            from: [50, 15],
-            to: [39, -98]
-        },
+        [[50, 15], [39, -98]],
 
-        {
-            from: [50, 15],
-            to: [35, 110]
-        },
+        [[50, 15], [35, 110]],
 
-        {
-            from: [35, 110],
-            to: [28, 45]
-        },
+        [[35, 110], [28, 45]],
 
-        {
-            from: [39, -98],
-            to: [48, -35]
-        },
+        [[39, -98], [48, -35]],
 
-        {
-            from: [-15, 75],
-            to: [35, 110]
-        },
+        [[-15, 75], [35, 110]],
 
-        {
-            from: [5, 20],
-            to: [50, 15]
-        }
+        [[5, 20], [50, 15]],
+
+        [[-15, -60], [5, 20]]
 
     ];
 
@@ -387,10 +433,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         L.polyline(
 
-            [
-                connection.from,
-                connection.to
-            ],
+            connection,
 
             {
 
@@ -412,7 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================
-       STYLOVANÉ ZNAČKY TECHNOLOGIÍ
+       12. TECHNOLOGICKE A VOJENSKE SYMBOLY
     ===================================== */
 
     const technologyMarkers = [
@@ -421,9 +464,8 @@ document.addEventListener("DOMContentLoaded", function () {
             coords: [52, 30],
             symbol: "✈",
             type: "military",
-            title: "Letecké technologie",
-            description:
-                "Ilustrační značka moderního letectví."
+            title: "Moderní letectví",
+            description: "Ilustrační symbol leteckých technologií."
         },
 
         {
@@ -431,8 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
             symbol: "◉",
             type: "blue",
             title: "Satelitní systémy",
-            description:
-                "Ilustrační značka satelitních technologií."
+            description: "Ilustrační symbol satelitních technologií."
         },
 
         {
@@ -440,17 +481,15 @@ document.addEventListener("DOMContentLoaded", function () {
             symbol: "◆",
             type: "gold",
             title: "Digitální infrastruktura",
-            description:
-                "Ilustrační značka globální datové infrastruktury."
+            description: "Ilustrační symbol globální datové infrastruktury."
         },
 
         {
             coords: [25, -45],
-            symbol: "✥",
+            symbol: "⌖",
             type: "red",
             title: "Radarové technologie",
-            description:
-                "Ilustrační značka radarových a senzorových systémů."
+            description: "Ilustrační symbol radarových a senzorových systémů."
         },
 
         {
@@ -458,8 +497,15 @@ document.addEventListener("DOMContentLoaded", function () {
             symbol: "⚓",
             type: "military",
             title: "Námořní technologie",
-            description:
-                "Ilustrační značka námořních technologií."
+            description: "Ilustrační symbol námořních technologií."
+        },
+
+        {
+            coords: [60, 100],
+            symbol: "✥",
+            type: "blue",
+            title: "Robotika a autonomní systémy",
+            description: "Ilustrační symbol robotiky a autonomních technologií."
         }
 
     ];
@@ -483,38 +529,88 @@ document.addEventListener("DOMContentLoaded", function () {
         .addTo(map)
 
         .bindPopup(
+
             createPopup(
                 item.title,
                 item.description,
                 "TECHNOLOGIE"
             )
+
         );
 
     });
 
 
     /* =====================================
-       ZÁVĚREČNÉ NASTAVENÍ
+       13. ANIMACE MAPY
     ===================================== */
 
-    setTimeout(() => {
+    let animationFrame = null;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reducedMotion) {
+
+        let phase = 0;
+
+        function animateMap() {
+
+            phase += 0.025;
+
+            const pulseOpacity =
+                0.25 + Math.sin(phase) * 0.15;
+
+            document.querySelectorAll(
+                ".marker-pulse"
+            ).forEach(marker => {
+
+                marker.style.opacity = pulseOpacity;
+
+            });
+
+            animationFrame = requestAnimationFrame(
+                animateMap
+            );
+
+        }
+
+        animateMap();
+
+    }
+
+
+    /* =====================================
+       14. RESIZE MAPY
+    ===================================== */
+
+    window.addEventListener("resize", function () {
 
         map.invalidateSize();
+
+    });
+
+
+    /* =====================================
+       15. PRVNI ZOBRAZENI
+    ===================================== */
+
+    setTimeout(function () {
+
+        map.invalidateSize();
+
+        map.setView([25, 10], 2);
 
     }, 500);
 
 
-    // Jemný návrat na výchozí pohled
+    /* =====================================
+       16. KONEC INICIALIZACE
+    ===================================== */
 
-    map.on("click", function () {
-
-        // Mapa zůstává plně ovladatelná.
-
-    });
+    console.log(
+        "Portfolio Petr Jakl: mapa byla inicializována."
+    );
 
 });
-
-
-/* =========================================
-   KONEC SCRIPTU
-========================================= */
