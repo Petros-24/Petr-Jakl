@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My World | Technology & International Relations</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #c8a96e;
+    --white: #f5f5f5;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 27px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(5,5,5,0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo {
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+
+.home-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px 25px;
+    transition: .3s;
+}
+
+.home-btn:hover {
+    background: var(--gold);
+    color: black;
+    border-color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 130px 20px 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(200,169,110,.12), transparent 70%);
+    top: 10%;
+    z-index: -1;
+}
+
+.subtitle {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 7px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 9vw, 110px);
+    font-weight: 300;
+    letter-spacing: 8px;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    font-weight: 800;
+    color: var(--gold);
+}
+
+.hero p {
+    color: #888;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 25px;
+    line-height: 2;
+}
+
+.divider {
+    width: 70px;
+    height: 1px;
+    background: var(--gold);
+    margin: 35px auto;
+}
+
+/* VISUAL */
+
+.visual {
+    width: min(850px, 95%);
+    height: 280px;
+    position: relative;
+    margin: 25px auto 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .75;
+    filter: grayscale(100%) brightness(.65);
+    border-radius: 4px;
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
+.visual-label {
+    position: absolute;
+    bottom: 35px;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: white;
+    text-shadow: 0 2px 10px black;
+}
+
+/* SECTIONS */
+
+.section-heading {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #777;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    width: min(1050px, 90%);
+    margin: 0 auto 100px;
+}
+
+.card {
+    min-height: 340px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,.13);
+    text-decoration: none;
+    color: white;
+    transition: .5s;
+    background: linear-gradient(145deg,#151515,#080808);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(200,169,110,.18), transparent 55%);
+    transition: .5s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+}
+
+.card:hover::before {
+    background: radial-gradient(circle at 80% 20%, rgba(200,169,110,.3), transparent 65%);
+}
+
+.card-number {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.card h2 {
+    font-size: clamp(22px, 3vw, 35px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.card p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 15px;
+    line-height: 1.8;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    right: 35px;
+    top: 35px;
+    font-size: 25px;
+    color: var(--gold);
+    transition: .3s;
+}
+
+.card:hover .arrow {
+    transform: translateX(8px);
+}
+
+/* DETAIL PAGES */
+
+.page {
+    min-height: 100vh;
+    padding: 150px 10% 100px;
+    display: none;
+    animation: enter .8s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-tag {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+}
+
+.page h1 {
+    font-size: clamp(40px, 7vw, 85px);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+}
+
+.page h1 span {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.page-intro {
+    max-width: 700px;
+    font-size: 15px;
+    color: #999;
+    line-height: 2.2;
+}
+
+.content-block {
+    margin-top: 90px;
+    padding: 40px;
+    border-left: 1px solid var(--gold);
+    background: linear-gradient(90deg,rgba(200,169,110,.07),transparent);
+}
+
+.content-block h2 {
+    font-size: 23px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.content-block p {
+    color: #999;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 55px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 30px;
+    text-align: center;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 280px;
+    }
+
+    .hero h1 {
+        letter-spacing: 3px;
+    }
+
+    nav {
+        padding: 22px 5%;
+    }
+
+    .page {
+        padding: 130px 7% 70px;
+    }
+
+    .visual {
+        height: 190px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">PERSONAL WORLD</div>
+    <a href="#" class="home-btn" onclick="showHome()">HOME</a>
+</nav>
+
+<!-- HOME PAGE -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="subtitle">WELCOME TO MY WORLD</div>
+
+    <!-- ZDE SI ZMĚŇ JMÉNO -->
+    <h1>YOUR <span>NAME</span></h1>
+
+    <p>TECHNOLOGY · GEOPOLITICS · FUTURE</p>
+
+    <div class="divider"></div>
+
+    <div class="visual">
+        <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85" alt="Temná futuristická krajina">
+        <div class="visual-label">TWO WORLDS. ONE VISION.</div>
+    </div>
+
+</section>
+
+<div class="section-heading">EXPLORE MY INTERESTS</div>
+
+<section class="cards">
+
+    <a href="#" class="card" onclick="showPage('technology'); return false;">
+        <div class="arrow">↗</div>
+        <div class="card-number">01 / TECHNOLOGY</div>
+        <h2>TECHNIKA</h2>
+        <p>Innovation. Artificial Intelligence. Engineering. The future of technology.</p>
+    </a>
+
+    <a href="#" class="card" onclick="showPage('relations'); return false;">
+        <div class="arrow">↗</div>
+        <div class="card-number">02 / WORLD AFFAIRS</div>
+        <h2>MEZINÁRODNÍ VZTAHY</h2>
+        <p>Geopolitics. Diplomacy. Global power. International affairs.</p>
+    </a>
+
+</section>
+
+</main>
+
+<!-- TECHNOLOGY -->
+
+<section class="page" id="technology">
+
+    <div class="page-tag">01 / TECHNOLOGY</div>
+
+    <h1>THE WORLD OF <span>TECHNOLOGY</span></h1>
+
+    <p class="page-intro">
+        Technology shapes the world we live in.
+        Discover the innovations, ideas and inventions
+        that are transforming our future.
+    </p>
+
+    <div class="content-block">
+        <h2>ARTIFICIAL INTELLIGENCE</h2>
+        <p>
+            Artificial intelligence is changing the way we work,
+            communicate and understand the world.
+            It represents one of the most important technological
+            revolutions of our generation.
+        </p>
+    </div>
+
+    <div class="content-block">
+        <h2>INNOVATION & ENGINEERING</h2>
+        <p>
+            From advanced engineering to revolutionary inventions,
+            technology constantly pushes the boundaries
+            of what humanity can achieve.
+        </p>
+    </div>
+
+    <div class="content-block">
+        <h2>THE FUTURE</h2>
+        <p>
+            Robotics, space exploration, computing and new technologies
+            will define the next chapter of human development.
+        </p>
+    </div>
+
+    <a class="back-link" onclick="showHome()">← BACK TO HOME</a>
+
+</section>
+
+<!-- INTERNATIONAL RELATIONS -->
+
+<section class="page" id="relations">
+
+    <div class="page-tag">02 / WORLD AFFAIRS</div>
+
+    <h1>INTERNATIONAL <span>RELATIONS</span></h1>
+
+    <p class="page-intro">
+        Understanding the world means understanding
+        the relationships between nations, the balance
+        of power and the forces shaping global politics.
+    </p>
+
+    <div class="content-block">
+        <h2>GEOPOLITICS</h2>
+        <p>
+            Geography, resources, strategic interests and power
+            influence how states interact and compete
+            in the international system.
+        </p>
+    </div>
+
+    <div class="content-block">
+        <h2>DIPLOMACY</h2>
+        <p>
+            Diplomacy is the art of negotiation,
+            international cooperation and maintaining
+            relationships between countries.
+        </p>
+    </div>
+
+    <div class="content-block">
+        <h2>GLOBAL AFFAIRS</h2>
+        <p>
+            International security, global economics,
+            international organizations and world events
+            shape the future of our planet.
+        </p>
+    </div>
+
+    <a class="back-link" onclick="showHome()">← BACK TO HOME</a>
+
+</section>
+
+<footer>
+    PERSONAL WORLD · TECHNOLOGY & INTERNATIONAL RELATIONS
+</footer>
+
+<script>
+
+function showPage(pageId) {
+
+    document.getElementById("home").style.display = "none";
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function showHome() {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("home").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
