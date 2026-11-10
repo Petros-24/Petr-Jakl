@@ -6,37 +6,20 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#050505">
 
-    <meta name="description" content="Petr Jakl – osobní portfolio zaměřené na technologie, strategii a globální geopolitický přehled.">
+    <meta name="description" content="Petr Jakl – osobní portfolio">
 
     <title>Petr Jakl | Osobní portfolio</title>
 
-    <!-- =====================================
-         FONTY
-    ====================================== -->
+    <!-- FONT -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- =====================================
-         GEOGRAFICKÉ KNIHOVNY
-         D3.js + TopoJSON
-    ====================================== -->
-
-    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-
-    <!-- =====================================
-         HLAVNÍ CSS
-    ====================================== -->
+    <!-- CSS -->
 
     <link rel="stylesheet" href="style.css">
 
@@ -44,9 +27,7 @@
 
 <body>
 
-    <!-- =====================================
-         NAVIGACE
-    ====================================== -->
+    <!-- NAVIGACE -->
 
     <nav>
 
@@ -54,24 +35,19 @@
             PETR JAKL
         </div>
 
-        <a
-            href="#"
-            class="home-btn"
-            onclick="showHome(); return false;"
-            aria-label="Domů"
-        >
+        <a href="#" class="home-btn"
+           onclick="showHome(); return false;"
+           aria-label="Domů">
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="21"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="21"
+                 height="21"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.7"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
 
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v12h14V9"/>
@@ -84,15 +60,9 @@
     </nav>
 
 
-    <!-- =====================================
-         HLAVNÍ STRÁNKA
-    ====================================== -->
+    <!-- HLAVNÍ STRÁNKA -->
 
     <main id="home">
-
-        <!-- =====================================
-             ÚVODNÍ SEKCE
-        ====================================== -->
 
         <section class="hero">
 
@@ -111,13 +81,9 @@
             <div class="divider"></div>
 
 
-            <!-- =====================================
-                 GEOPOLITICKÝ ATLAS
-            ====================================== -->
+            <!-- GEOPOLITICKÝ ATLAS -->
 
             <section class="world-section">
-
-                <!-- HLAVIČKA ATLASU -->
 
                 <div class="world-header">
 
@@ -137,60 +103,207 @@
                 </div>
 
 
-                <!-- =================================
-                     GLOBÁLNÍ MAPA
-                ================================== -->
+                <!-- MAPOVÁ PLOCHA -->
 
                 <div class="world-visual">
 
-                    <div
-                        id="world-map"
-                        class="world-map"
-                        role="img"
-                        aria-label="Geopolitická mapa světa zobrazující státní hranice, globální propojení a geografické oblasti"
-                        data-map-source="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"
-                    >
+                    <div id="world-map"
+                         class="world-map"
+                         role="img"
+                         aria-label="Zlatá geopolitická mapa světa s animovanými datovými propojeními">
 
-                        <!--
-                            SVG MAPA BUDE GENEROVÁNA
-                            POMOCÍ D3.JS A TOPOJSON.
+                        <!-- ZLATÉ POZADÍ MAPY -->
 
-                            ŽÁDNÝ LOADING SCREEN.
-                            ŽÁDNÉ OVLÁDACÍ PRVKY.
-                        -->
-
-                    </div>
+                        <div class="map-background"></div>
 
 
-                    <!-- =================================
-                         TECHNICKÉ VRSTVY
-                    ================================== -->
+                        <!-- TMAVÝ PŘECHOD -->
 
-                    <div class="map-overlay" aria-hidden="true">
+                        <div class="map-overlay"></div>
 
-                        <!-- Jemný skenovací efekt -->
 
-                        <div class="map-scan"></div>
+                        <!-- ANIMOVANÉ SVG PRVKY -->
 
-                        <!-- Dekorativní rohové indikátory -->
+                        <svg class="map-graphics"
+                             viewBox="0 0 1200 560"
+                             preserveAspectRatio="xMidYMid meet"
+                             xmlns="http://www.w3.org/2000/svg"
+                             aria-hidden="true">
 
-                        <div class="map-corner map-corner-tl"></div>
-                        <div class="map-corner map-corner-tr"></div>
-                        <div class="map-corner map-corner-bl"></div>
-                        <div class="map-corner map-corner-br"></div>
+                            <defs>
 
-                        <!-- Technická mřížka -->
+                                <radialGradient id="goldGlow">
 
-                        <div class="map-grid"></div>
+                                    <stop offset="0%" stop-color="#ffe7a8" stop-opacity="1"/>
+
+                                    <stop offset="35%" stop-color="#c8a96e" stop-opacity=".7"/>
+
+                                    <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+
+                                </radialGradient>
+
+                                <linearGradient id="routeGradient">
+
+                                    <stop offset="0%" stop-color="#c8a96e" stop-opacity=".1"/>
+
+                                    <stop offset="50%" stop-color="#f0d69d" stop-opacity=".95"/>
+
+                                    <stop offset="100%" stop-color="#c8a96e" stop-opacity=".1"/>
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <!-- DATOVÉ LINKY -->
+
+                            <g class="data-routes">
+
+                                <path d="M205 180 Q340 45 470 195"/>
+
+                                <path d="M470 195 Q590 90 720 205"/>
+
+                                <path d="M720 205 Q830 90 950 185"/>
+
+                                <path d="M470 195 Q550 340 650 365"/>
+
+                                <path d="M720 205 Q790 300 850 390"/>
+
+                                <path d="M205 180 Q360 400 500 430"/>
+
+                                <path d="M950 185 Q1030 310 850 390"/>
+
+                            </g>
+
+
+                            <!-- SVĚTELNÉ BODY -->
+
+                            <g class="map-markers">
+
+                                <g class="map-marker">
+                                    <circle cx="205" cy="180" r="24" class="marker-glow"/>
+                                    <circle cx="205" cy="180" r="5" class="marker-core"/>
+                                    <circle cx="205" cy="180" r="11" class="marker-pulse"/>
+                                </g>
+
+                                <g class="map-marker">
+                                    <circle cx="470" cy="195" r="24" class="marker-glow"/>
+                                    <circle cx="470" cy="195" r="5" class="marker-core"/>
+                                    <circle cx="470" cy="195" r="11" class="marker-pulse"/>
+                                </g>
+
+                                <g class="map-marker">
+                                    <circle cx="720" cy="205" r="24" class="marker-glow"/>
+                                    <circle cx="720" cy="205" r="5" class="marker-core"/>
+                                    <circle cx="720" cy="205" r="11" class="marker-pulse"/>
+                                </g>
+
+                                <g class="map-marker">
+                                    <circle cx="950" cy="185" r="24" class="marker-glow"/>
+                                    <circle cx="950" cy="185" r="5" class="marker-core"/>
+                                    <circle cx="950" cy="185" r="11" class="marker-pulse"/>
+                                </g>
+
+                                <g class="map-marker">
+                                    <circle cx="650" cy="365" r="24" class="marker-glow"/>
+                                    <circle cx="650" cy="365" r="5" class="marker-core"/>
+                                    <circle cx="650" cy="365" r="11" class="marker-pulse"/>
+                                </g>
+
+                                <g class="map-marker">
+                                    <circle cx="850" cy="390" r="24" class="marker-glow"/>
+                                    <circle cx="850" cy="390" r="5" class="marker-core"/>
+                                    <circle cx="850" cy="390" r="11" class="marker-pulse"/>
+                                </g>
+
+                            </g>
+
+
+                            <!-- DATOVÉ IMPULZY -->
+
+                            <g class="data-particles">
+
+                                <circle r="3">
+                                    <animateMotion dur="7s" repeatCount="indefinite"
+                                        path="M205 180 Q340 45 470 195"/>
+                                </circle>
+
+                                <circle r="3">
+                                    <animateMotion dur="9s" repeatCount="indefinite"
+                                        path="M470 195 Q590 90 720 205"/>
+                                </circle>
+
+                                <circle r="3">
+                                    <animateMotion dur="8s" repeatCount="indefinite"
+                                        path="M720 205 Q830 90 950 185"/>
+                                </circle>
+
+                            </g>
+
+
+                            <!-- SKENOVACÍ LINIE -->
+
+                            <rect class="scan-line"
+                                  x="0"
+                                  y="0"
+                                  width="1200"
+                                  height="2"/>
+
+
+                        </svg>
+
+
+                        <!-- TECHNICKÉ INDIKÁTORY -->
+
+                        <div class="map-status">
+
+                            <span class="status-dot"></span>
+
+                            GLOBAL NETWORK ACTIVE
+
+                        </div>
+
+
+                        <div class="map-coordinates">
+                            WORLD / 00°00' N · 000°00' E
+                        </div>
+
+
+                        <div class="map-scale">
+                            GLOBAL INTELLIGENCE SYSTEM
+                        </div>
+
+
+                        <!-- LEGENDA -->
+
+                        <div class="map-legend">
+
+                            <div class="legend-item">
+                                <span class="legend-dot gold"></span>
+                                TECHNOLOGIE
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot blue"></span>
+                                INFRASTRUKTURA
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot red"></span>
+                                MEZINÁRODNÍ VZTAHY
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-line"></span>
+                                GLOBÁLNÍ PROPOJENÍ
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-
-                <!-- =================================
-                     POPISEK ATLASU
-                ================================== -->
 
                 <div class="world-caption">
 
@@ -203,39 +316,27 @@
         </section>
 
 
-        <!-- =====================================
-             HLAVNÍ OBLASTI ZÁJMU
-        ====================================== -->
+        <!-- HLAVNÍ OBLASTI ZÁJMU -->
 
         <section class="cards-section">
 
             <div class="section-heading">
-
                 HLAVNÍ OBLASTI ZÁJMU
-
             </div>
 
 
             <div class="cards">
 
-                <!-- TECHNOLOGIE -->
-
-                <div
-                    class="card"
-                    onclick="showPage('technology')"
-                    role="button"
-                    tabindex="0"
-                >
+                <div class="card"
+                     onclick="showPage('technology')"
+                     role="button"
+                     tabindex="0">
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
-                    <h2>
-                        Technologie
-                    </h2>
+                    <h2>Technologie</h2>
 
                     <p>
                         Moderní technologie, inovace, digitální vývoj,
@@ -249,24 +350,16 @@
                 </div>
 
 
-                <!-- MEZINÁRODNÍ VZTAHY -->
-
-                <div
-                    class="card"
-                    onclick="showPage('relations')"
-                    role="button"
-                    tabindex="0"
-                >
+                <div class="card"
+                     onclick="showPage('relations')"
+                     role="button"
+                     tabindex="0">
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
-                    <h2>
-                        Mezinárodní vztahy
-                    </h2>
+                    <h2>Mezinárodní vztahy</h2>
 
                     <p>
                         Mezinárodní spolupráce, geopolitika,
@@ -286,9 +379,7 @@
     </main>
 
 
-    <!-- =====================================
-         PODSTRÁNKA TECHNOLOGIE
-    ====================================== -->
+    <!-- PODSTRÁNKA TECHNOLOGIE -->
 
     <section id="technology" class="page">
 
@@ -301,19 +392,14 @@
         </h1>
 
         <p class="page-intro">
-
             Technologie mění způsob, jakým funguje současný svět.
             Zajímám se o moderní technologický vývoj, inovace
             a možnosti jejich využití v budoucnosti.
-
         </p>
-
 
         <div class="content-block">
 
-            <h2>
-                Technologické inovace
-            </h2>
+            <h2>Technologické inovace</h2>
 
             <p>
                 Moderní technologie, nové objevy a inovativní řešení,
@@ -322,12 +408,9 @@
 
         </div>
 
-
         <div class="content-block">
 
-            <h2>
-                Umělá inteligence a robotika
-            </h2>
+            <h2>Umělá inteligence a robotika</h2>
 
             <p>
                 Vývoj umělé inteligence, automatizace, robotických
@@ -336,12 +419,9 @@
 
         </div>
 
-
         <div class="content-block">
 
-            <h2>
-                Digitální infrastruktura
-            </h2>
+            <h2>Digitální infrastruktura</h2>
 
             <p>
                 Globální datové sítě, satelitní komunikace,
@@ -350,21 +430,15 @@
 
         </div>
 
-
-        <a
-            href="#"
-            class="back-link"
-            onclick="showHome(); return false;"
-        >
+        <a href="#" class="back-link"
+           onclick="showHome(); return false;">
             ← ZPĚT NA HLAVNÍ STRÁNKU
         </a>
 
     </section>
 
 
-    <!-- =====================================
-         PODSTRÁNKA MEZINÁRODNÍ VZTAHY
-    ====================================== -->
+    <!-- PODSTRÁNKA MEZINÁRODNÍ VZTAHY -->
 
     <section id="relations" class="page">
 
@@ -377,20 +451,15 @@
         </h1>
 
         <p class="page-intro">
-
             Svět je propojený sítí politických, ekonomických
             a společenských vztahů. Důležitou roli hraje
             mezinárodní spolupráce, diplomacie a porozumění
             globálním událostem.
-
         </p>
-
 
         <div class="content-block">
 
-            <h2>
-                Geopolitika
-            </h2>
+            <h2>Geopolitika</h2>
 
             <p>
                 Mezinárodní politické vztahy, strategické zájmy států,
@@ -399,12 +468,9 @@
 
         </div>
 
-
         <div class="content-block">
 
-            <h2>
-                Mezinárodní spolupráce
-            </h2>
+            <h2>Mezinárodní spolupráce</h2>
 
             <p>
                 Diplomacie, mezinárodní organizace,
@@ -413,12 +479,9 @@
 
         </div>
 
-
         <div class="content-block">
 
-            <h2>
-                Světová ekonomika
-            </h2>
+            <h2>Světová ekonomika</h2>
 
             <p>
                 Mezinárodní obchod, energetika, infrastruktura
@@ -427,38 +490,24 @@
 
         </div>
 
-
-        <a
-            href="#"
-            class="back-link"
-            onclick="showHome(); return false;"
-        >
+        <a href="#" class="back-link"
+           onclick="showHome(); return false;">
             ← ZPĚT NA HLAVNÍ STRÁNKU
         </a>
 
     </section>
 
 
-    <!-- =====================================
-         PATIČKA
-    ====================================== -->
+    <!-- PATIČKA -->
 
     <footer>
-
         PETR JAKL · OSOBNÍ PORTFOLIO
-
     </footer>
 
 
-<!-- GEOGRAFICKÉ KNIHOVNY -->
+    <!-- JAVASCRIPT -->
 
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-
-<!-- HLAVNÍ JAVASCRIPT -->
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
