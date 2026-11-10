@@ -12,7 +12,7 @@
 
     <title>Petr Jakl | Osobní portfolio</title>
 
-    <!-- PÍSMO -->
+    <!-- FONT -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
         rel="stylesheet"
     >
 
-    <!-- HLAVNÍ CSS -->
+    <!-- HLAVNÍ STYLY -->
 
     <link rel="stylesheet" href="style.css">
 
@@ -76,7 +76,7 @@
 
     <main id="home">
 
-        <!-- ÚVOD -->
+        <!-- ÚVODNÍ SEKCE -->
 
         <section class="hero">
 
@@ -96,7 +96,7 @@
 
 
             <!-- =====================================
-                 SVĚTOVÁ MAPA
+                 GEOPOLITICKÝ ATLAS
             ====================================== -->
 
             <section class="world-section">
@@ -108,206 +108,33 @@
                     </span>
 
                     <h2>
-                        INTERAKTIVNÍ <span>MAPA SVĚTA</span>
+                        GEOPOLITICKÝ
+                        <span>ATLAS SVĚTA</span>
                     </h2>
+
+                    <p class="world-description">
+                        TECHNOLOGIE · INFRASTRUKTURA · MEZINÁRODNÍ VZTAHY
+                    </p>
 
                 </div>
 
 
+                <!-- MAPA -->
+
                 <div class="world-visual">
 
-                    <div class="world-grid"></div>
-
-                    <svg
-                        class="world-svg"
-                        viewBox="0 0 1000 500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        preserveAspectRatio="xMidYMid meet"
+                    <div
+                        id="world-map"
+                        class="world-map"
                         role="img"
-                        aria-label="Stylizovaná mapa světa"
+                        aria-label="Geopolitická mapa světa se státními hranicemi"
                     >
 
-                        <!-- KONTINENTY -->
+                        <div class="map-loading">
+                            NAČÍTÁNÍ GEOGRAFICKÝCH DAT
+                        </div>
 
-                        <g
-                            class="continents"
-                            fill="#17232b"
-                            stroke="#c8a96e"
-                            stroke-width="1.2"
-                            stroke-linejoin="round"
-                        >
-
-                            <!-- SEVERNÍ AMERIKA -->
-
-                            <path d="
-                                M85 105 L115 72 165 60 195 77
-                                230 72 260 95 280 120 265 150
-                                240 165 225 195 200 210 185 245
-                                155 260 135 235 115 215 100 180
-                                75 150 65 125 Z
-                            "/>
-
-                            <!-- JIŽNÍ AMERIKA -->
-
-                            <path d="
-                                M230 255 L260 265 275 300
-                                270 335 285 365 270 405
-                                250 450 230 420 220 385
-                                210 350 200 315 210 280 Z
-                            "/>
-
-                            <!-- EVROPA -->
-
-                            <path d="
-                                M445 100 L475 80 505 85
-                                525 105 515 125 495 140
-                                470 135 450 125 435 110 Z
-                            "/>
-
-                            <!-- AFRIKA -->
-
-                            <path d="
-                                M445 155 L480 145 515 160
-                                535 195 525 240 505 285
-                                480 330 455 305 435 265
-                                420 220 425 185 Z
-                            "/>
-
-                            <!-- ASIE -->
-
-                            <path d="
-                                M515 85 L560 65 620 60
-                                680 75 740 85 790 110
-                                820 140 800 165 765 170
-                                735 190 700 185 680 215
-                                645 205 620 185 585 175
-                                555 150 525 135 505 115 Z
-                            "/>
-
-                            <!-- JIHOVÝCHODNÍ ASIE -->
-
-                            <path d="
-                                M665 220 L700 225 725 245
-                                710 265 685 260 665 245 Z
-                            "/>
-
-                            <!-- AUSTRÁLIE -->
-
-                            <path d="
-                                M745 320 L780 305 820 315
-                                845 340 825 370 790 380
-                                760 360 Z
-                            "/>
-
-                            <!-- GRÓNSKO -->
-
-                            <path d="
-                                M290 45 L325 30 350 45
-                                340 75 310 85 285 65 Z
-                            "/>
-
-                        </g>
-
-
-                        <!-- GLOBÁLNÍ PROPOJENÍ -->
-
-                        <g
-                            class="map-connections"
-                            fill="none"
-                            stroke="#c8a96e"
-                            stroke-width="1.4"
-                            stroke-dasharray="5 7"
-                        >
-
-                            <path d="M475 120 Q350 20 180 140"/>
-
-                            <path d="M475 120 Q600 20 700 140"/>
-
-                            <path d="M475 120 Q500 220 490 235"/>
-
-                            <path d="M475 120 Q620 260 790 340"/>
-
-                            <path d="M180 140 Q300 250 245 330"/>
-
-                            <path d="M490 235 Q600 280 790 340"/>
-
-                        </g>
-
-
-                        <!-- UZLOVÉ BODY -->
-
-                        <g stroke="#050505" stroke-width="3">
-
-                            <circle
-                                cx="475" cy="120" r="6"
-                                fill="#c8a96e"
-                                class="point"
-                            />
-
-                            <circle
-                                cx="180" cy="140" r="6"
-                                fill="#61a9d7"
-                                class="point"
-                            />
-
-                            <circle
-                                cx="700" cy="140" r="6"
-                                fill="#61a9d7"
-                                class="point"
-                            />
-
-                            <circle
-                                cx="490" cy="235" r="6"
-                                fill="#d46f69"
-                                class="point"
-                            />
-
-                            <circle
-                                cx="790" cy="340" r="6"
-                                fill="#c8a96e"
-                                class="point"
-                            />
-
-                            <circle
-                                cx="245" cy="330" r="6"
-                                fill="#61a9d7"
-                                class="point"
-                            />
-
-                        </g>
-
-
-                        <!-- NÁZVY REGIONŮ -->
-
-                        <g class="map-labels">
-
-                            <text x="175" y="110">
-                                SEVERNÍ AMERIKA
-                            </text>
-
-                            <text x="475" y="95">
-                                EVROPA
-                            </text>
-
-                            <text x="690" y="110">
-                                ASIE
-                            </text>
-
-                            <text x="475" y="275">
-                                AFRIKA
-                            </text>
-
-                            <text x="245" y="390">
-                                JIŽNÍ AMERIKA
-                            </text>
-
-                            <text x="795" y="405">
-                                AUSTRÁLIE
-                            </text>
-
-                        </g>
-
-                    </svg>
+                    </div>
 
 
                     <!-- OKRAJE MAPY -->
@@ -359,9 +186,11 @@
                 </div>
 
 
+                <!-- POPISEK -->
+
                 <div class="world-caption">
 
-                    TECHNOLOGICKÉ A MEZINÁRODNÍ PROPOJENÍ SVĚTA
+                    GLOBÁLNÍ TECHNOLOGICKÉ A GEOPOLITICKÉ PROPOJENÍ SVĚTA
 
                 </div>
 
