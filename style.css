@@ -1015,3 +1015,44 @@ footer {
 .world-description {
     display: none !important;
 }
+
+/* ODSTRANĚNÍ ZLATÉHO OBDÉLNÍKU */
+
+.map-background {
+    background-color: transparent !important;
+    mix-blend-mode: screen !important;
+
+    filter:
+        sepia(1)
+        saturate(2)
+        hue-rotate(5deg)
+        brightness(.85)
+        contrast(1.5);
+
+    opacity: .65;
+}
+
+/* Průhledné okolí mapy */
+
+.world-visual,
+.world-map {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Jemné rozpuštění okrajů */
+
+.map-background {
+    -webkit-mask-image: radial-gradient(
+        ellipse 72% 75% at center,
+        black 55%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 72% 75% at center,
+        black 55%,
+        transparent 100%
+    );
+}
