@@ -6,13 +6,16 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#050505">
 
-    <meta name="description" content="Petr Jakl – osobní portfolio">
+    <meta name="description" content="Petr Jakl – osobní portfolio zaměřené na technologie, strategii a globální geopolitický přehled.">
 
     <title>Petr Jakl | Osobní portfolio</title>
 
-    <!-- FONT -->
+    <!-- =====================================
+         FONTY
+    ====================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +25,18 @@
         rel="stylesheet"
     >
 
-    <!-- HLAVNÍ STYLY -->
+    <!-- =====================================
+         GEOGRAFICKÉ KNIHOVNY
+         D3.js + TopoJSON
+    ====================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+    <!-- =====================================
+         HLAVNÍ CSS
+    ====================================== -->
 
     <link rel="stylesheet" href="style.css">
 
@@ -76,7 +90,9 @@
 
     <main id="home">
 
-        <!-- ÚVODNÍ SEKCE -->
+        <!-- =====================================
+             ÚVODNÍ SEKCE
+        ====================================== -->
 
         <section class="hero">
 
@@ -101,6 +117,8 @@
 
             <section class="world-section">
 
+                <!-- HLAVIČKA ATLASU -->
+
                 <div class="world-header">
 
                     <span class="world-eyebrow">
@@ -119,7 +137,9 @@
                 </div>
 
 
-                <!-- MAPA -->
+                <!-- =================================
+                     GLOBÁLNÍ MAPA
+                ================================== -->
 
                 <div class="world-visual">
 
@@ -127,66 +147,50 @@
                         id="world-map"
                         class="world-map"
                         role="img"
-                        aria-label="Geopolitická mapa světa se státními hranicemi"
+                        aria-label="Geopolitická mapa světa zobrazující státní hranice, globální propojení a geografické oblasti"
+                        data-map-source="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"
                     >
 
-                        <div class="map-loading">
-                            NAČÍTÁNÍ GEOGRAFICKÝCH DAT
-                        </div>
+                        <!--
+                            SVG MAPA BUDE GENEROVÁNA
+                            POMOCÍ D3.JS A TOPOJSON.
+
+                            ŽÁDNÝ LOADING SCREEN.
+                            ŽÁDNÉ OVLÁDACÍ PRVKY.
+                        -->
 
                     </div>
 
 
-                    <!-- OKRAJE MAPY -->
+                    <!-- =================================
+                         TECHNICKÉ VRSTVY
+                    ================================== -->
 
-                    <div class="map-fade-top"></div>
-                    <div class="map-fade-bottom"></div>
-                    <div class="map-fade-left"></div>
-                    <div class="map-fade-right"></div>
+                    <div class="map-overlay" aria-hidden="true">
 
+                        <!-- Jemný skenovací efekt -->
 
-                    <!-- LEGENDA -->
+                        <div class="map-scan"></div>
 
-                    <div class="map-legend">
+                        <!-- Dekorativní rohové indikátory -->
 
-                        <div class="legend-item">
+                        <div class="map-corner map-corner-tl"></div>
+                        <div class="map-corner map-corner-tr"></div>
+                        <div class="map-corner map-corner-bl"></div>
+                        <div class="map-corner map-corner-br"></div>
 
-                            <span class="legend-dot gold"></span>
+                        <!-- Technická mřížka -->
 
-                            TECHNOLOGIE
-
-                        </div>
-
-                        <div class="legend-item">
-
-                            <span class="legend-dot blue"></span>
-
-                            INFRASTRUKTURA
-
-                        </div>
-
-                        <div class="legend-item">
-
-                            <span class="legend-dot red"></span>
-
-                            MEZINÁRODNÍ VZTAHY
-
-                        </div>
-
-                        <div class="legend-item">
-
-                            <span class="legend-line"></span>
-
-                            GLOBÁLNÍ PROPOJENÍ
-
-                        </div>
+                        <div class="map-grid"></div>
 
                     </div>
 
                 </div>
 
 
-                <!-- POPISEK -->
+                <!-- =================================
+                     POPISEK ATLASU
+                ================================== -->
 
                 <div class="world-caption">
 
