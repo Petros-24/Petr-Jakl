@@ -934,3 +934,73 @@ footer {
 .map-scale {
     z-index: 5;
 }
+
+/* =========================================
+   MINIMALISTICKÁ ZLATÁ MAPA
+========================================= */
+
+/* Odstranění všech technických textů */
+
+.map-status,
+.map-coordinates,
+.map-scale,
+.map-legend,
+.world-caption {
+    display: none !important;
+}
+
+/* Čistá mapová plocha */
+
+.world-visual {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden;
+}
+
+/* Mapa přirozeně splývá s pozadím */
+
+.map-background {
+    opacity: .48;
+    mix-blend-mode: screen;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(77%)
+        sepia(25%)
+        saturate(600%)
+        hue-rotate(2deg)
+        brightness(95%)
+        contrast(95%);
+}
+
+/* Jemné světelné propojení */
+
+.map-graphics {
+    opacity: .75;
+}
+
+/* Bez tmavého překryvu */
+
+.map-overlay {
+    background: transparent !important;
+}
+
+/* Jemné zlaté datové trasy */
+
+.data-routes path {
+    opacity: .45;
+    stroke-width: 1;
+}
+
+/* Jemnější světelné body */
+
+.marker-core {
+    fill: #e5cc9b;
+}
+
+.marker-pulse {
+    stroke: #c8a96e;
+    opacity: .55;
+}
