@@ -209,13 +209,38 @@ nav {
         inset 0 0 80px rgba(200,169,110,.035);
 }
 
-.world-map {
+
+/* =========================================
+   OPRAVA VIDITELNOSTI ZLATÉ MAPY
+========================================= */
+
+.map-background {
     position: absolute;
     inset: 0;
+    z-index: 1;
+
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    isolation: isolate;
+
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 1;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(77%)
+        sepia(25%)
+        saturate(600%)
+        hue-rotate(2deg)
+        brightness(95%)
+        contrast(95%);
+
+    mix-blend-mode: screen;
 }
 
 /* ZLATÁ MAPA */
