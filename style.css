@@ -1004,3 +1004,14 @@ footer {
     stroke: #c8a96e;
     opacity: .55;
 }
+/* KOMPLETNÍ ODSTRANĚNÍ NADPISŮ ATLASU */
+
+.world-header {
+    display: none !important;
+}
+
+.world-eyebrow,
+.world-header h2,
+.world-description {
+    display: none !important;
+}
