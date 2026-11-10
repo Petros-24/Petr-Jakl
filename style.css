@@ -1,9 +1,17 @@
 
+/* =========================================
+   PETR JAKL – OSOBNÍ PORTFOLIO
+   LUXUSNÍ TECHNOLOGICKÝ DESIGN
+========================================= */
+
 :root {
-    --zlata: #c8a96e;
-    --svetla-zlata: #e5cc9b;
-    --cerna: #050505;
-    --seda: #999;
+    --gold: #c8a96e;
+    --light-gold: #e5cc9b;
+    --black: #050505;
+    --dark: #0b0b0b;
+    --gray: #999;
+    --blue: #61a9d7;
+    --red: #d46f69;
 }
 
 * {
@@ -17,7 +25,7 @@ html {
 }
 
 body {
-    background: var(--cerna);
+    background: var(--black);
     color: white;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
@@ -55,13 +63,13 @@ nav {
     align-items: center;
     border: 1px solid rgba(200,169,110,.6);
     border-radius: 50%;
-    color: var(--zlata);
+    color: var(--gold);
     text-decoration: none;
     transition: .3s;
 }
 
 .home-btn:hover {
-    background: var(--zlata);
+    background: var(--gold);
     color: black;
 }
 
@@ -91,12 +99,16 @@ nav {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    background: radial-gradient(circle,rgba(200,169,110,.08),transparent 70%);
+    background: radial-gradient(
+        circle,
+        rgba(200,169,110,.08),
+        transparent 70%
+    );
     pointer-events: none;
 }
 
 .subtitle {
-    color: var(--zlata);
+    color: var(--gold);
     font-size: 11px;
     letter-spacing: 8px;
     margin-bottom: 28px;
@@ -111,7 +123,7 @@ nav {
 }
 
 .hero h1 span {
-    color: var(--zlata);
+    color: var(--gold);
     font-weight: 800;
 }
 
@@ -127,11 +139,11 @@ nav {
 .divider {
     width: 65px;
     height: 1px;
-    background: var(--zlata);
+    background: var(--gold);
     margin: 35px auto;
 }
 
-/* MAPA */
+/* SEKCE MAPY */
 
 .world-section {
     width: 100%;
@@ -141,12 +153,12 @@ nav {
 
 .world-header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .world-eyebrow {
     display: block;
-    color: var(--zlata);
+    color: var(--gold);
     font-size: 10px;
     letter-spacing: 6px;
     margin-bottom: 15px;
@@ -159,9 +171,11 @@ nav {
 }
 
 .world-header h2 span {
-    color: var(--zlata);
+    color: var(--gold);
     font-weight: 700;
 }
+
+/* MAPOVÝ KONTEJNER */
 
 .world-visual {
     width: 100%;
@@ -171,50 +185,132 @@ nav {
     margin: 0 auto;
     overflow: hidden;
     background: #080808;
+    border-top: 1px solid rgba(200,169,110,.12);
+    border-bottom: 1px solid rgba(200,169,110,.12);
 }
 
-#world-map {
+.world-map {
     position: absolute;
     inset: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(200,169,110,.09),
+            transparent 65%
+        ),
+        #080b10;
+}
+
+.world-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .2;
+    background-image:
+        linear-gradient(
+            rgba(200,169,110,.13) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(200,169,110,.13) 1px,
+            transparent 1px
+        );
+    background-size: 60px 60px;
+}
+
+.world-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: rgba(200,169,110,.05);
+    filter: blur(80px);
+}
+
+.world-svg {
+    position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    background: #080808;
+    inset: 0;
+    z-index: 2;
 }
 
-#world-map.leaflet-container {
-    background: #080808;
-    font-family: 'Montserrat',sans-serif;
+/* KONTINENTY */
+
+.continents {
+    opacity: .75;
 }
 
-#world-map .leaflet-tile {
-    filter: grayscale(1) brightness(.75) sepia(.2) hue-rotate(350deg) saturate(.6);
+.continents path {
+    filter: drop-shadow(0 0 5px rgba(200,169,110,.15));
+    transition: .4s;
 }
 
-#world-map .leaflet-control-attribution {
-    background: rgba(5,5,5,.8);
-    color: #888;
-    font-size: 8px;
+.continents path:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(200,169,110,.55));
 }
 
-#world-map .leaflet-control-attribution a {
-    color: var(--zlata);
+/* SPOJENÍ SVĚTA */
+
+.map-connections {
+    opacity: .7;
+    animation: connectionGlow 5s ease-in-out infinite;
 }
 
-#world-map .leaflet-control-zoom {
-    border: none !important;
-    margin: 65px 15px 0 0 !important;
+@keyframes connectionGlow {
+    0%,100% {
+        opacity: .35;
+    }
+    50% {
+        opacity: .9;
+    }
 }
 
-#world-map .leaflet-control-zoom a {
-    background: rgba(10,10,10,.9);
-    color: var(--zlata);
-    border: 1px solid rgba(200,169,110,.4);
+/* MAPOVÉ BODY */
+
+.point {
+    stroke: white;
+    stroke-width: 1.5;
+    filter: url(#mapGlow);
+    animation: pointPulse 3s ease-in-out infinite;
 }
 
-#world-map .leaflet-control-zoom a:hover {
-    background: var(--zlata);
-    color: black;
+.point.gold {
+    fill: var(--gold);
+}
+
+.point.blue {
+    fill: var(--blue);
+}
+
+.point.red {
+    fill: var(--red);
+}
+
+@keyframes pointPulse {
+    0%,100% {
+        opacity: .65;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* POPISKY MAPY */
+
+.map-labels {
+    fill: var(--light-gold);
+    font-family: Montserrat, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-anchor: middle;
+    opacity: .85;
 }
 
 /* OKRAJE MAPY */
@@ -224,7 +320,7 @@ nav {
 .map-fade-left,
 .map-fade-right {
     position: absolute;
-    z-index: 400;
+    z-index: 5;
     pointer-events: none;
 }
 
@@ -232,32 +328,48 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    height: 90px;
-    background: linear-gradient(to bottom,#050505,transparent);
+    height: 70px;
+    background: linear-gradient(
+        to bottom,
+        #050505,
+        transparent
+    );
 }
 
 .map-fade-bottom {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 110px;
-    background: linear-gradient(to top,#050505,transparent);
+    height: 80px;
+    background: linear-gradient(
+        to top,
+        #050505,
+        transparent
+    );
 }
 
 .map-fade-left {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 90px;
-    background: linear-gradient(to right,#050505,transparent);
+    width: 70px;
+    background: linear-gradient(
+        to right,
+        #050505,
+        transparent
+    );
 }
 
 .map-fade-right {
     top: 0;
     bottom: 0;
     right: 0;
-    width: 90px;
-    background: linear-gradient(to left,#050505,transparent);
+    width: 70px;
+    background: linear-gradient(
+        to left,
+        #050505,
+        transparent
+    );
 }
 
 /* LEGENDA */
@@ -266,7 +378,7 @@ nav {
     position: absolute;
     top: 35px;
     right: 35px;
-    z-index: 450;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     gap: 13px;
@@ -292,43 +404,24 @@ nav {
 }
 
 .legend-dot.gold {
-    background: var(--zlata);
-    box-shadow: 0 0 10px var(--zlata);
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
 }
 
 .legend-dot.blue {
-    background: #61a9d7;
-    box-shadow: 0 0 10px #61a9d7;
+    background: var(--blue);
+    box-shadow: 0 0 10px var(--blue);
 }
 
 .legend-dot.red {
-    background: #d46f69;
-    box-shadow: 0 0 10px #d46f69;
+    background: var(--red);
+    box-shadow: 0 0 10px var(--red);
 }
 
 .legend-line {
     width: 18px;
     height: 1px;
-    background: var(--zlata);
-}
-
-/* POPUP */
-
-#world-map .leaflet-popup-content-wrapper,
-#world-map .leaflet-popup-tip {
-    background: #101010;
-    color: white;
-    border: 1px solid rgba(200,169,110,.4);
-    border-radius: 3px;
-}
-
-#world-map .leaflet-popup-content {
-    margin: 15px;
-    font-family: 'Montserrat',sans-serif;
-}
-
-#world-map .leaflet-popup-close-button {
-    color: var(--zlata) !important;
+    background: var(--gold);
 }
 
 /* TEXT POD MAPOU */
@@ -338,78 +431,7 @@ nav {
     font-size: 9px;
     letter-spacing: 4px;
     text-align: center;
-    margin: 5px 0 25px;
-}
-
-/* ZNAČKY MAPY */
-
-.custom-map-marker {
-    background: transparent;
-    border: none;
-}
-
-.marker-wrapper {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border-radius: 50%;
-    background: rgba(5,5,5,.9);
-    border: 1px solid rgba(200,169,110,.7);
-    color: var(--zlata);
-    box-shadow: 0 0 15px rgba(200,169,110,.3);
-    transition: .3s;
-}
-
-.marker-symbol {
-    font-size: 15px;
-    z-index: 2;
-}
-
-.marker-wrapper.gold {
-    color: var(--zlata);
-    border-color: var(--zlata);
-}
-
-.marker-wrapper.blue {
-    color: #61a9d7;
-    border-color: #61a9d7;
-}
-
-.marker-wrapper.red {
-    color: #d46f69;
-    border-color: #d46f69;
-}
-
-.marker-wrapper.military {
-    color: var(--svetla-zlata);
-    border-color: var(--zlata);
-}
-
-.marker-pulse {
-    position: absolute;
-    inset: -5px;
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    opacity: .4;
-    animation: markerPulse 3s infinite;
-}
-
-@keyframes markerPulse {
-    0% {
-        transform: scale(.8);
-        opacity: .5;
-    }
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-.marker-wrapper:hover {
-    transform: scale(1.2);
+    margin: 15px 0 25px;
 }
 
 /* DLAŽDICE */
@@ -446,7 +468,11 @@ nav {
     text-decoration: none;
     color: white;
     transition: .4s;
-    background: linear-gradient(145deg,#151515,#080808);
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #080808
+    );
     cursor: pointer;
     outline: none;
 }
@@ -455,7 +481,11 @@ nav {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 80% 20%,rgba(200,169,110,.16),transparent 55%);
+    background: radial-gradient(
+        circle at 80% 20%,
+        rgba(200,169,110,.16),
+        transparent 55%
+    );
     transition: .5s;
     pointer-events: none;
 }
@@ -463,12 +493,16 @@ nav {
 .card:hover,
 .card:focus-visible {
     transform: translateY(-8px);
-    border-color: var(--zlata);
+    border-color: var(--gold);
     box-shadow: 0 15px 45px rgba(200,169,110,.1);
 }
 
 .card:hover::before {
-    background: radial-gradient(circle at 80% 20%,rgba(200,169,110,.27),transparent 60%);
+    background: radial-gradient(
+        circle at 80% 20%,
+        rgba(200,169,110,.27),
+        transparent 60%
+    );
 }
 
 .card-number {
@@ -498,7 +532,7 @@ nav {
 }
 
 .card-link {
-    color: var(--zlata);
+    color: var(--gold);
     font-size: 9px;
     letter-spacing: 3px;
     margin-top: 25px;
@@ -511,7 +545,7 @@ nav {
     right: 35px;
     top: 35px;
     font-size: 25px;
-    color: var(--zlata);
+    color: var(--gold);
     transition: .3s;
 }
 
@@ -525,7 +559,7 @@ nav {
     min-height: 100vh;
     padding: 155px 10% 100px;
     display: none;
-    background: var(--cerna);
+    background: var(--black);
 }
 
 .page.active {
@@ -545,7 +579,7 @@ nav {
 }
 
 .page-tag {
-    color: var(--zlata);
+    color: var(--gold);
     font-size: 11px;
     letter-spacing: 6px;
     margin-bottom: 30px;
@@ -559,7 +593,7 @@ nav {
 }
 
 .page h1 span {
-    color: var(--zlata);
+    color: var(--gold);
     font-weight: 700;
 }
 
@@ -575,13 +609,21 @@ nav {
 .content-block {
     margin-top: 45px;
     padding: 35px;
-    border-left: 1px solid var(--zlata);
-    background: linear-gradient(90deg,rgba(200,169,110,.07),transparent);
+    border-left: 1px solid var(--gold);
+    background: linear-gradient(
+        90deg,
+        rgba(200,169,110,.07),
+        transparent
+    );
     transition: .3s;
 }
 
 .content-block:hover {
-    background: linear-gradient(90deg,rgba(200,169,110,.13),transparent);
+    background: linear-gradient(
+        90deg,
+        rgba(200,169,110,.13),
+        transparent
+    );
 }
 
 .content-block h2 {
@@ -602,7 +644,7 @@ nav {
 .back-link {
     display: inline-block;
     margin-top: 55px;
-    color: var(--zlata);
+    color: var(--gold);
     text-decoration: none;
     letter-spacing: 3px;
     font-size: 11px;
@@ -629,6 +671,7 @@ footer {
 /* MOBILNÍ ZAŘÍZENÍ */
 
 @media(max-width:700px) {
+
     nav {
         padding: 18px 5%;
     }
@@ -660,15 +703,22 @@ footer {
         height: 350px;
     }
 
+    .world-svg {
+        width: 125%;
+        max-width: none;
+        left: -12.5%;
+    }
+
     .map-legend {
-        top: 20px;
-        right: 12px;
-        padding: 12px;
-        gap: 10px;
+        top: 15px;
+        right: 10px;
+        padding: 10px;
+        gap: 9px;
     }
 
     .legend-item {
-        font-size: 8px;
+        font-size: 7px;
+        gap: 7px;
     }
 
     .map-fade-left,
@@ -677,11 +727,11 @@ footer {
     }
 
     .map-fade-top {
-        height: 50px;
+        height: 45px;
     }
 
     .map-fade-bottom {
-        height: 60px;
+        height: 50px;
     }
 
     .world-caption {
@@ -719,6 +769,7 @@ footer {
 }
 
 @media(max-width:400px) {
+
     .map-legend {
         transform: scale(.85);
         transform-origin: top right;
@@ -731,11 +782,16 @@ footer {
     .card h2 {
         font-size: 23px;
     }
+
+    .map-labels {
+        font-size: 9px;
+    }
 }
 
 /* OMEZENÍ ANIMACÍ */
 
 @media(prefers-reduced-motion:reduce) {
+
     *,
     *::before,
     *::after {
@@ -745,3 +801,5 @@ footer {
         transition-duration: .01ms !important;
     }
 }
+
+/* KONEC CSS */
