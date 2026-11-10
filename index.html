@@ -3,109 +3,60 @@
 <html lang="cs">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#050505">
-
     <meta name="description" content="Petr Jakl – osobní portfolio">
 
     <title>Petr Jakl | Osobní portfolio</title>
 
-
-    <!-- PÍSMO -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- LEAFLET MAPA -->
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
-
-
-    <!-- HLAVNÍ STYLY -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-
-
 </head>
-
 
 <body>
 
-
-    <!-- =====================================
-         HORNÍ NAVIGACE
-    ====================================== -->
+    <!-- NAVIGACE -->
 
     <nav>
+        <div class="logo">PETR JAKL</div>
 
-        <div class="logo">
-            PETR JAKL
-        </div>
-
-        <a
-            href="#"
-            class="home-btn"
-            onclick="showHome(); return false;"
-            aria-label="Domů"
-        >
+        <a href="#" class="home-btn"
+           onclick="showHome(); return false;"
+           aria-label="Domů">
             PJ
         </a>
-
     </nav>
 
 
-
-    <!-- =====================================
-         HLAVNÍ STRÁNKA
-    ====================================== -->
+    <!-- HLAVNÍ STRÁNKA -->
 
     <main id="home">
 
-
-        <!-- ÚVODNÍ SEKCE -->
-
         <section class="hero">
-
 
             <div class="subtitle">
                 OSOBNÍ PORTFOLIO
             </div>
 
-
             <h1>
                 PETR <span>JAKL</span>
             </h1>
-
 
             <p>
                 TECHNOLOGIE · STRATEGIE · GLOBÁLNÍ PŘEHLED
             </p>
 
-
             <div class="divider"></div>
 
 
-
-            <!-- =====================================
-                 INTERAKTIVNÍ MAPA SVĚTA
-            ====================================== -->
+            <!-- GLOBÁLNÍ MAPA -->
 
             <section class="world-section">
-
 
                 <div class="world-header">
 
@@ -114,114 +65,305 @@
                     </span>
 
                     <h2>
-                        INTERAKTIVNÍ <span>MAPA SVĚTA</span>
+                        GLOBÁLNÍ <span>PROPOJENÍ SVĚTA</span>
                     </h2>
 
                 </div>
 
 
-
                 <div class="world-visual">
 
+                    <div class="world-map">
 
-                    <!-- MAPA -->
+                        <div class="world-grid"></div>
+                        <div class="world-glow"></div>
 
-                    <div id="world-map"></div>
+
+                        <!-- SVG MAPA SVĚTA -->
+
+                        <svg
+                            class="world-svg"
+                            viewBox="0 0 1200 600"
+                            xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMidYMid meet"
+                            role="img"
+                            aria-label="Stylizovaná mapa světa"
+                        >
+
+                            <defs>
+
+                                <linearGradient id="landGradient"
+                                    x1="0" y1="0" x2="1" y2="1">
+
+                                    <stop offset="0%"
+                                        stop-color="#c8a96e"/>
+
+                                    <stop offset="100%"
+                                        stop-color="#66543a"/>
+
+                                </linearGradient>
+
+                                <filter id="mapGlow">
+
+                                    <feGaussianBlur
+                                        stdDeviation="5"
+                                        result="blur"/>
+
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+
+                                </filter>
+
+                            </defs>
 
 
-                    <!-- PLYNULÉ OKRAJE -->
+                            <!-- KONTINENTY -->
+
+                            <g
+                                class="continents"
+                                fill="url(#landGradient)"
+                                stroke="#c8a96e"
+                                stroke-width="1.2"
+                                stroke-opacity=".5"
+                            >
+
+                                <!-- SEVERNÍ AMERIKA -->
+
+                                <path d="
+                                    M95 145
+                                    L135 105 190 95 225 115
+                                    265 105 305 135 315 170
+                                    285 195 270 225 245 240
+                                    230 280 200 290 185 260
+                                    160 245 145 215 115 205
+                                    100 175 Z
+                                "/>
+
+                                <!-- GRÓNSKO -->
+
+                                <path d="
+                                    M290 65
+                                    L340 45 365 70
+                                    350 110 320 125
+                                    295 100 Z
+                                "/>
+
+                                <!-- JIŽNÍ AMERIKA -->
+
+                                <path d="
+                                    M260 300
+                                    L295 310 325 345
+                                    315 385 300 420
+                                    290 470 265 520
+                                    245 490 250 445
+                                    235 410 225 370
+                                    235 335 Z
+                                "/>
+
+                                <!-- EVROPA -->
+
+                                <path d="
+                                    M515 135
+                                    L550 115 590 120
+                                    610 140 595 160
+                                    560 165 540 185
+                                    515 170 Z
+                                "/>
+
+                                <!-- AFRIKA -->
+
+                                <path d="
+                                    M530 195
+                                    L585 185 630 215
+                                    640 260 615 310
+                                    590 365 560 385
+                                    540 345 525 290
+                                    510 245 Z
+                                "/>
+
+                                <!-- ASIE -->
+
+                                <path d="
+                                    M610 125
+                                    L665 95 730 90
+                                    790 110 855 100
+                                    920 125 990 155
+                                    1010 195 970 220
+                                    930 205 900 230
+                                    850 215 810 240
+                                    770 215 735 230
+                                    700 195 660 190
+                                    625 170 Z
+                                "/>
+
+                                <!-- INDIE -->
+
+                                <path d="
+                                    M715 235
+                                    L750 245 765 280
+                                    750 320 730 295
+                                    715 265 Z
+                                "/>
+
+                                <!-- JIHOVÝCHODNÍ ASIE -->
+
+                                <path d="
+                                    M815 265
+                                    L850 275 870 300
+                                    850 315 820 300 Z
+                                "/>
+
+                                <!-- JAPONSKO -->
+
+                                <path d="
+                                    M950 210
+                                    L965 225 960 250
+                                    945 240 Z
+                                "/>
+
+                                <!-- AUSTRÁLIE -->
+
+                                <path d="
+                                    M900 370
+                                    L950 350 1000 370
+                                    1020 405 990 435
+                                    945 430 915 410 Z
+                                "/>
+
+                            </g>
+
+                            <!-- ZLATÉ GLOBÁLNÍ TRASY -->
+
+                            <g
+                                class="map-connections"
+                                fill="none"
+                                stroke="#c8a96e"
+                                stroke-width="1.5"
+                                stroke-dasharray="5 8"
+                            >
+
+                                <path d="M555 150 Q390 30 205 175"/>
+                                <path d="M555 150 Q750 20 850 175"/>
+                                <path d="M555 150 Q630 290 580 270"/>
+                                <path d="M205 175 Q400 360 580 270"/>
+                                <path d="M850 175 Q900 300 950 390"/>
+                                <path d="M580 270 Q700 360 850 290"/>
+                                <path d="M555 150 Q400 270 275 400"/>
+
+                            </g>
+
+
+                            <!-- MODRÉ INFRASTRUKTURNÍ TRASY -->
+
+                            <g
+                                fill="none"
+                                stroke="#61a9d7"
+                                stroke-width="1.3"
+                                stroke-dasharray="3 9"
+                                opacity=".8"
+                            >
+
+                                <path d="M205 175 Q520 0 850 175"/>
+                                <path d="M580 270 Q720 190 850 175"/>
+                                <path d="M580 270 Q770 420 950 390"/>
+
+                            </g>
+
+
+                            <!-- SVĚTELNÉ UZLY -->
+
+                            <g class="map-points">
+
+                                <circle cx="555" cy="150" r="9" class="point gold"/>
+                                <circle cx="205" cy="175" r="8" class="point blue"/>
+                                <circle cx="850" cy="175" r="9" class="point gold"/>
+                                <circle cx="580" cy="270" r="8" class="point red"/>
+                                <circle cx="950" cy="390" r="7" class="point blue"/>
+                                <circle cx="275" cy="400" r="7" class="point gold"/>
+                                <circle cx="700" cy="350" r="7" class="point blue"/>
+
+                            </g>
+
+
+                            <!-- POPISKY -->
+
+                            <g class="map-labels">
+
+                                <text x="555" y="125">EVROPA</text>
+                                <text x="205" y="150">SEVERNÍ AMERIKA</text>
+                                <text x="850" y="150">VÝCHODNÍ ASIE</text>
+                                <text x="580" y="300">AFRIKA</text>
+                                <text x="950" y="420">AUSTRÁLIE</text>
+                                <text x="275" y="430">JIŽNÍ AMERIKA</text>
+
+                            </g>
+
+                        </svg>
+
+                    </div>
+
+
+                    <!-- OKRAJE MAPY -->
 
                     <div class="map-fade-top"></div>
-
                     <div class="map-fade-bottom"></div>
-
                     <div class="map-fade-left"></div>
-
                     <div class="map-fade-right"></div>
-
 
 
                     <!-- LEGENDA -->
 
                     <div class="map-legend">
 
-
                         <div class="legend-item">
-
                             <span class="legend-dot gold"></span>
-
                             TECHNOLOGIE
-
                         </div>
 
-
                         <div class="legend-item">
-
                             <span class="legend-dot blue"></span>
-
                             INFRASTRUKTURA
-
                         </div>
 
-
                         <div class="legend-item">
-
                             <span class="legend-dot red"></span>
-
                             MEZINÁRODNÍ VZTAHY
-
                         </div>
-
 
                         <div class="legend-item">
-
                             <span class="legend-line"></span>
-
                             GLOBÁLNÍ PROPOJENÍ
-
                         </div>
-
 
                     </div>
 
-
                 </div>
-
 
 
                 <div class="world-caption">
-
                     TECHNOLOGICKÉ A MEZINÁRODNÍ PROPOJENÍ SVĚTA
-
                 </div>
 
-
             </section>
-
 
         </section>
 
 
-
-        <!-- =====================================
-             DVĚ HLAVNÍ DLAŽDICE
-        ====================================== -->
+        <!-- HLAVNÍ OBLASTI ZÁJMU -->
 
         <section class="cards-section">
 
-
             <div class="section-heading">
-
                 HLAVNÍ OBLASTI ZÁJMU
-
             </div>
-
 
 
             <div class="cards">
 
 
-                <!-- DLAŽDICE TECHNOLOGIE -->
+                <!-- TECHNOLOGIE -->
 
                 <div
                     class="card"
@@ -233,13 +375,9 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
-                    <h2>
-                        Technologie
-                    </h2>
+                    <h2>Technologie</h2>
 
                     <p>
                         Moderní technologie, inovace, digitální vývoj,
@@ -253,8 +391,7 @@
                 </div>
 
 
-
-                <!-- DLAŽDICE MEZINÁRODNÍ VZTAHY -->
+                <!-- MEZINÁRODNÍ VZTAHY -->
 
                 <div
                     class="card"
@@ -266,13 +403,9 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
-                    <h2>
-                        Mezinárodní vztahy
-                    </h2>
+                    <h2>Mezinárodní vztahy</h2>
 
                     <p>
                         Mezinárodní spolupráce, geopolitika,
@@ -285,93 +418,65 @@
 
                 </div>
 
-
             </div>
-
 
         </section>
 
-
     </main>
 
-
-
-    <!-- =====================================
-         PODSTRÁNKA TECHNOLOGIE
-    ====================================== -->
+    <!-- PODSTRÁNKA TECHNOLOGIE -->
 
     <section id="technology" class="page">
-
 
         <div class="page-tag">
             01 / TECHNOLOGIE
         </div>
 
-
         <h1>
             TECHNO<span>LOGIE</span>
         </h1>
 
-
         <p class="page-intro">
-
             Technologie mění způsob, jakým funguje současný svět.
             Zajímám se o moderní technologický vývoj, inovace
             a možnosti jejich využití v budoucnosti.
-
         </p>
 
 
-
         <div class="content-block">
 
-            <h2>
-                Technologické inovace
-            </h2>
+            <h2>Technologické inovace</h2>
 
             <p>
-
                 Moderní technologie, nové objevy a inovativní řešení,
                 která ovlivňují průmysl, společnost a každodenní život.
-
             </p>
 
         </div>
 
 
-
         <div class="content-block">
 
-            <h2>
-                Umělá inteligence a robotika
-            </h2>
+            <h2>Umělá inteligence a robotika</h2>
 
             <p>
-
                 Vývoj umělé inteligence, automatizace, robotických
                 systémů a autonomních technologií.
-
             </p>
 
         </div>
-
 
 
         <div class="content-block">
 
-            <h2>
-                Digitální infrastruktura
-            </h2>
+            <h2>Digitální infrastruktura</h2>
 
             <p>
-
                 Globální datové sítě, satelitní komunikace,
                 moderní informační systémy a digitální propojení světa.
-
             </p>
 
         </div>
-
 
 
         <a
@@ -379,93 +484,67 @@
             class="back-link"
             onclick="showHome(); return false;"
         >
-
             ← ZPĚT NA HLAVNÍ STRÁNKU
-
         </a>
-
 
     </section>
 
 
 
-    <!-- =====================================
-         PODSTRÁNKA MEZINÁRODNÍ VZTAHY
-    ====================================== -->
+    <!-- PODSTRÁNKA MEZINÁRODNÍ VZTAHY -->
 
     <section id="relations" class="page">
-
 
         <div class="page-tag">
             02 / MEZINÁRODNÍ VZTAHY
         </div>
 
-
         <h1>
             MEZINÁRODNÍ <span>VZTAHY</span>
         </h1>
 
-
         <p class="page-intro">
-
             Svět je propojený sítí politických, ekonomických
             a společenských vztahů. Důležitou roli hraje
             mezinárodní spolupráce, diplomacie a porozumění
             globálním událostem.
-
         </p>
 
 
-
         <div class="content-block">
 
-            <h2>
-                Geopolitika
-            </h2>
+            <h2>Geopolitika</h2>
 
             <p>
-
                 Mezinárodní politické vztahy, strategické zájmy států,
                 regionální vývoj a proměny světového uspořádání.
-
             </p>
 
         </div>
 
 
-
         <div class="content-block">
 
-            <h2>
-                Mezinárodní spolupráce
-            </h2>
+            <h2>Mezinárodní spolupráce</h2>
 
             <p>
-
                 Diplomacie, mezinárodní organizace,
                 partnerství a spolupráce mezi jednotlivými státy.
-
             </p>
 
         </div>
-
 
 
         <div class="content-block">
 
-            <h2>
-                Světová ekonomika
-            </h2>
+            <h2>Světová ekonomika</h2>
 
             <p>
-
                 Mezinárodní obchod, energetika, infrastruktura
                 a ekonomické vztahy mezi světovými regiony.
-
             </p>
 
         </div>
-
 
 
         <a
@@ -473,45 +552,23 @@
             class="back-link"
             onclick="showHome(); return false;"
         >
-
             ← ZPĚT NA HLAVNÍ STRÁNKU
-
         </a>
-
 
     </section>
 
 
 
-    <!-- =====================================
-         PATIČKA
-    ====================================== -->
+    <!-- PATIČKA -->
 
     <footer>
-
         PETR JAKL · OSOBNÍ PORTFOLIO
-
     </footer>
 
 
-
-    <!-- =====================================
-         LEAFLET JAVASCRIPT
-    ====================================== -->
-
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
-
-
-
-    <!-- =====================================
-         VLASTNÍ JAVASCRIPT
-    ====================================== -->
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
-
 </body>
-
 </html>
