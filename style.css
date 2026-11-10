@@ -1,424 +1,823 @@
 
 /* =========================================
-   PETR JAKL – OSOBNÍ PORTFOLIO
-   PREMIUM GEOPOLITICAL ATLAS
+   PETR JAKL – PREMIUM PORTFOLIO
+   GEOPOLITICAL MONITORING SYSTEM
+========================================= */
+
+
+/* =========================================
+   01. BAREVNÁ PALETA
 ========================================= */
 
 :root {
+
     --gold: #c8a96e;
     --light-gold: #e5cc9b;
+
     --black: #050505;
-    --grey: #999;
+
+    --grey: #999999;
+    --dark-grey: #555555;
+
     --blue: #61a9d7;
+    --cyan: #65d9e8;
+    --light-cyan: #a0eff5;
+
     --red: #d46f69;
+
+    --map-line: rgba(104, 204, 222, .67);
+    --map-glow: rgba(77, 194, 220, .18);
+
+    --border: rgba(200, 169, 110, .25);
+
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--black);
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-    min-height: 100vh;
-}
 
 /* =========================================
-   NAVIGACE
+   02. RESET
+========================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--black);
+
+    color: white;
+
+    font-family: 'Montserrat', sans-serif;
+
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================
+   03. NAVIGACE
 ========================================= */
 
 nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     padding: 23px 7%;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     z-index: 1000;
-    background: rgba(5,5,5,.94);
+
+    background: rgba(5, 5, 5, .94);
+
     backdrop-filter: blur(18px);
+
     border-bottom: 1px solid rgba(255,255,255,.06);
+
 }
+
 
 .logo {
+
     font-size: 13px;
+
     letter-spacing: 6px;
+
     font-weight: 700;
+
 }
+
 
 .home-btn {
+
     width: 45px;
     height: 45px;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     border: 1px solid rgba(200,169,110,.6);
+
     border-radius: 50%;
+
     color: var(--gold);
+
     text-decoration: none;
+
     transition: .3s;
+
 }
+
 
 .home-btn:hover {
+
     background: var(--gold);
+
     color: black;
+
 }
 
+
 /* =========================================
-   HLAVNÍ STRÁNKA
+   04. HLAVNÍ STRÁNKA
 ========================================= */
 
 #home {
+
     display: block;
+
     min-height: 100vh;
+
 }
+
 
 .hero {
+
     min-height: 100vh;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     text-align: center;
+
     padding: 155px 20px 30px;
+
     position: relative;
+
     overflow: hidden;
+
 }
 
+
 .hero::before {
+
     content: "";
+
     position: absolute;
+
     width: 850px;
     height: 850px;
+
     top: 5%;
     left: 50%;
+
     transform: translateX(-50%);
+
     background: radial-gradient(
         circle,
         rgba(200,169,110,.08),
         transparent 70%
     );
+
     pointer-events: none;
+
 }
+
 
 .subtitle {
+
     color: var(--gold);
+
     font-size: 11px;
+
     letter-spacing: 8px;
+
     margin-bottom: 28px;
+
     position: relative;
+
 }
+
 
 .hero h1 {
-    font-size: clamp(43px,9vw,105px);
+
+    font-size: clamp(43px, 9vw, 105px);
+
     font-weight: 300;
+
     letter-spacing: 8px;
+
     position: relative;
+
 }
+
 
 .hero h1 span {
+
     color: var(--gold);
+
     font-weight: 800;
+
 }
+
 
 .hero > p {
+
     color: #999;
+
     font-size: 11px;
+
     letter-spacing: 4px;
+
     margin-top: 24px;
+
     line-height: 2;
+
     position: relative;
+
 }
+
 
 .divider {
+
     width: 65px;
+
     height: 1px;
+
     background: var(--gold);
+
     margin: 35px auto;
+
 }
 
+
 /* =========================================
-   GEOPOLITICKÝ ATLAS
+   05. GEOPOLITICKÝ ATLAS
 ========================================= */
 
 .world-section {
+
     width: 100%;
+
     max-width: 1400px;
+
     position: relative;
+
     z-index: 2;
+
     margin: 0 auto;
+
 }
+
 
 .world-header {
+
     text-align: center;
+
     margin-bottom: 25px;
+
 }
+
 
 .world-eyebrow {
+
     display: block;
+
     color: var(--gold);
+
     font-size: 10px;
+
     letter-spacing: 6px;
+
     margin-bottom: 15px;
+
 }
+
 
 .world-header h2 {
-    font-size: clamp(22px,4vw,35px);
+
+    font-size: clamp(22px, 4vw, 35px);
+
     font-weight: 300;
+
     letter-spacing: 4px;
+
 }
+
 
 .world-header h2 span {
+
     color: var(--gold);
+
     font-weight: 700;
+
 }
+
 
 .world-description {
+
     color: #777;
+
     font-size: 9px;
+
     letter-spacing: 3px;
+
     margin-top: 15px;
+
 }
 
+
 /* =========================================
-   MAPOVÁ PLOCHA
+   06. MAPOVÁ PLOCHA
 ========================================= */
 
 .world-visual {
+
     width: 100%;
+
     max-width: 1250px;
-    height: clamp(350px,48vw,570px);
+
+    height: clamp(350px, 48vw, 570px);
+
     position: relative;
+
     margin: 0 auto;
+
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            ellipse at center,
-            #101a21 0%,
-            #080d13 65%,
-            #05080c 100%
-        );
+    background: transparent;
 
-    border: 1px solid rgba(200,169,110,.25);
+    border: 1px solid rgba(200,169,110,.20);
+
     box-shadow:
-        0 20px 80px rgba(0,0,0,.5),
-        inset 0 0 80px rgba(0,0,0,.35);
+
+        0 20px 80px rgba(0,0,0,.35),
+
+        inset 0 0 65px rgba(77,194,220,.025);
+
 }
+
+
+/* =========================================
+   07. SVG MAPA
+========================================= */
 
 .world-map {
+
     position: absolute;
+
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     z-index: 1;
+
     overflow: hidden;
+
 }
+
 
 .world-map svg {
+
     display: block;
+
     width: 100%;
     height: 100%;
+
+    overflow: visible;
+
 }
 
-/* GEOGRAFICKÁ DATA */
 
-.world-map path {
-    vector-effect: non-scaling-stroke;
-}
+/* ZÁKLADNÍ STYL STÁTŮ */
 
-.world-map svg path {
+.world-map .country {
+
+    fill: rgba(53, 116, 137, .10);
+
+    stroke: rgba(102, 205, 224, .65);
+
+    stroke-width: .65;
+
     stroke-linejoin: round;
+
     stroke-linecap: round;
+
+    vector-effect: non-scaling-stroke;
+
+    transition:
+
+        fill .4s ease,
+
+        stroke .4s ease,
+
+        filter .4s ease;
+
 }
 
-/* NAČÍTÁNÍ MAPY */
 
-.map-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color: var(--gold);
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-align: center;
+/* JEMNÉ SVĚTELNÉ HRANICE */
+
+.world-map .country {
+
+    filter: drop-shadow(
+        0 0 1.5px rgba(73, 201, 224, .18)
+    );
+
 }
+
+
+/* ZVÝRAZNĚNÉ OBLASTI */
+
+.world-map .country.highlight {
+
+    fill: rgba(87, 192, 207, .17);
+
+    stroke: rgba(130, 231, 238, .85);
+
+}
+
+
+/* VNITŘNÍ HRANICE */
+
+.world-map .country-borders {
+
+    fill: none;
+
+    stroke: rgba(117, 208, 222, .52);
+
+    stroke-width: .55;
+
+    vector-effect: non-scaling-stroke;
+
+    stroke-linejoin: round;
+
+}
+
 
 /* =========================================
-   OKRAJE MAPY
+   08. ANIMOVANÉ MAPOVÉ BODY
 ========================================= */
 
-.map-fade-top,
-.map-fade-bottom,
-.map-fade-left,
-.map-fade-right {
+.map-point {
+
+    fill: var(--cyan);
+
+    stroke: rgba(101, 217, 232, .4);
+
+    stroke-width: 5;
+
+    transform-box: fill-box;
+
+    transform-origin: center;
+
+    animation: pointPulse 3s ease-in-out infinite;
+
+}
+
+
+.map-point.gold {
+
+    fill: var(--gold);
+
+    stroke: rgba(200,169,110,.4);
+
+}
+
+
+.map-point.blue {
+
+    fill: var(--blue);
+
+    stroke: rgba(97,169,215,.4);
+
+}
+
+
+@keyframes pointPulse {
+
+    0% {
+
+        opacity: .65;
+
+        stroke-width: 2;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        stroke-width: 7;
+
+    }
+
+    100% {
+
+        opacity: .65;
+
+        stroke-width: 2;
+
+    }
+
+}
+
+
+/* =========================================
+   09. GLOBÁLNÍ DATOVÉ LINKY
+========================================= */
+
+.map-route {
+
+    fill: none;
+
+    stroke: rgba(91, 210, 225, .55);
+
+    stroke-width: 1.1;
+
+    stroke-dasharray: 5 8;
+
+    vector-effect: non-scaling-stroke;
+
+    animation: routeFlow 14s linear infinite;
+
+}
+
+
+.map-route.gold {
+
+    stroke: rgba(200,169,110,.55);
+
+}
+
+
+@keyframes routeFlow {
+
+    from {
+
+        stroke-dashoffset: 0;
+
+    }
+
+    to {
+
+        stroke-dashoffset: -260;
+
+    }
+
+}
+
+
+/* =========================================
+   10. MAPOVÝ OVERLAY
+========================================= */
+
+.map-overlay {
+
     position: absolute;
-    z-index: 5;
+
+    inset: 0;
+
+    z-index: 3;
+
     pointer-events: none;
+
+    overflow: hidden;
+
 }
 
-.map-fade-top {
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 55px;
-    background: linear-gradient(
-        to bottom,
-        #080b10,
-        transparent
-    );
-}
-
-.map-fade-bottom {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 65px;
-    background: linear-gradient(
-        to top,
-        #080b10,
-        transparent
-    );
-}
-
-.map-fade-left {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 45px;
-    background: linear-gradient(
-        to right,
-        #080b10,
-        transparent
-    );
-}
-
-.map-fade-right {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 45px;
-    background: linear-gradient(
-        to left,
-        #080b10,
-        transparent
-    );
-}
 
 /* =========================================
-   LEGENDA
+   11. SKENOVACÍ EFEKT
 ========================================= */
 
-.map-legend {
+.map-scan {
+
     position: absolute;
-    top: 25px;
-    right: 25px;
-    z-index: 10;
 
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
+    top: -30%;
 
-    padding: 17px 20px;
+    left: 0;
 
-    background: rgba(5,8,12,.92);
-    border-left: 1px solid var(--gold);
+    width: 100%;
 
-    backdrop-filter: blur(12px);
+    height: 30%;
+
+    background: linear-gradient(
+
+        to bottom,
+
+        transparent,
+
+        rgba(75, 196, 218, .015),
+
+        rgba(75, 196, 218, .075),
+
+        transparent
+
+    );
+
+    animation: mapScan 12s linear infinite;
+
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-    color: #aaa;
-    font-size: 9px;
-    letter-spacing: 1px;
+@keyframes mapScan {
+
+    0% {
+
+        transform: translateY(-30%);
+
+    }
+
+    100% {
+
+        transform: translateY(450%);
+
+    }
+
 }
 
-.legend-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.legend-dot.gold {
-    background: var(--gold);
-    box-shadow: 0 0 9px var(--gold);
-}
-
-.legend-dot.blue {
-    background: var(--blue);
-    box-shadow: 0 0 9px var(--blue);
-}
-
-.legend-dot.red {
-    background: var(--red);
-    box-shadow: 0 0 9px var(--red);
-}
-
-.legend-line {
-    width: 18px;
-    height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-}
 
 /* =========================================
-   POPISEK POD MAPOU
+   12. TECHNICKÁ MŘÍŽKA
+========================================= */
+
+.map-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .10;
+
+    background-image:
+
+        linear-gradient(
+            rgba(94, 187, 204, .15) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(94, 187, 204, .15) 1px,
+            transparent 1px
+        );
+
+    background-size: 65px 65px;
+
+}
+
+
+/* =========================================
+   13. ROHOVÉ INDIKÁTORY
+========================================= */
+
+.map-corner {
+
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    border-color: rgba(200,169,110,.7);
+
+    border-style: solid;
+
+}
+
+
+.map-corner-tl {
+
+    top: 12px;
+    left: 12px;
+
+    border-width: 1px 0 0 1px;
+
+}
+
+
+.map-corner-tr {
+
+    top: 12px;
+    right: 12px;
+
+    border-width: 1px 1px 0 0;
+
+}
+
+
+.map-corner-bl {
+
+    bottom: 12px;
+    left: 12px;
+
+    border-width: 0 0 1px 1px;
+
+}
+
+
+.map-corner-br {
+
+    bottom: 12px;
+    right: 12px;
+
+    border-width: 0 1px 1px 0;
+
+}
+
+
+/* =========================================
+   14. POPISEK POD MAPOU
 ========================================= */
 
 .world-caption {
+
     color: #777;
+
     font-size: 9px;
+
     letter-spacing: 3px;
+
     text-align: center;
+
     margin: 15px 0 30px;
+
 }
 
+
 /* =========================================
-   DLAŽDICE
+   15. DLAŽDICE
 ========================================= */
 
 .cards-section {
+
     padding: 20px 0 100px;
+
 }
+
 
 .section-heading {
+
     text-align: center;
+
     font-size: 11px;
+
     letter-spacing: 6px;
+
     color: #888;
+
     margin: 35px 0 40px;
+
 }
+
 
 .cards {
+
     display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 25px;
-    width: min(1050px,90%);
+
+    width: min(1050px, 90%);
+
     margin: 0 auto;
+
 }
 
+
 .card {
+
     min-height: 350px;
+
     position: relative;
+
     overflow: hidden;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
 
     padding: 40px;
@@ -426,359 +825,580 @@ nav {
     border: 1px solid rgba(200,169,110,.25);
 
     color: white;
+
     transition: .4s;
 
     background: linear-gradient(
+
         145deg,
+
         #151515,
+
         #080808
+
     );
 
     cursor: pointer;
+
     outline: none;
+
 }
 
+
 .card::before {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
 
     background: radial-gradient(
+
         circle at 80% 20%,
+
         rgba(200,169,110,.16),
+
         transparent 55%
+
     );
 
     transition: .5s;
+
     pointer-events: none;
+
 }
+
 
 .card:hover,
 .card:focus-visible {
+
     transform: translateY(-8px);
+
     border-color: var(--gold);
+
     box-shadow: 0 15px 45px rgba(200,169,110,.1);
+
 }
+
 
 .card:hover::before {
+
     background: radial-gradient(
+
         circle at 80% 20%,
+
         rgba(200,169,110,.27),
+
         transparent 60%
+
     );
+
 }
 
+
 .card-number {
+
     position: absolute;
+
     top: 35px;
     left: 40px;
 
     color: rgba(200,169,110,.6);
+
     font-size: 13px;
+
     letter-spacing: 4px;
+
 }
+
 
 .card h2 {
-    font-size: clamp(22px,3vw,35px);
+
+    font-size: clamp(22px, 3vw, 35px);
+
     letter-spacing: 2px;
+
     position: relative;
+
     z-index: 2;
+
     font-weight: 500;
+
 }
+
 
 .card p {
+
     color: #999;
+
     font-size: 12px;
+
     margin-top: 15px;
+
     line-height: 1.9;
+
     position: relative;
+
     z-index: 2;
+
 }
+
 
 .card-link {
+
     color: var(--gold);
+
     font-size: 9px;
+
     letter-spacing: 3px;
+
     margin-top: 25px;
+
     position: relative;
+
     z-index: 2;
+
 }
+
 
 .arrow {
+
     position: absolute;
+
     right: 35px;
     top: 35px;
+
     font-size: 25px;
+
     color: var(--gold);
+
     transition: .3s;
+
 }
+
 
 .card:hover .arrow {
-    transform: translate(5px,-5px);
+
+    transform: translate(5px, -5px);
+
 }
 
+
 /* =========================================
-   PODSTRÁNKY
+   16. PODSTRÁNKY
 ========================================= */
 
 .page {
+
     min-height: 100vh;
+
     padding: 155px 10% 100px;
+
     display: none;
+
     background: var(--black);
+
 }
+
 
 .page.active {
+
     display: block;
+
     animation: enter .7s ease;
+
 }
 
+
 @keyframes enter {
+
     from {
+
         opacity: 0;
+
         transform: translateY(25px);
+
     }
 
     to {
+
         opacity: 1;
+
         transform: translateY(0);
+
     }
+
 }
+
 
 .page-tag {
+
     color: var(--gold);
+
     font-size: 11px;
+
     letter-spacing: 6px;
+
     margin-bottom: 30px;
+
 }
+
 
 .page h1 {
-    font-size: clamp(38px,7vw,80px);
+
+    font-size: clamp(38px, 7vw, 80px);
+
     font-weight: 300;
+
     letter-spacing: 4px;
+
     margin-bottom: 35px;
+
 }
+
 
 .page h1 span {
+
     color: var(--gold);
+
     font-weight: 700;
+
 }
+
 
 .page-intro {
+
     max-width: 750px;
+
     font-size: 15px;
+
     color: #999;
+
     line-height: 2.2;
+
 }
 
+
 /* =========================================
-   OBSAHOVÉ BLOKY
+   17. OBSAHOVÉ BLOKY
 ========================================= */
 
 .content-block {
+
     margin-top: 45px;
+
     padding: 35px;
 
     border-left: 1px solid var(--gold);
 
     background: linear-gradient(
+
         90deg,
+
         rgba(200,169,110,.07),
+
         transparent
+
     );
 
     transition: .3s;
+
 }
+
 
 .content-block:hover {
+
     background: linear-gradient(
+
         90deg,
+
         rgba(200,169,110,.13),
+
         transparent
+
     );
+
 }
+
 
 .content-block h2 {
+
     font-size: 21px;
+
     letter-spacing: 2px;
+
     margin-bottom: 20px;
+
     font-weight: 500;
+
 }
+
 
 .content-block p {
+
     color: #999;
+
     font-size: 14px;
+
     line-height: 2;
+
 }
 
+
 /* =========================================
-   NÁVRAT
+   18. NÁVRAT
 ========================================= */
 
 .back-link {
+
     display: inline-block;
+
     margin-top: 55px;
 
     color: var(--gold);
+
     text-decoration: none;
 
     letter-spacing: 3px;
+
     font-size: 11px;
 
     cursor: pointer;
+
     transition: .3s;
+
 }
+
 
 .back-link:hover {
+
     color: white;
+
     transform: translateX(-5px);
+
 }
 
+
 /* =========================================
-   PATIČKA
+   19. PATIČKA
 ========================================= */
 
 footer {
+
     border-top: 1px solid rgba(255,255,255,.08);
+
     padding: 30px;
+
     text-align: center;
+
     color: #555;
+
     font-size: 10px;
+
     letter-spacing: 3px;
+
 }
 
+
 /* =========================================
-   MOBILNÍ ZAŘÍZENÍ
+   20. MOBILNÍ ZAŘÍZENÍ
 ========================================= */
 
-@media(max-width:700px) {
+@media (max-width: 700px) {
 
     nav {
+
         padding: 18px 5%;
+
     }
+
 
     .hero {
+
         padding: 130px 15px 30px;
+
     }
+
 
     .hero h1 {
+
         letter-spacing: 3px;
+
     }
+
 
     .hero > p {
+
         font-size: 9px;
+
         letter-spacing: 2px;
+
     }
+
 
     .world-header h2 {
+
         font-size: 22px;
+
         letter-spacing: 2px;
+
     }
+
 
     .world-eyebrow {
+
         font-size: 9px;
+
         letter-spacing: 3px;
+
     }
+
 
     .world-description {
+
         font-size: 8px;
+
         letter-spacing: 1px;
+
         line-height: 1.8;
+
     }
+
 
     .world-visual {
+
         height: 380px;
+
     }
 
-    .map-legend {
-        top: 12px;
-        right: 10px;
-        padding: 11px;
-        gap: 9px;
+
+    .map-grid {
+
+        background-size: 45px 45px;
+
     }
 
-    .legend-item {
-        font-size: 8px;
+
+    .map-corner {
+
+        width: 15px;
+
+        height: 15px;
+
     }
 
-    .map-fade-left,
-    .map-fade-right {
-        width: 25px;
-    }
-
-    .map-fade-top {
-        height: 35px;
-    }
-
-    .map-fade-bottom {
-        height: 40px;
-    }
 
     .world-caption {
+
         font-size: 7px;
+
         letter-spacing: 2px;
+
         line-height: 1.8;
+
     }
+
 
     .cards {
+
         grid-template-columns: 1fr;
+
         width: 90%;
+
         gap: 18px;
+
     }
+
 
     .card {
+
         min-height: 290px;
+
         padding: 30px;
+
     }
+
 
     .card-number {
+
         left: 30px;
+
         top: 25px;
+
     }
+
 
     .page {
+
         padding: 130px 7% 70px;
+
     }
+
 
     .content-block {
+
         padding: 25px;
+
     }
+
 
     .page-intro {
+
         font-size: 13px;
-    }
-}
 
-@media(max-width:400px) {
-
-    .map-legend {
-        transform: scale(.85);
-        transform-origin: top right;
-    }
-
-    .world-visual {
-        height: 320px;
-    }
-
-    .card h2 {
-        font-size: 23px;
     }
 
 }
+
 
 /* =========================================
-   OMEZENÍ ANIMACÍ
+   21. MALÉ MOBILY
 ========================================= */
 
-@media(prefers-reduced-motion:reduce) {
+@media (max-width: 400px) {
+
+    .world-visual {
+
+        height: 320px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .world-header h2 {
+
+        font-size: 19px;
+
+    }
+
+}
+
+
+/* =========================================
+   22. REDUKCE ANIMACÍ
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
+
         animation-duration: .01ms !important;
+
         animation-iteration-count: 1 !important;
+
         scroll-behavior: auto !important;
+
         transition-duration: .01ms !important;
+
     }
 
 }
