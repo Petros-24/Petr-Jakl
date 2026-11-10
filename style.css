@@ -803,3 +803,166 @@ footer {
 }
 
 /* KONEC CSS */
+
+/* =====================================
+   IKONA DOMŮ
+===================================== */
+
+.home-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c8a96e;
+    border: 1px solid rgba(200,169,110,.6);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+
+.home-btn svg {
+    width: 21px;
+    height: 21px;
+    display: block;
+}
+
+.home-btn:hover {
+    background: #c8a96e;
+    color: #050505;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+   OSTRÁ MAPA SVĚTA
+===================================== */
+
+.world-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.world-visual {
+    width: 100%;
+    max-width: 1250px;
+    height: clamp(320px, 45vw, 540px);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: #080b10;
+    border: 1px solid rgba(200,169,110,.18);
+}
+
+.world-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: .18;
+    background-image:
+        linear-gradient(rgba(200,169,110,.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,169,110,.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.world-svg {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.continents path {
+    fill: #17232b;
+    stroke: #c8a96e;
+    stroke-width: 1.2px;
+    filter: none !important;
+    transition: fill .3s ease;
+}
+
+.continents path:hover {
+    fill: #263943;
+}
+
+.map-connections {
+    opacity: .75;
+    animation: mapLines 5s ease-in-out infinite;
+}
+
+@keyframes mapLines {
+    0%, 100% {
+        opacity: .4;
+    }
+    50% {
+        opacity: .9;
+    }
+}
+
+.point {
+    animation: mapPoint 3s ease-in-out infinite;
+}
+
+@keyframes mapPoint {
+    0%, 100% {
+        opacity: .7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.map-labels {
+    fill: #e5cc9b;
+    font-family: Montserrat, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-anchor: middle;
+    opacity: .85;
+}
+
+.world-header {
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   MOBILNÍ ZOBRAZENÍ
+===================================== */
+
+@media(max-width:700px) {
+
+    .world-visual {
+        height: 340px;
+    }
+
+    .world-svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .map-labels {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .map-legend {
+        top: 12px;
+        right: 10px;
+        padding: 10px;
+    }
+}
+
+@media(max-width:400px) {
+
+    .world-visual {
+        height: 300px;
+    }
+
+    .map-labels {
+        font-size: 8px;
+    }
+}
