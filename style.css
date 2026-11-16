@@ -587,3 +587,35 @@ footer {
         contrast(1.12)
         saturate(0.85) !important;
 }
+
+/* GOLD MAP – DARK BACKGROUND BLENDING */
+
+.gold-world-image {
+    opacity: 1 !important;
+
+    mix-blend-mode: screen !important;
+
+    filter:
+        brightness(1.08)
+        contrast(1.18)
+        saturate(1.15) !important;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 85% 80% at center,
+        black 55%,
+        rgba(0,0,0,.85) 75%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 85% 80% at center,
+        black 55%,
+        rgba(0,0,0,.85) 75%,
+        transparent 100%
+    );
+}
+
+.world-map,
+.world-visual {
+    background: #050505 !important;
+}
