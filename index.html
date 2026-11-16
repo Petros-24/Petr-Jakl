@@ -3,26 +3,19 @@
 <html lang="cs">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#050505">
-
     <meta name="description" content="Petr Jakl – osobní portfolio">
 
     <title>Petr Jakl | Osobní portfolio</title>
-
-    <!-- FONT -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -30,18 +23,14 @@
     <!-- NAVIGACE -->
 
     <nav>
-
-        <div class="logo">
-            PETR JAKL
-        </div>
+        <div class="logo">PETR JAKL</div>
 
         <a href="#" class="home-btn"
            onclick="showHome(); return false;"
            aria-label="Domů">
 
             <svg xmlns="http://www.w3.org/2000/svg"
-                 width="21"
-                 height="21"
+                 width="21" height="21"
                  viewBox="0 0 24 24"
                  fill="none"
                  stroke="currentColor"
@@ -52,11 +41,8 @@
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v12h14V9"/>
                 <path d="M9 21v-7h6v7"/>
-
             </svg>
-
         </a>
-
     </nav>
 
 
@@ -81,30 +67,22 @@
             <div class="divider"></div>
 
 
-            <!-- GEOPOLITICKÝ ATLAS -->
+            <!-- GEOPOLITICKÁ MAPA SVĚTA -->
 
             <section class="world-section">
-
-                <!-- MAPOVÁ PLOCHA -->
 
                 <div class="world-visual">
 
                     <div id="world-map"
                          class="world-map"
                          role="img"
-                         aria-label="Zlatá geopolitická mapa světa s animovanými datovými propojeními">
+                         aria-label="Zlatá mapa světa s geografickými body a datovými propojeními">
 
-                        <!-- ZLATÉ POZADÍ MAPY -->
+                        <!-- ZLATÉ KONTINENTY -->
 
                         <div class="map-background"></div>
 
-
-                        <!-- TMAVÝ PŘECHOD -->
-
-                        <div class="map-overlay"></div>
-
-
-                        <!-- ANIMOVANÉ SVG PRVKY -->
+                        <!-- SVG GRAFIKA -->
 
                         <svg class="map-graphics"
                              viewBox="0 0 1200 560"
@@ -115,45 +93,44 @@
                             <defs>
 
                                 <radialGradient id="goldGlow">
-
-                                    <stop offset="0%" stop-color="#ffe7a8" stop-opacity="1"/>
-
-                                    <stop offset="35%" stop-color="#c8a96e" stop-opacity=".7"/>
-
+                                    <stop offset="0%" stop-color="#ffe7a8" stop-opacity="0.8"/>
+                                    <stop offset="45%" stop-color="#c8a96e" stop-opacity="0.35"/>
                                     <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
-
                                 </radialGradient>
 
                                 <linearGradient id="routeGradient">
-
-                                    <stop offset="0%" stop-color="#c8a96e" stop-opacity=".1"/>
-
-                                    <stop offset="50%" stop-color="#f0d69d" stop-opacity=".95"/>
-
-                                    <stop offset="100%" stop-color="#c8a96e" stop-opacity=".1"/>
-
+                                    <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.1"/>
+                                    <stop offset="50%" stop-color="#f3d99f" stop-opacity="0.9"/>
+                                    <stop offset="100%" stop-color="#c8a96e" stop-opacity="0.1"/>
                                 </linearGradient>
 
                             </defs>
 
 
-                            <!-- DATOVÉ LINKY -->
+                            <!-- DATOVÉ TRASY -->
 
                             <g class="data-routes">
 
-                                <path d="M205 180 Q340 45 470 195"/>
+                                <!-- Severní Amerika – Evropa -->
+                                <path d="M225 175 Q410 65 595 160"/>
 
-                                <path d="M470 195 Q590 90 720 205"/>
+                                <!-- Evropa – Asie -->
+                                <path d="M595 160 Q730 95 835 190"/>
 
-                                <path d="M720 205 Q830 90 950 185"/>
+                                <!-- Evropa – Afrika -->
+                                <path d="M595 160 Q575 255 610 305"/>
 
-                                <path d="M470 195 Q550 340 650 365"/>
+                                <!-- Afrika – Asie -->
+                                <path d="M610 305 Q735 255 835 190"/>
 
-                                <path d="M720 205 Q790 300 850 390"/>
+                                <!-- Asie – Austrálie -->
+                                <path d="M835 190 Q950 270 965 395"/>
 
-                                <path d="M205 180 Q360 400 500 430"/>
+                                <!-- Severní Amerika – Jižní Amerika -->
+                                <path d="M225 175 Q245 290 355 375"/>
 
-                                <path d="M950 185 Q1030 310 850 390"/>
+                                <!-- Evropa – Jižní Amerika -->
+                                <path d="M595 160 Q460 275 355 375"/>
 
                             </g>
 
@@ -162,40 +139,52 @@
 
                             <g class="map-markers">
 
-                                <g class="map-marker">
-                                    <circle cx="205" cy="180" r="12" class="marker-glow"/>
-                                    <circle cx="205" cy="180" r="2.5" class="marker-core"/>
-                                    <circle cx="205" cy="180" r="6" class="marker-pulse"/>
-                                </g>
+                                <!-- SEVERNÍ AMERIKA -->
 
                                 <g class="map-marker">
-                                    <circle cx="470" cy="195" r="12" class="marker-glow"/>
-                                    <circle cx="470" cy="195" r="2.5" class="marker-core"/>
-                                    <circle cx="470" cy="195" r="6" class="marker-pulse"/>
+                                    <circle cx="225" cy="175" r="17" class="marker-glow"/>
+                                    <circle cx="225" cy="175" r="3" class="marker-core"/>
+                                    <circle cx="225" cy="175" r="8" class="marker-pulse"/>
                                 </g>
 
-                                <g class="map-marker">
-                                    <circle cx="720" cy="205" r="12" class="marker-glow"/>
-                                    <circle cx="720" cy="205" r="2.5" class="marker-core"/>
-                                    <circle cx="720" cy="205" r="6" class="marker-pulse"/>
-                                </g>
+                                <!-- JIŽNÍ AMERIKA -->
 
                                 <g class="map-marker">
-                                    <circle cx="950" cy="185" r="12" class="marker-glow"/>
-                                    <circle cx="950" cy="185" r="2.5" class="marker-core"/>
-                                    <circle cx="950" cy="185" r="6" class="marker-pulse"/>
+                                    <circle cx="355" cy="375" r="17" class="marker-glow"/>
+                                    <circle cx="355" cy="375" r="3" class="marker-core"/>
+                                    <circle cx="355" cy="375" r="8" class="marker-pulse"/>
                                 </g>
 
-                                <g class="map-marker">
-                                    <circle cx="650" cy="365" r="12" class="marker-glow"/>
-                                    <circle cx="650" cy="365" r="2.5" class="marker-core"/>
-                                    <circle cx="650" cy="365" r="6" class="marker-pulse"/>
-                                </g>
+                                <!-- EVROPA -->
 
                                 <g class="map-marker">
-                                    <circle cx="850" cy="390" r="12" class="marker-glow"/>
-                                    <circle cx="850" cy="390" r="2.5" class="marker-core"/>
-                                    <circle cx="850" cy="390" r="6" class="marker-pulse"/>
+                                    <circle cx="595" cy="160" r="17" class="marker-glow"/>
+                                    <circle cx="595" cy="160" r="3" class="marker-core"/>
+                                    <circle cx="595" cy="160" r="8" class="marker-pulse"/>
+                                </g>
+
+                                <!-- AFRIKA -->
+
+                                <g class="map-marker">
+                                    <circle cx="610" cy="305" r="17" class="marker-glow"/>
+                                    <circle cx="610" cy="305" r="3" class="marker-core"/>
+                                    <circle cx="610" cy="305" r="8" class="marker-pulse"/>
+                                </g>
+
+                                <!-- ASIE -->
+
+                                <g class="map-marker">
+                                    <circle cx="835" cy="190" r="17" class="marker-glow"/>
+                                    <circle cx="835" cy="190" r="3" class="marker-core"/>
+                                    <circle cx="835" cy="190" r="8" class="marker-pulse"/>
+                                </g>
+
+                                <!-- AUSTRÁLIE -->
+
+                                <g class="map-marker">
+                                    <circle cx="965" cy="395" r="17" class="marker-glow"/>
+                                    <circle cx="965" cy="395" r="3" class="marker-core"/>
+                                    <circle cx="965" cy="395" r="8" class="marker-pulse"/>
                                 </g>
 
                             </g>
@@ -203,33 +192,13 @@
 
                             <!-- DATOVÉ IMPULZY -->
 
-                            <g class="data-particles">
+                            <g class="data-particles"></g>
 
-                                <circle r="3">
-                                    <animateMotion dur="7s" repeatCount="indefinite"
-                                        path="M205 180 Q340 45 470 195"/>
-                                </circle>
+                        </svg>
 
-                                <circle r="3">
-                                    <animateMotion dur="9s" repeatCount="indefinite"
-                                        path="M470 195 Q590 90 720 205"/>
-                                </circle>
+                    </div>
 
-                                <circle r="3">
-                                    <animateMotion dur="8s" repeatCount="indefinite"
-                                        path="M720 205 Q830 90 950 185"/>
-                                </circle>
-
-                            </g>
-
-
-                            <!-- SKENOVACÍ LINIE -->
-
-                            <rect class="scan-line"
-                                  x="0"
-                                  y="0"
-                                  width="1200"
-                                  height="2"/>
+                </div>
 
             </section>
 
@@ -243,7 +212,6 @@
             <div class="section-heading">
                 HLAVNÍ OBLASTI ZÁJMU
             </div>
-
 
             <div class="cards">
 
