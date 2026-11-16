@@ -539,3 +539,51 @@ footer {
         scroll-behavior: auto !important;
     }
 }
+
+/* =====================================
+   NATURAL GOLD MAP BLENDING
+===================================== */
+
+.world-visual {
+    background: #050505 !important;
+}
+
+.world-map {
+    background: transparent !important;
+}
+
+.gold-world-image {
+    opacity: 0.88 !important;
+
+    filter:
+        brightness(0.85)
+        contrast(1.12)
+        saturate(0.85) !important;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 85% 82% at center,
+        #000 45%,
+        rgba(0,0,0,0.95) 65%,
+        rgba(0,0,0,0.5) 85%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 85% 82% at center,
+        #000 45%,
+        rgba(0,0,0,0.95) 65%,
+        rgba(0,0,0,0.5) 85%,
+        transparent 100%
+    );
+
+    transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.gold-world-image:hover {
+    opacity: 0.88 !important;
+
+    filter:
+        brightness(0.85)
+        contrast(1.12)
+        saturate(0.85) !important;
+}
