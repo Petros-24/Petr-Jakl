@@ -673,3 +673,60 @@ footer {
             );
     }
 }
+
+/* =====================================
+   FINAL GOLD MAP – ALL SIDES BLENDING
+===================================== */
+
+.world-visual {
+    position: relative !important;
+    overflow: hidden !important;
+    background: #050505 !important;
+}
+
+/* Mapa bez změny při najetí */
+
+.gold-world-image,
+.gold-world-image:hover {
+    opacity: 0.82 !important;
+
+    filter:
+        brightness(0.82)
+        contrast(1.12)
+        saturate(0.9) !important;
+
+    transition: none !important;
+}
+
+/* Černé prolínání ze všech čtyř stran */
+
+.world-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse 58% 57% at center,
+            transparent 38%,
+            rgba(5,5,5,0.18) 60%,
+            rgba(5,5,5,0.75) 82%,
+            #050505 100%
+        );
+}
+
+/* Mobilní zobrazení */
+
+@media (max-width: 700px) {
+    .world-visual::after {
+        background:
+            radial-gradient(
+                ellipse 65% 60% at center,
+                transparent 35%,
+                rgba(5,5,5,0.3) 62%,
+                #050505 100%
+            );
+    }
+}
