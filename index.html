@@ -15,12 +15,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-
-    <!-- NAVIGACE -->
 
     <nav>
         <div class="logo">PETR JAKL</div>
@@ -28,47 +26,34 @@
         <a href="#" class="home-btn"
            onclick="showHome(); return false;"
            aria-label="Domů">
-
             <svg xmlns="http://www.w3.org/2000/svg"
-                 width="21"
-                 height="21"
+                 width="21" height="21"
                  viewBox="0 0 24 24"
                  fill="none"
                  stroke="currentColor"
                  stroke-width="1.7"
                  stroke-linecap="round"
                  stroke-linejoin="round">
-
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v12h14V9"/>
                 <path d="M9 21v-7h6v7"/>
             </svg>
-
         </a>
     </nav>
-
-
-    <!-- HLAVNÍ STRÁNKA -->
 
     <main id="home">
 
         <section class="hero">
 
-            <div class="subtitle">
-                OSOBNÍ PORTFOLIO
-            </div>
+            <div class="subtitle">OSOBNÍ PORTFOLIO</div>
 
-            <h1>
-                PETR <span>JAKL</span>
-            </h1>
+            <h1>PETR <span>JAKL</span></h1>
 
-            <p>
-                TECHNOLOGIE · STRATEGIE · GLOBÁLNÍ PŘEHLED
-            </p>
+            <p>TECHNOLOGIE · STRATEGIE · GLOBÁLNÍ PŘEHLED</p>
 
             <div class="divider"></div>
 
-            <!-- VLASTNÍ ZLATÁ MAPA -->
+            <!-- VLASTNÍ MAPA -->
 
             <section class="world-section">
 
@@ -81,6 +66,7 @@
                             src="./Gemini_Generated_Image_hvc43qhvc43qhvc4.png"
                             alt="Zlatá mapa světa"
                             loading="eager"
+                            onerror="this.alt='Mapa se nepodařila načíst. Zkontroluj název souboru.'"
                         >
 
                     </div>
@@ -91,8 +77,7 @@
 
         </section>
 
-
-        <!-- HLAVNÍ OBLASTI ZÁJMU -->
+        <!-- OBLASTI ZÁJMU -->
 
         <section class="cards-section">
 
@@ -108,7 +93,6 @@
                      tabindex="0">
 
                     <span class="arrow">↗</span>
-
                     <div class="card-number">01</div>
 
                     <h2>Technologie</h2>
@@ -118,12 +102,9 @@
                         robotika a technologická budoucnost.
                     </p>
 
-                    <div class="card-link">
-                        ZOBRAZIT VÍCE →
-                    </div>
+                    <div class="card-link">ZOBRAZIT VÍCE →</div>
 
                 </div>
-
 
                 <div class="card"
                      onclick="showPage('relations')"
@@ -131,7 +112,6 @@
                      tabindex="0">
 
                     <span class="arrow">↗</span>
-
                     <div class="card-number">02</div>
 
                     <h2>Mezinárodní vztahy</h2>
@@ -141,9 +121,7 @@
                         světová ekonomika a globální souvislosti.
                     </p>
 
-                    <div class="card-link">
-                        ZOBRAZIT VÍCE →
-                    </div>
+                    <div class="card-link">ZOBRAZIT VÍCE →</div>
 
                 </div>
 
@@ -153,18 +131,13 @@
 
     </main>
 
-
-    <!-- PODSTRÁNKA TECHNOLOGIE -->
+    <!-- TECHNOLOGIE -->
 
     <section id="technology" class="page">
 
-        <div class="page-tag">
-            01 / TECHNOLOGIE
-        </div>
+        <div class="page-tag">01 / TECHNOLOGIE</div>
 
-        <h1>
-            TECHNO<span>LOGIE</span>
-        </h1>
+        <h1>TECHNO<span>LOGIE</span></h1>
 
         <p class="page-intro">
             Technologie mění způsob, jakým funguje současný svět.
@@ -173,36 +146,27 @@
         </p>
 
         <div class="content-block">
-
             <h2>Technologické inovace</h2>
-
             <p>
                 Moderní technologie, nové objevy a inovativní řešení,
                 která ovlivňují průmysl, společnost a každodenní život.
             </p>
-
         </div>
 
         <div class="content-block">
-
             <h2>Umělá inteligence a robotika</h2>
-
             <p>
                 Vývoj umělé inteligence, automatizace, robotických
                 systémů a autonomních technologií.
             </p>
-
         </div>
 
         <div class="content-block">
-
             <h2>Digitální infrastruktura</h2>
-
             <p>
                 Globální datové sítě, satelitní komunikace,
                 moderní informační systémy a digitální propojení světa.
             </p>
-
         </div>
 
         <a href="#" class="back-link"
@@ -212,18 +176,13 @@
 
     </section>
 
-
-    <!-- PODSTRÁNKA MEZINÁRODNÍ VZTAHY -->
+    <!-- MEZINÁRODNÍ VZTAHY -->
 
     <section id="relations" class="page">
 
-        <div class="page-tag">
-            02 / MEZINÁRODNÍ VZTAHY
-        </div>
+        <div class="page-tag">02 / MEZINÁRODNÍ VZTAHY</div>
 
-        <h1>
-            MEZINÁRODNÍ <span>VZTAHY</span>
-        </h1>
+        <h1>MEZINÁRODNÍ <span>VZTAHY</span></h1>
 
         <p class="page-intro">
             Svět je propojený sítí politických, ekonomických
@@ -233,36 +192,27 @@
         </p>
 
         <div class="content-block">
-
             <h2>Geopolitika</h2>
-
             <p>
                 Mezinárodní politické vztahy, strategické zájmy států,
                 regionální vývoj a proměny světového uspořádání.
             </p>
-
         </div>
 
         <div class="content-block">
-
             <h2>Mezinárodní spolupráce</h2>
-
             <p>
                 Diplomacie, mezinárodní organizace,
                 partnerství a spolupráce mezi jednotlivými státy.
             </p>
-
         </div>
 
         <div class="content-block">
-
             <h2>Světová ekonomika</h2>
-
             <p>
                 Mezinárodní obchod, energetika, infrastruktura
                 a ekonomické vztahy mezi světovými regiony.
             </p>
-
         </div>
 
         <a href="#" class="back-link"
@@ -272,17 +222,11 @@
 
     </section>
 
-
-    <!-- PATIČKA -->
-
     <footer>
         PETR JAKL · OSOBNÍ PORTFOLIO
     </footer>
 
-
-    <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 </html>
