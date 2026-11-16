@@ -1148,3 +1148,194 @@ footer {
 .map-markers {
     opacity: .8;
 }
+
+/* =========================================
+   PETR JAKL – FINAL GOLD WORLD MAP
+========================================= */
+
+/* MAPOVÁ PLOCHA */
+
+.world-visual {
+    width: 100%;
+    max-width: 1450px;
+    height: clamp(380px, 55vw, 650px);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.world-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent !important;
+}
+
+/* ZLATÉ KONTINENTY */
+
+.map-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background-image: url(
+        "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+    );
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.95 !important;
+
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(76%)
+        sepia(30%)
+        saturate(650%)
+        hue-rotate(4deg)
+        brightness(105%)
+        contrast(110%) !important;
+
+    mix-blend-mode: screen !important;
+
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+
+    pointer-events: none;
+}
+
+/* PRŮHLEDNÉ POZADÍ */
+
+.map-overlay {
+    display: none !important;
+}
+
+/* SVG */
+
+.map-graphics {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* DATOVÉ TRASY */
+
+.data-routes path {
+    fill: none;
+    stroke: #d6b779;
+    stroke-width: 1.1;
+    stroke-opacity: 0.65;
+    stroke-linecap: round;
+    stroke-dasharray: 4 7;
+
+    animation: gold-route-flow 18s linear infinite;
+}
+
+.data-routes path:nth-child(even) {
+    animation-duration: 23s;
+}
+
+@keyframes gold-route-flow {
+    to {
+        stroke-dashoffset: -150;
+    }
+}
+
+/* SVĚTELNÉ BODY */
+
+.marker-glow {
+    fill: url(#goldGlow);
+    opacity: 0.65;
+}
+
+.marker-core {
+    fill: #ffe2a3;
+
+    filter:
+        drop-shadow(0 0 4px #e5cc9b)
+        drop-shadow(0 0 9px #c8a96e);
+}
+
+.marker-pulse {
+    fill: none;
+    stroke: #e5cc9b;
+    stroke-width: 1.2;
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation: gold-marker-pulse 3.5s ease-out infinite;
+}
+
+@keyframes gold-marker-pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* ANIMOVANÉ DATOVÉ IMPULZY */
+
+.data-particles circle {
+    fill: #ffe7b0;
+
+    filter:
+        drop-shadow(0 0 4px #e5cc9b)
+        drop-shadow(0 0 9px #c8a96e);
+}
+
+/* KOMPLETNÍ ODSTRANĚNÍ SKENERU */
+
+.scan-line {
+    display: none !important;
+    animation: none !important;
+}
+
+/* MOBIL */
+
+@media (max-width: 700px) {
+
+    .world-visual {
+        height: 380px;
+    }
+
+    .map-background {
+        background-size: contain;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .world-visual {
+        height: 320px;
+    }
+
+}
+
+/* OMEZENÍ ANIMACÍ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .data-routes path,
+    .marker-pulse {
+        animation: none !important;
+    }
+
+}
