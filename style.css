@@ -1,14 +1,16 @@
 
 /* =========================================
-   PETR JAKL – PREMIUM PORTFOLIO
-   CLEAN VERSION – CUSTOM WORLD MAP
+   PETR JAKL – PREMIUM PERSONAL PORTFOLIO
+   CLEAN VERSION
 ========================================= */
 
 :root {
     --gold: #c8a96e;
     --light-gold: #e5cc9b;
     --black: #050505;
+    --dark: #0b0b0b;
     --grey: #999999;
+    --border: rgba(200,169,110,.25);
 }
 
 * {
@@ -43,8 +45,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+
     background: rgba(5,5,5,.94);
     backdrop-filter: blur(18px);
+
     border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
@@ -57,19 +61,24 @@ nav {
 .home-btn {
     width: 45px;
     height: 45px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     border: 1px solid rgba(200,169,110,.6);
     border-radius: 50%;
+
     color: var(--gold);
     text-decoration: none;
-    transition: .3s;
+
+    transition: .3s ease;
 }
 
 .home-btn:hover {
     background: var(--gold);
     color: black;
+    box-shadow: 0 0 25px rgba(200,169,110,.2);
 }
 
 /* =========================================
@@ -82,29 +91,40 @@ nav {
 }
 
 .hero {
-    min-height: 100vh;
+    min-height: 75vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
     text-align: center;
-    padding: 155px 20px 30px;
+
+    padding: 180px 20px 70px;
+
     position: relative;
     overflow: hidden;
 }
 
 .hero::before {
     content: "";
+
     position: absolute;
+
     width: 850px;
     height: 850px;
-    top: 5%;
+
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+
+    transform: translate(-50%, -50%);
+
     background: radial-gradient(
         circle,
-        rgba(200,169,110,.08),
+        rgba(200,169,110,.09),
         transparent 70%
     );
+
     pointer-events: none;
 }
 
@@ -144,73 +164,14 @@ nav {
     margin: 35px auto;
 }
 
-/* =========================================
-   VLASTNÍ MAPA SVĚTA
-========================================= */
-
-.world-section {
-    width: 100%;
-    max-width: 1450px;
+.hero-description {
+    max-width: 550px;
+    color: #999;
+    font-size: 13px;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin-top: 5px;
     position: relative;
-    z-index: 2;
-    margin: 0 auto;
-}
-
-.world-visual {
-    width: 100%;
-    height: clamp(350px, 55vw, 680px);
-    margin: 0 auto;
-    background: transparent;
-    overflow: hidden;
-    position: relative;
-}
-
-.world-map {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-
-.gold-world-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-
-    opacity: .85;
-
-    filter:
-        brightness(.88)
-        contrast(1.08)
-        saturate(.9);
-
-    -webkit-mask-image: radial-gradient(
-        ellipse 78% 78% at center,
-        #000 48%,
-        rgba(0,0,0,.9) 68%,
-        transparent 100%
-    );
-
-    mask-image: radial-gradient(
-        ellipse 78% 78% at center,
-        #000 48%,
-        rgba(0,0,0,.9) 68%,
-        transparent 100%
-    );
-
-    transition: opacity .5s ease, filter .5s ease;
-}
-
-.gold-world-image:hover {
-    opacity: 1;
-    filter:
-        brightness(1)
-        contrast(1.08)
-        saturate(1);
 }
 
 /* =========================================
@@ -218,7 +179,7 @@ nav {
 ========================================= */
 
 .cards-section {
-    padding: 20px 0 100px;
+    padding: 20px 0 110px;
 }
 
 .section-heading {
@@ -226,42 +187,59 @@ nav {
     font-size: 11px;
     letter-spacing: 6px;
     color: #888;
-    margin: 35px 0 40px;
+    margin: 35px 0 45px;
 }
 
 .cards {
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
+
     gap: 25px;
+
     width: min(1050px,90%);
     margin: 0 auto;
 }
 
 .card {
     min-height: 350px;
+
     position: relative;
     overflow: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
     padding: 40px;
-    border: 1px solid rgba(200,169,110,.25);
+
+    border: 1px solid var(--border);
+
     color: white;
-    transition: .4s;
-    background: linear-gradient(145deg,#151515,#080808);
+
+    transition: .4s ease;
+
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #080808
+    );
+
     cursor: pointer;
     outline: none;
 }
 
 .card::before {
     content: "";
+
     position: absolute;
     inset: 0;
+
     background: radial-gradient(
         circle at 80% 20%,
         rgba(200,169,110,.16),
         transparent 55%
     );
+
     transition: .5s;
     pointer-events: none;
 }
@@ -269,8 +247,11 @@ nav {
 .card:hover,
 .card:focus-visible {
     transform: translateY(-8px);
+
     border-color: var(--gold);
-    box-shadow: 0 15px 45px rgba(200,169,110,.1);
+
+    box-shadow:
+        0 15px 45px rgba(200,169,110,.1);
 }
 
 .card:hover::before {
@@ -285,7 +266,9 @@ nav {
     position: absolute;
     top: 35px;
     left: 40px;
+
     color: rgba(200,169,110,.6);
+
     font-size: 13px;
     letter-spacing: 4px;
 }
@@ -293,8 +276,10 @@ nav {
 .card h2 {
     font-size: clamp(22px,3vw,35px);
     letter-spacing: 2px;
+
     position: relative;
     z-index: 2;
+
     font-weight: 500;
 }
 
@@ -303,6 +288,7 @@ nav {
     font-size: 12px;
     margin-top: 15px;
     line-height: 1.9;
+
     position: relative;
     z-index: 2;
 }
@@ -312,6 +298,7 @@ nav {
     font-size: 9px;
     letter-spacing: 3px;
     margin-top: 25px;
+
     position: relative;
     z-index: 2;
 }
@@ -320,8 +307,10 @@ nav {
     position: absolute;
     right: 35px;
     top: 35px;
+
     font-size: 25px;
     color: var(--gold);
+
     transition: .3s;
 }
 
@@ -335,8 +324,11 @@ nav {
 
 .page {
     min-height: 100vh;
+
     padding: 155px 10% 100px;
+
     display: none;
+
     background: var(--black);
 }
 
@@ -350,6 +342,7 @@ nav {
         opacity: 0;
         transform: translateY(25px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -377,8 +370,10 @@ nav {
 
 .page-intro {
     max-width: 750px;
+
     font-size: 15px;
     color: #999;
+
     line-height: 2.2;
 }
 
@@ -387,15 +382,18 @@ nav {
 ========================================= */
 
 .content-block {
-    margin-top: 45px;
+    margin-top: 35px;
     padding: 35px;
+
     border-left: 1px solid var(--gold);
+
     background: linear-gradient(
         90deg,
         rgba(200,169,110,.07),
         transparent
     );
-    transition: .3s;
+
+    transition: .3s ease;
 }
 
 .content-block:hover {
@@ -404,6 +402,8 @@ nav {
         rgba(200,169,110,.13),
         transparent
     );
+
+    border-left-color: var(--light-gold);
 }
 
 .content-block h2 {
@@ -420,17 +420,22 @@ nav {
 }
 
 /* =========================================
-   NÁVRAT
+   NÁVRAT NA HLAVNÍ STRÁNKU
 ========================================= */
 
 .back-link {
     display: inline-block;
+
     margin-top: 55px;
+
     color: var(--gold);
     text-decoration: none;
+
     letter-spacing: 3px;
     font-size: 11px;
+
     cursor: pointer;
+
     transition: .3s;
 }
 
@@ -445,9 +450,13 @@ nav {
 
 footer {
     border-top: 1px solid rgba(255,255,255,.08);
+
     padding: 30px;
+
     text-align: center;
+
     color: #555;
+
     font-size: 10px;
     letter-spacing: 3px;
 }
@@ -463,7 +472,8 @@ footer {
     }
 
     .hero {
-        padding: 130px 15px 30px;
+        min-height: 65vh;
+        padding: 140px 15px 60px;
     }
 
     .hero h1 {
@@ -475,14 +485,9 @@ footer {
         letter-spacing: 2px;
     }
 
-    .world-visual {
-        height: 380px;
-    }
-
-    .gold-world-image {
-        width: 100%;
-        height: 100%;
-        opacity: .9;
+    .hero-description {
+        font-size: 12px;
+        padding: 0 10px;
     }
 
     .cards {
@@ -505,6 +510,10 @@ footer {
         padding: 130px 7% 70px;
     }
 
+    .page h1 {
+        letter-spacing: 2px;
+    }
+
     .content-block {
         padding: 25px;
     }
@@ -512,17 +521,38 @@ footer {
     .page-intro {
         font-size: 13px;
     }
+
+    .content-block h2 {
+        font-size: 18px;
+    }
+
+    .content-block p {
+        font-size: 13px;
+    }
 }
+
+/* =========================================
+   MENŠÍ MOBILY
+========================================= */
 
 @media (max-width:400px) {
 
-    .world-visual {
-        height: 320px;
+    .hero h1 {
+        font-size: 40px;
     }
 
     .card h2 {
         font-size: 23px;
     }
+
+    .subtitle {
+        letter-spacing: 5px;
+    }
+
+    .section-heading {
+        letter-spacing: 4px;
+    }
+
 }
 
 /* =========================================
@@ -538,195 +568,5 @@ footer {
         transition: none !important;
         scroll-behavior: auto !important;
     }
-}
 
-/* =====================================
-   NATURAL GOLD MAP BLENDING
-===================================== */
-
-.world-visual {
-    background: #050505 !important;
-}
-
-.world-map {
-    background: transparent !important;
-}
-
-.gold-world-image {
-    opacity: 0.88 !important;
-
-    filter:
-        brightness(0.85)
-        contrast(1.12)
-        saturate(0.85) !important;
-
-    -webkit-mask-image: radial-gradient(
-        ellipse 85% 82% at center,
-        #000 45%,
-        rgba(0,0,0,0.95) 65%,
-        rgba(0,0,0,0.5) 85%,
-        transparent 100%
-    );
-
-    mask-image: radial-gradient(
-        ellipse 85% 82% at center,
-        #000 45%,
-        rgba(0,0,0,0.95) 65%,
-        rgba(0,0,0,0.5) 85%,
-        transparent 100%
-    );
-
-    transition: filter 0.5s ease, opacity 0.5s ease;
-}
-
-.gold-world-image:hover {
-    opacity: 0.88 !important;
-
-    filter:
-        brightness(0.85)
-        contrast(1.12)
-        saturate(0.85) !important;
-}
-
-/* GOLD MAP – DARK BACKGROUND BLENDING */
-
-.gold-world-image {
-    opacity: 1 !important;
-
-    mix-blend-mode: screen !important;
-
-    filter:
-        brightness(1.08)
-        contrast(1.18)
-        saturate(1.15) !important;
-
-    -webkit-mask-image: radial-gradient(
-        ellipse 85% 80% at center,
-        black 55%,
-        rgba(0,0,0,.85) 75%,
-        transparent 100%
-    );
-
-    mask-image: radial-gradient(
-        ellipse 85% 80% at center,
-        black 55%,
-        rgba(0,0,0,.85) 75%,
-        transparent 100%
-    );
-}
-
-.world-map,
-.world-visual {
-    background: #050505 !important;
-}
-
-/* =====================================
-   BLACK EDGE BLENDING – GOLD MAP
-===================================== */
-
-.world-visual {
-    position: relative;
-    overflow: hidden;
-    background: #050505 !important;
-}
-
-/* Obrázek mapy */
-
-.gold-world-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    opacity: 1 !important;
-    mix-blend-mode: normal !important;
-    filter: none !important;
-}
-
-/* Černé překrytí okrajů */
-
-.world-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse 62% 65% at center,
-            transparent 35%,
-            rgba(5,5,5,0.35) 65%,
-            #050505 100%
-        );
-}
-
-/* Mobil */
-
-@media (max-width: 700px) {
-    .world-visual::after {
-        background:
-            radial-gradient(
-                ellipse 75% 70% at center,
-                transparent 35%,
-                rgba(5,5,5,0.4) 65%,
-                #050505 100%
-            );
-    }
-}
-
-/* =====================================
-   FINAL GOLD MAP – ALL SIDES BLENDING
-===================================== */
-
-.world-visual {
-    position: relative !important;
-    overflow: hidden !important;
-    background: #050505 !important;
-}
-
-/* Mapa bez změny při najetí */
-
-.gold-world-image,
-.gold-world-image:hover {
-    opacity: 0.82 !important;
-
-    filter:
-        brightness(0.82)
-        contrast(1.12)
-        saturate(0.9) !important;
-
-    transition: none !important;
-}
-
-/* Černé prolínání ze všech čtyř stran */
-
-.world-visual::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 999;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse 58% 57% at center,
-            transparent 38%,
-            rgba(5,5,5,0.18) 60%,
-            rgba(5,5,5,0.75) 82%,
-            #050505 100%
-        );
-}
-
-/* Mobilní zobrazení */
-
-@media (max-width: 700px) {
-    .world-visual::after {
-        background:
-            radial-gradient(
-                ellipse 65% 60% at center,
-                transparent 35%,
-                rgba(5,5,5,0.3) 62%,
-                #050505 100%
-            );
-    }
 }
