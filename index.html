@@ -3,35 +3,55 @@
 <html lang="cs">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#050505">
 
-    <meta name="description" content="Petr Jakl – osobní portfolio zaměřené na technologie a mezinárodní vztahy.">
+    <meta name="description"
+          content="Petr Jakl – osobní portfolio zaměřené na technologie, vlastní projekty a mezinárodní vztahy.">
+
+    <meta name="author" content="Petr Jakl">
 
     <title>Petr Jakl | Osobní portfolio</title>
+
+    <!-- FONTY -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- NAVIGACE -->
+
+    <!-- =====================================
+         NAVIGACE
+    ====================================== -->
 
     <nav>
-        <div class="logo">PETR JAKL</div>
 
-        <a href="#" class="home-btn"
+        <div class="logo">
+            PETR JAKL
+        </div>
+
+        <a href="#"
+           class="home-btn"
            onclick="showHome(); return false;"
            aria-label="Domů">
 
             <svg xmlns="http://www.w3.org/2000/svg"
-                 width="21" height="21"
+                 width="21"
+                 height="21"
                  viewBox="0 0 24 24"
                  fill="none"
                  stroke="currentColor"
@@ -42,14 +62,23 @@
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v12h14V9"/>
                 <path d="M9 21v-7h6v7"/>
+
             </svg>
+
         </a>
+
     </nav>
 
 
-    <!-- HLAVNÍ STRÁNKA -->
+
+    <!-- =====================================
+         HLAVNÍ STRÁNKA
+    ====================================== -->
 
     <main id="home">
+
+
+        <!-- ÚVOD -->
 
         <section class="hero">
 
@@ -68,14 +97,15 @@
             <div class="divider"></div>
 
             <p class="hero-description">
-                Zájem o moderní technologie, inovace,
-                mezinárodní vztahy a současné globální dění.
+                Osobní projekty, technologické zkušenosti
+                a aktivity v oblasti mezinárodních vztahů.
             </p>
 
         </section>
 
 
-        <!-- OBLASTI ZÁJMU -->
+
+        <!-- HLAVNÍ OBLASTI -->
 
         <section class="cards-section">
 
@@ -83,7 +113,11 @@
                 HLAVNÍ OBLASTI ZÁJMU
             </div>
 
+
             <div class="cards">
+
+
+                <!-- TECHNOLOGIE -->
 
                 <div class="card"
                      onclick="showPage('technology')"
@@ -92,13 +126,17 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">01</div>
+                    <div class="card-number">
+                        01
+                    </div>
 
-                    <h2>Technologie</h2>
+                    <h2>
+                        Technologie
+                    </h2>
 
                     <p>
-                        Drony, chytré domácnosti, robotika,
-                        umělá inteligence a technologické inovace.
+                        Dronové technologie, vlastní FPV projekty,
+                        chytré domácnosti a robotika.
                     </p>
 
                     <div class="card-link">
@@ -107,6 +145,9 @@
 
                 </div>
 
+
+
+                <!-- MEZINÁRODNÍ VZTAHY -->
 
                 <div class="card"
                      onclick="showPage('relations')"
@@ -115,13 +156,17 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">02</div>
+                    <div class="card-number">
+                        02
+                    </div>
 
-                    <h2>Mezinárodní vztahy</h2>
+                    <h2>
+                        Mezinárodní vztahy
+                    </h2>
 
                     <p>
-                        Diplomacie, geopolitika, mezinárodní
-                        spolupráce a osobní zkušenosti z akcí.
+                        Historické simulace, Evropský parlament,
+                        diplomacie a mezinárodní vzdělávací aktivity.
                     </p>
 
                     <div class="card-link">
@@ -130,172 +175,378 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- TECHNOLOGIE -->
+
+    <!-- =====================================
+         01 – TECHNOLOGIE
+    ====================================== -->
 
     <section id="technology" class="page">
+
 
         <div class="page-tag">
             01 / TECHNOLOGIE
         </div>
 
+
         <h1>
             TECHNO<span>LOGIE</span>
         </h1>
 
+
         <p class="page-intro">
-            Technologie představují jednu z hlavních oblastí
-            mého zájmu. Sleduji moderní technologický vývoj,
-            inovace a jejich využití v každodenním životě
-            i v budoucnosti.
+            Technologie jsou jednou z hlavních oblastí mého
+            praktického zájmu. Věnuji se leteckému snímkování,
+            stavbě vlastních bezpilotních systémů, automatizaci
+            domácností a robotickým projektům. Zajímá mě nejen
+            samotné fungování technologií, ale také jejich
+            sestavování, konfigurace a praktické využití.
         </p>
 
-        <div class="content-block">
-            <h2>Drony a bezpilotní systémy</h2>
-            <p>
-                Moderní dronové technologie, autonomní létání
-                a jejich využití v průmyslu, bezpečnosti,
-                dopravě a dalších oblastech.
-            </p>
-        </div>
+
+
+        <!-- DJI MINI 4 PRO -->
 
         <div class="content-block">
-            <h2>Chytré domácnosti</h2>
+
+            <div class="page-tag">
+                01.01 / DRONY
+            </div>
+
+            <h2>
+                DJI Mini 4 Pro – letecké fotografování
+            </h2>
+
             <p>
-                Inteligentní domácnosti, automatizace,
-                propojená zařízení, chytré zabezpečení
-                a technologie pro každodenní život.
+                Pro letecké fotografování a natáčení využívám
+                dron DJI Mini 4 Pro. Zaměřuji se na pořizování
+                leteckých fotografií a videozáznamů, práci
+                s perspektivou a zachycování okolního prostředí
+                z ptačí perspektivy.
             </p>
+
+            <p>
+                Letecké snímkování mi umožňuje pracovat
+                s moderními kamerovými technologiemi
+                a poznávat možnosti využití bezpilotních
+                prostředků při tvorbě vizuálního obsahu.
+            </p>
+
         </div>
+
+
+
+        <!-- FPV DRON -->
 
         <div class="content-block">
-            <h2>Robotika</h2>
+
+            <div class="page-tag">
+                01.02 / FPV TECHNOLOGIE
+            </div>
+
+            <h2>
+                Vlastní FPV dron – 5 inch
+            </h2>
+
             <p>
-                Moderní robotické systémy, průmyslová robotika,
-                autonomní stroje a budoucnost robotizace.
+                Pracuji na stavbě vlastního pětipalcového
+                FPV dronu. Projekt je zaměřený na poznávání
+                konstrukce bezpilotních systémů a jednotlivých
+                komponentů, ze kterých se FPV drony skládají.
             </p>
+
+            <p>
+                Součástí projektu je sestavování vlastního
+                zařízení, seznamování se s elektronikou,
+                konfigurací a principy fungování FPV systému.
+                Zároveň se připravuji na jeho budoucí pilotní
+                využití a trénink.
+            </p>
+
         </div>
+
+
+
+        <!-- CHYTRÁ DOMÁCNOST -->
 
         <div class="content-block">
-            <h2>Umělá inteligence</h2>
+
+            <div class="page-tag">
+                01.03 / SMART HOME
+            </div>
+
+            <h2>
+                Chytré domácnosti – Home Assistant
+            </h2>
+
             <p>
-                Vývoj umělé inteligence, automatizace,
-                strojového učení a jejich využití
-                v moderním světě.
+                Prakticky se zajímám o automatizaci domácností
+                prostřednictvím platformy Home Assistant.
+                Zkušenosti získávám jak z domácího prostředí,
+                tak z rozsáhlejšího systému chytré domácnosti
+                na nově vybudované chatě.
             </p>
+
+            <p>
+                Systém využívá kombinaci technologií Zigbee
+                a Wi-Fi a propojuje několik oblastí fungování
+                domácnosti.
+            </p>
+
+            <p>
+                Mezi automatizované prvky patří osvětlení,
+                ovládání oken a dveří, detekce vody,
+                ventilace, zabezpečení objektu a částečně
+                také vytápění.
+            </p>
+
+            <p>
+                Zajímavou součástí tohoto prostředí je
+                propojení různých zařízení a systémů
+                do jednoho inteligentního celku.
+            </p>
+
         </div>
+
+
+
+        <!-- LEGO MINDSTORMS -->
 
         <div class="content-block">
-            <h2>Digitální infrastruktura</h2>
+
+            <div class="page-tag">
+                01.04 / ROBOTIKA
+            </div>
+
+            <h2>
+                LEGO Mindstorms – robotické projekty
+            </h2>
+
             <p>
-                Globální datové sítě, satelitní komunikace,
-                moderní informační systémy a digitální propojení světa.
+                Příležitostně pracuji na praktických projektech
+                využívajících robotickou stavebnici
+                LEGO Mindstorms.
             </p>
+
+            <p>
+                Věnuji se především konstrukci různých
+                robotických vozítek, skenerů a dalších
+                prakticky zaměřených zařízení.
+            </p>
+
+            <p>
+                Projekty mi umožňují poznávat principy
+                robotiky, konstrukce mechanických částí,
+                propojení elektroniky a praktického
+                využití programovatelných systémů.
+            </p>
+
         </div>
 
-        <a href="#" class="back-link"
+
+
+        <a href="#"
+           class="back-link"
            onclick="showHome(); return false;">
+
             ← ZPĚT NA HLAVNÍ STRÁNKU
+
         </a>
+
 
     </section>
 
 
-    <!-- MEZINÁRODNÍ VZTAHY -->
+
+    <!-- =====================================
+         02 – MEZINÁRODNÍ VZTAHY
+    ====================================== -->
 
     <section id="relations" class="page">
+
 
         <div class="page-tag">
             02 / MEZINÁRODNÍ VZTAHY
         </div>
 
+
         <h1>
             MEZINÁRODNÍ <span>VZTAHY</span>
         </h1>
 
+
         <p class="page-intro">
-            Zajímám se o mezinárodní politiku, diplomacii,
-            geopolitiku a globální dění. Součástí tohoto
-            zájmu je také poznávání mezinárodních vztahů
-            prostřednictvím osobních zkušeností,
-            společenských událostí a vzdělávacích aktivit.
+            Mezinárodní vztahy poznávám nejen prostřednictvím
+            sledování světového dění, ale také osobní účastí
+            na vzdělávacích akcích, historických simulacích
+            a studentských projektech. Zajímám se o fungování
+            politických institucí, diplomatické prostředí
+            a procesy rozhodování na mezinárodní úrovni.
         </p>
 
-        <div class="content-block">
-            <h2>250 let Spojených států amerických</h2>
-            <p>
-                Účast na slavnostní události pořádané
-                v rezidenci amerického velvyslance
-                u příležitosti 250. výročí vzniku
-                Spojených států amerických.
 
-                Součástí programu byla simulace
-                Druhého kontinentálního kongresu,
-                která přiblížila historické události
-                spojené se vznikem americké nezávislosti,
-                politickým rozhodováním a formováním
-                amerického státu.
-            </p>
-        </div>
+
+        <!-- 250 LET USA -->
 
         <div class="content-block">
-            <h2>Workshop mezinárodních vztahů</h2>
+
+            <div class="page-tag">
+                02.01 / SPOJENÉ STÁTY AMERICKÉ
+            </div>
+
+            <h2>
+                250 let USA – simulace Druhého kontinentálního kongresu
+            </h2>
+
             <p>
-                Účast na vzdělávacím workshopu zaměřeném
-                na mezinárodní vztahy, diplomacii,
-                geopolitiku a aktuální otázky globálního dění.
+                Zúčastnil jsem se historické simulace
+                Druhého kontinentálního kongresu pořádané
+                v rezidenci amerického velvyslance v Praze
+                u příležitosti 250. výročí Spojených států
+                amerických.
             </p>
+
+            <p>
+                Během simulace jsem zastával roli
+                amerického kongresmana George Reada,
+                představitele státu Delaware.
+            </p>
+
+            <p>
+                Byl jsem členem výboru pro ústavu,
+                kde jsem se zapojoval do jednání
+                a několikrát vystoupil s vlastním projevem.
+            </p>
+
+            <p>
+                Další částí mého zapojení bylo zajištění
+                složek domobrany z Delaware, Pensylvánie
+                a Virginie pro potřeby armády v rámci
+                simulovaného historického dění.
+            </p>
+
+            <p>
+                Účast mi umožnila vyzkoušet si fungování
+                historického politického shromáždění,
+                parlamentní jednání, veřejné vystupování
+                a rozhodování v rámci simulované
+                historické situace.
+            </p>
+
         </div>
+
+
+
+        <!-- WORKSHOP DŮM EU -->
 
         <div class="content-block">
-            <h2>Geopolitika</h2>
+
+            <div class="page-tag">
+                02.02 / EVROPSKÁ UNIE
+            </div>
+
+            <h2>
+                Workshop v Domě EU – simulace Evropského parlamentu
+            </h2>
+
             <p>
-                Mezinárodní politické vztahy, strategické
-                zájmy států, regionální vývoj a proměny
-                současného světového uspořádání.
+                Zúčastnil jsem se vzdělávacího workshopu
+                v Domě EU, jehož součástí byla simulace
+                jednání Evropského parlamentu.
             </p>
+
+            <p>
+                V rámci simulace jsem zastupoval
+                tradicionalistický politický směr
+                a podílel se na jednání o nových
+                ekologických regulacích souvisejících
+                s oblastí potravin a stravování.
+            </p>
+
+            <p>
+                Aktivita byla zaměřena na pochopení
+                fungování evropského parlamentního
+                prostředí, zastupování politických
+                postojů a hledání řešení při jednání
+                o legislativních otázkách.
+            </p>
+
         </div>
+
+
+
+        <!-- STUDENTSKÁ SIMULACE -->
 
         <div class="content-block">
-            <h2>Mezinárodní spolupráce</h2>
+
+            <div class="page-tag">
+                02.03 / STUDENTSKÉ PROJEKTY
+            </div>
+
+            <h2>
+                Mezinárodní studentská simulace Evropského parlamentu
+            </h2>
+
             <p>
-                Diplomacie, mezinárodní organizace,
-                partnerství a spolupráce mezi jednotlivými státy.
+                Zúčastnil jsem se také mezinárodní
+                studentské simulace Evropského parlamentu.
+                Jednalo se o další zkušenost s prostředím
+                evropských politických institucí
+                a simulovaným parlamentním jednáním.
             </p>
+
+            <p>
+                Účast na tomto projektu mi umožnila
+                dále poznávat principy parlamentního
+                rozhodování v evropském kontextu
+                a rozšířit si zkušenosti s mezinárodními
+                studentskými aktivitami.
+            </p>
+
         </div>
 
-        <div class="content-block">
-            <h2>Světová ekonomika</h2>
-            <p>
-                Mezinárodní obchod, energetika, infrastruktura
-                a ekonomické vztahy mezi světovými regiony.
-            </p>
-        </div>
 
-        <a href="#" class="back-link"
+
+        <a href="#"
+           class="back-link"
            onclick="showHome(); return false;">
+
             ← ZPĚT NA HLAVNÍ STRÁNKU
+
         </a>
+
 
     </section>
 
 
-    <!-- PATIČKA -->
+
+    <!-- =====================================
+         PATIČKA
+    ====================================== -->
 
     <footer>
+
         PETR JAKL · OSOBNÍ PORTFOLIO
+
     </footer>
 
 
-    <!-- JAVASCRIPT -->
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
 
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
