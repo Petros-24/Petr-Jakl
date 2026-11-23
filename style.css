@@ -427,7 +427,9 @@ nav {
 
     margin-bottom: 65px;
 }
-
+.page-intro + .page-intro {
+    margin-top: -45px;
+}
 
 /* =========================================
    6. GRID PROJEKTŮ
