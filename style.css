@@ -420,15 +420,16 @@ nav {
 .page-intro {
     max-width: 780px;
 
-    font-size: 15px;
+    font-size: 14px;
     color: #999;
 
-    line-height: 2.2;
+    line-height: 1.9;
 
-    margin-bottom: 65px;
+    margin-bottom: 35px;
 }
+
 .page-intro + .page-intro {
-    margin-top: -45px;
+    margin-top: -25px;
 }
 
 /* =========================================
