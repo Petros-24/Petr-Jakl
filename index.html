@@ -3,7 +3,6 @@
 <html lang="cs">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,7 +16,6 @@
     <title>Petr Jakl | Osobní portfolio</title>
 
     <!-- FONTY -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -25,24 +23,15 @@
           rel="stylesheet">
 
     <!-- CSS -->
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
-
-    <!-- =====================================
-         NAVIGACE
-    ====================================== -->
+    <!-- NAVIGACE -->
 
     <nav>
-
-        <div class="logo">
-            PETR JAKL
-        </div>
+        <div class="logo">PETR JAKL</div>
 
         <a href="#"
            class="home-btn"
@@ -62,23 +51,14 @@
                 <path d="m3 10 9-7 9 7"/>
                 <path d="M5 9v12h14V9"/>
                 <path d="M9 21v-7h6v7"/>
-
             </svg>
-
         </a>
-
     </nav>
 
 
-
-    <!-- =====================================
-         HLAVNÍ STRÁNKA
-    ====================================== -->
+    <!-- HLAVNÍ STRÁNKA -->
 
     <main id="home">
-
-
-        <!-- ÚVOD -->
 
         <section class="hero">
 
@@ -104,7 +84,6 @@
         </section>
 
 
-
         <!-- HLAVNÍ OBLASTI -->
 
         <section class="cards-section">
@@ -113,11 +92,7 @@
                 HLAVNÍ OBLASTI ZÁJMU
             </div>
 
-
             <div class="cards">
-
-
-                <!-- TECHNOLOGIE -->
 
                 <div class="card"
                      onclick="showPage('technology')"
@@ -126,13 +101,9 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
-                    <h2>
-                        Technologie
-                    </h2>
+                    <h2>Technologie</h2>
 
                     <p>
                         Dronové technologie, vlastní FPV projekty,
@@ -146,9 +117,6 @@
                 </div>
 
 
-
-                <!-- MEZINÁRODNÍ VZTAHY -->
-
                 <div class="card"
                      onclick="showPage('relations')"
                      role="button"
@@ -156,13 +124,9 @@
 
                     <span class="arrow">↗</span>
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
-                    <h2>
-                        Mezinárodní vztahy
-                    </h2>
+                    <h2>Mezinárodní vztahy</h2>
 
                     <p>
                         Historické simulace, Evropský parlament,
@@ -175,32 +139,25 @@
 
                 </div>
 
-
             </div>
-
         </section>
-
 
     </main>
 
 
-
     <!-- =====================================
-         01 – TECHNOLOGIE
+         TECHNOLOGIE
     ====================================== -->
 
     <section id="technology" class="page">
 
-
         <div class="page-tag">
-            01 / TECHNOLOGIE
+            TECHNOLOGIE
         </div>
-
 
         <h1>
             TECHNO<span>LOGIE</span>
         </h1>
-
 
         <p class="page-intro">
             Technologie jsou jednou z hlavních oblastí mého
@@ -212,145 +169,254 @@
         </p>
 
 
+        <!-- PROJEKTY TECHNOLOGIE -->
 
-        <!-- DJI MINI 4 PRO -->
+        <div class="project-grid">
 
-        <div class="content-block">
 
-            <div class="page-tag">
-                01.01 / DRONY
-            </div>
+            <!-- DJI MINI 4 PRO -->
 
-            <h2>
-                DJI Mini 4 Pro – letecké fotografování
-            </h2>
+            <article class="project-card">
 
-            <p>
-                Pro letecké fotografování a natáčení využívám
-                dron DJI Mini 4 Pro. Zaměřuji se na pořizování
-                leteckých fotografií a videozáznamů, práci
-                s perspektivou a zachycování okolního prostředí
-                z ptačí perspektivy.
-            </p>
+                <div class="project-icon">
 
-            <p>
-                Letecké snímkování mi umožňuje pracovat
-                s moderními kamerovými technologiemi
-                a poznávat možnosti využití bezpilotních
-                prostředků při tvorbě vizuálního obsahu.
-            </p>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M12 8v8"/>
+                        <path d="M8 12h8"/>
+                        <path d="M12 8 9 5"/>
+                        <path d="M12 8 15 5"/>
+                        <path d="M12 16 9 19"/>
+                        <path d="M12 16 15 19"/>
+                        <path d="M9 5H5"/>
+                        <path d="M15 5h4"/>
+                        <path d="M9 19H5"/>
+                        <path d="M15 19h4"/>
+                        <circle cx="12" cy="12" r="2.5"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        DRONOVÉ TECHNOLOGIE
+                    </div>
+
+                    <h2>
+                        DJI Mini 4 Pro
+                    </h2>
+
+                    <p>
+                        Pro letecké fotografování a natáčení využívám
+                        dron DJI Mini 4 Pro. Zaměřuji se na pořizování
+                        leteckých fotografií a videozáznamů, práci
+                        s perspektivou a zachycování okolního prostředí
+                        z ptačí perspektivy.
+                    </p>
+
+                    <p>
+                        Letecké snímkování mi umožňuje pracovat
+                        s moderními kamerovými technologiemi
+                        a poznávat možnosti využití bezpilotních
+                        prostředků při tvorbě vizuálního obsahu.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- FPV DRON -->
+
+            <article class="project-card">
+
+                <div class="project-icon">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M12 12 5 5"/>
+                        <path d="M12 12 19 5"/>
+                        <path d="M12 12 5 19"/>
+                        <path d="M12 12 19 19"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <circle cx="5" cy="5" r="2"/>
+                        <circle cx="19" cy="5" r="2"/>
+                        <circle cx="5" cy="19" r="2"/>
+                        <circle cx="19" cy="19" r="2"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        FPV TECHNOLOGIE
+                    </div>
+
+                    <h2>
+                        Vlastní FPV dron – 5 inch
+                    </h2>
+
+                    <p>
+                        Pracuji na stavbě vlastního pětipalcového
+                        FPV dronu. Projekt je zaměřený na poznávání
+                        konstrukce bezpilotních systémů a jednotlivých
+                        komponentů, ze kterých se FPV drony skládají.
+                    </p>
+
+                    <p>
+                        Součástí projektu je sestavování vlastního
+                        zařízení, seznamování se s elektronikou,
+                        konfigurací a principy fungování FPV systému.
+                        Zároveň se připravuji na jeho budoucí pilotní
+                        využití a trénink.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- HOME ASSISTANT -->
+
+            <article class="project-card">
+
+                <div class="project-icon">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="m3 10 9-7 9 7"/>
+                        <path d="M5 9v12h14V9"/>
+                        <path d="M9 21v-7h6v7"/>
+                        <path d="M16 5V3h3v4"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        SMART HOME
+                    </div>
+
+                    <h2>
+                        Chytrá domácnost – Home Assistant
+                    </h2>
+
+                    <p>
+                        Prakticky se zajímám o automatizaci domácností
+                        prostřednictvím platformy Home Assistant.
+                        Zkušenosti získávám jak z domácího prostředí,
+                        tak z rozsáhlejšího systému chytré domácnosti
+                        na nově vybudované chatě.
+                    </p>
+
+                    <p>
+                        Systém využívá kombinaci technologií Zigbee
+                        a Wi-Fi a propojuje několik oblastí fungování
+                        domácnosti.
+                    </p>
+
+                    <p>
+                        Mezi automatizované prvky patří osvětlení,
+                        ovládání oken a dveří, detekce vody,
+                        ventilace, zabezpečení objektu a částečně
+                        také vytápění.
+                    </p>
+
+                    <p>
+                        Zajímavou součástí tohoto prostředí je
+                        propojení různých zařízení a systémů
+                        do jednoho inteligentního celku.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- LEGO MINDSTORMS -->
+
+            <article class="project-card">
+
+                <div class="project-icon">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <rect x="5" y="7" width="14" height="12" rx="2"/>
+                        <path d="M9 7V5h6v2"/>
+                        <circle cx="9" cy="12" r="1"/>
+                        <circle cx="15" cy="12" r="1"/>
+                        <path d="M9 16h6"/>
+                        <path d="M3 11v4"/>
+                        <path d="M21 11v4"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        ROBOTIKA
+                    </div>
+
+                    <h2>
+                        LEGO Mindstorms
+                    </h2>
+
+                    <p>
+                        Příležitostně pracuji na praktických projektech
+                        využívajících robotickou stavebnici
+                        LEGO Mindstorms.
+                    </p>
+
+                    <p>
+                        Věnuji se především konstrukci různých
+                        robotických vozítek, skenerů a dalších
+                        prakticky zaměřených zařízení.
+                    </p>
+
+                    <p>
+                        Projekty mi umožňují poznávat principy
+                        robotiky, konstrukce mechanických částí,
+                        propojení elektroniky a praktického
+                        využití programovatelných systémů.
+                    </p>
+
+                </div>
+
+            </article>
 
         </div>
-
-
-
-        <!-- FPV DRON -->
-
-        <div class="content-block">
-
-            <div class="page-tag">
-                01.02 / FPV TECHNOLOGIE
-            </div>
-
-            <h2>
-                Vlastní FPV dron – 5 inch
-            </h2>
-
-            <p>
-                Pracuji na stavbě vlastního pětipalcového
-                FPV dronu. Projekt je zaměřený na poznávání
-                konstrukce bezpilotních systémů a jednotlivých
-                komponentů, ze kterých se FPV drony skládají.
-            </p>
-
-            <p>
-                Součástí projektu je sestavování vlastního
-                zařízení, seznamování se s elektronikou,
-                konfigurací a principy fungování FPV systému.
-                Zároveň se připravuji na jeho budoucí pilotní
-                využití a trénink.
-            </p>
-
-        </div>
-
-
-
-        <!-- CHYTRÁ DOMÁCNOST -->
-
-        <div class="content-block">
-
-            <div class="page-tag">
-                01.03 / SMART HOME
-            </div>
-
-            <h2>
-                Chytré domácnosti – Home Assistant
-            </h2>
-
-            <p>
-                Prakticky se zajímám o automatizaci domácností
-                prostřednictvím platformy Home Assistant.
-                Zkušenosti získávám jak z domácího prostředí,
-                tak z rozsáhlejšího systému chytré domácnosti
-                na nově vybudované chatě.
-            </p>
-
-            <p>
-                Systém využívá kombinaci technologií Zigbee
-                a Wi-Fi a propojuje několik oblastí fungování
-                domácnosti.
-            </p>
-
-            <p>
-                Mezi automatizované prvky patří osvětlení,
-                ovládání oken a dveří, detekce vody,
-                ventilace, zabezpečení objektu a částečně
-                také vytápění.
-            </p>
-
-            <p>
-                Zajímavou součástí tohoto prostředí je
-                propojení různých zařízení a systémů
-                do jednoho inteligentního celku.
-            </p>
-
-        </div>
-
-
-
-        <!-- LEGO MINDSTORMS -->
-
-        <div class="content-block">
-
-            <div class="page-tag">
-                01.04 / ROBOTIKA
-            </div>
-
-            <h2>
-                LEGO Mindstorms – robotické projekty
-            </h2>
-
-            <p>
-                Příležitostně pracuji na praktických projektech
-                využívajících robotickou stavebnici
-                LEGO Mindstorms.
-            </p>
-
-            <p>
-                Věnuji se především konstrukci různých
-                robotických vozítek, skenerů a dalších
-                prakticky zaměřených zařízení.
-            </p>
-
-            <p>
-                Projekty mi umožňují poznávat principy
-                robotiky, konstrukce mechanických částí,
-                propojení elektroniky a praktického
-                využití programovatelných systémů.
-            </p>
-
-        </div>
-
 
 
         <a href="#"
@@ -361,27 +427,21 @@
 
         </a>
 
-
     </section>
 
-
-
     <!-- =====================================
-         02 – MEZINÁRODNÍ VZTAHY
+         MEZINÁRODNÍ VZTAHY
     ====================================== -->
 
     <section id="relations" class="page">
 
-
         <div class="page-tag">
-            02 / MEZINÁRODNÍ VZTAHY
+            MEZINÁRODNÍ VZTAHY
         </div>
-
 
         <h1>
             MEZINÁRODNÍ <span>VZTAHY</span>
         </h1>
-
 
         <p class="page-intro">
             Mezinárodní vztahy poznávám nejen prostřednictvím
@@ -393,126 +453,205 @@
         </p>
 
 
+        <!-- PROJEKTY MEZINÁRODNÍ VZTAHY -->
 
-        <!-- 250 LET USA -->
+        <div class="project-grid">
 
-        <div class="content-block">
 
-            <div class="page-tag">
-                02.01 / SPOJENÉ STÁTY AMERICKÉ
-            </div>
+            <!-- 250 LET USA -->
 
-            <h2>
-                250 let USA – simulace Druhého kontinentálního kongresu
-            </h2>
+            <article class="project-card">
 
-            <p>
-                Zúčastnil jsem se historické simulace
-                Druhého kontinentálního kongresu pořádané
-                v rezidenci amerického velvyslance v Praze
-                u příležitosti 250. výročí Spojených států
-                amerických.
-            </p>
+                <div class="project-icon">
 
-            <p>
-                Během simulace jsem zastával roli
-                amerického kongresmana George Reada,
-                představitele státu Delaware.
-            </p>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
 
-            <p>
-                Byl jsem členem výboru pro ústavu,
-                kde jsem se zapojoval do jednání
-                a několikrát vystoupil s vlastním projevem.
-            </p>
+                        <path d="M12 3v18"/>
+                        <path d="M5 6h14"/>
+                        <path d="M7 6v3a5 5 0 0 0 10 0V6"/>
+                        <path d="M4 21h16"/>
+                        <path d="M8 17h8"/>
 
-            <p>
-                Další částí mého zapojení bylo zajištění
-                složek domobrany z Delaware, Pensylvánie
-                a Virginie pro potřeby armády v rámci
-                simulovaného historického dění.
-            </p>
+                    </svg>
 
-            <p>
-                Účast mi umožnila vyzkoušet si fungování
-                historického politického shromáždění,
-                parlamentní jednání, veřejné vystupování
-                a rozhodování v rámci simulované
-                historické situace.
-            </p>
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        SPOJENÉ STÁTY AMERICKÉ
+                    </div>
+
+                    <h2>
+                        250 let USA – Druhý kontinentální kongres
+                    </h2>
+
+                    <p>
+                        Zúčastnil jsem se historické simulace
+                        Druhého kontinentálního kongresu pořádané
+                        v rezidenci amerického velvyslance v Praze
+                        u příležitosti 250. výročí Spojených států
+                        amerických.
+                    </p>
+
+                    <p>
+                        Během simulace jsem zastával roli
+                        amerického kongresmana George Reada,
+                        představitele státu Delaware.
+                    </p>
+
+                    <p>
+                        Byl jsem členem výboru pro ústavu,
+                        kde jsem se zapojoval do jednání
+                        a několikrát vystoupil s vlastním projevem.
+                    </p>
+
+                    <p>
+                        Další částí mého zapojení bylo zajištění
+                        složek domobrany z Delaware, Pensylvánie
+                        a Virginie pro potřeby armády v rámci
+                        simulovaného historického dění.
+                    </p>
+
+                    <p>
+                        Účast mi umožnila vyzkoušet si fungování
+                        historického politického shromáždění,
+                        parlamentní jednání, veřejné vystupování
+                        a rozhodování v rámci simulované
+                        historické situace.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- WORKSHOP DŮM EU -->
+
+            <article class="project-card">
+
+                <div class="project-icon">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M3 21h18"/>
+                        <path d="M5 21V7l7-4 7 4v14"/>
+                        <path d="M9 21v-5h6v5"/>
+                        <path d="M9 9h.01"/>
+                        <path d="M15 9h.01"/>
+                        <path d="M12 9h.01"/>
+                        <path d="M9 12h.01"/>
+                        <path d="M15 12h.01"/>
+                        <path d="M12 12h.01"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        EVROPSKÁ UNIE
+                    </div>
+
+                    <h2>
+                        Workshop v Domě EU – Evropský parlament
+                    </h2>
+
+                    <p>
+                        Zúčastnil jsem se vzdělávacího workshopu
+                        v Domě EU, jehož součástí byla simulace
+                        jednání Evropského parlamentu.
+                    </p>
+
+                    <p>
+                        V rámci simulace jsem zastupoval
+                        tradicionalistický politický směr
+                        a podílel se na jednání o nových
+                        ekologických regulacích souvisejících
+                        s oblastí potravin a stravování.
+                    </p>
+
+                    <p>
+                        Aktivita byla zaměřena na pochopení
+                        fungování evropského parlamentního
+                        prostředí, zastupování politických
+                        postojů a hledání řešení při jednání
+                        o legislativních otázkách.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- MEZINÁRODNÍ STUDENTSKÁ SIMULACE -->
+
+            <article class="project-card">
+
+                <div class="project-icon">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.5"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M3 12h18"/>
+                        <path d="M12 3a15 15 0 0 1 0 18"/>
+                        <path d="M12 3a15 15 0 0 0 0 18"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-category">
+                        STUDENTSKÉ PROJEKTY
+                    </div>
+
+                    <h2>
+                        Mezinárodní studentská simulace
+                        Evropského parlamentu
+                    </h2>
+
+                    <p>
+                        Zúčastnil jsem se také mezinárodní
+                        studentské simulace Evropského parlamentu.
+                        Jednalo se o další zkušenost s prostředím
+                        evropských politických institucí
+                        a simulovaným parlamentním jednáním.
+                    </p>
+
+                    <p>
+                        Účast na tomto projektu mi umožnila
+                        dále poznávat principy parlamentního
+                        rozhodování v evropském kontextu
+                        a rozšířit si zkušenosti s mezinárodními
+                        studentskými aktivitami.
+                    </p>
+
+                </div>
+
+            </article>
 
         </div>
-
-
-
-        <!-- WORKSHOP DŮM EU -->
-
-        <div class="content-block">
-
-            <div class="page-tag">
-                02.02 / EVROPSKÁ UNIE
-            </div>
-
-            <h2>
-                Workshop v Domě EU – simulace Evropského parlamentu
-            </h2>
-
-            <p>
-                Zúčastnil jsem se vzdělávacího workshopu
-                v Domě EU, jehož součástí byla simulace
-                jednání Evropského parlamentu.
-            </p>
-
-            <p>
-                V rámci simulace jsem zastupoval
-                tradicionalistický politický směr
-                a podílel se na jednání o nových
-                ekologických regulacích souvisejících
-                s oblastí potravin a stravování.
-            </p>
-
-            <p>
-                Aktivita byla zaměřena na pochopení
-                fungování evropského parlamentního
-                prostředí, zastupování politických
-                postojů a hledání řešení při jednání
-                o legislativních otázkách.
-            </p>
-
-        </div>
-
-
-
-        <!-- STUDENTSKÁ SIMULACE -->
-
-        <div class="content-block">
-
-            <div class="page-tag">
-                02.03 / STUDENTSKÉ PROJEKTY
-            </div>
-
-            <h2>
-                Mezinárodní studentská simulace Evropského parlamentu
-            </h2>
-
-            <p>
-                Zúčastnil jsem se také mezinárodní
-                studentské simulace Evropského parlamentu.
-                Jednalo se o další zkušenost s prostředím
-                evropských politických institucí
-                a simulovaným parlamentním jednáním.
-            </p>
-
-            <p>
-                Účast na tomto projektu mi umožnila
-                dále poznávat principy parlamentního
-                rozhodování v evropském kontextu
-                a rozšířit si zkušenosti s mezinárodními
-                studentskými aktivitami.
-            </p>
-
-        </div>
-
 
 
         <a href="#"
@@ -523,30 +662,19 @@
 
         </a>
 
-
     </section>
 
 
-
-    <!-- =====================================
-         PATIČKA
-    ====================================== -->
+    <!-- PATIČKA -->
 
     <footer>
-
         PETR JAKL · OSOBNÍ PORTFOLIO
-
     </footer>
 
 
-
-    <!-- =====================================
-         JAVASCRIPT
-    ====================================== -->
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
-
 </body>
-
 </html>
