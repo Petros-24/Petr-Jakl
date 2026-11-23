@@ -1,7 +1,7 @@
 
 /* =========================================
    PETR JAKL – PREMIUM PERSONAL PORTFOLIO
-   CLEAN VERSION
+   MODERN PROJECT CARDS VERSION
 ========================================= */
 
 
@@ -36,7 +36,6 @@ html {
 body {
     background: var(--black);
     color: white;
-
     font-family: 'Montserrat', sans-serif;
 
     overflow-x: hidden;
@@ -50,12 +49,10 @@ body {
 
 nav {
     position: fixed;
-
     top: 0;
     left: 0;
 
     width: 100%;
-
     padding: 23px 7%;
 
     display: flex;
@@ -74,11 +71,8 @@ nav {
 
 .logo {
     font-size: 13px;
-
     letter-spacing: 6px;
-
     font-weight: 700;
-
     color: white;
 }
 
@@ -87,16 +81,13 @@ nav {
     height: 45px;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     border: 1px solid rgba(200,169,110,.6);
-
     border-radius: 50%;
 
     color: var(--gold);
-
     text-decoration: none;
 
     transition: .3s;
@@ -133,12 +124,8 @@ nav {
     padding: 190px 20px 65px;
 
     position: relative;
-
     overflow: hidden;
 }
-
-
-/* Zlatá záře v pozadí */
 
 .hero::before {
     content: "";
@@ -162,59 +149,39 @@ nav {
     pointer-events: none;
 }
 
-
-/* Podtitulek */
-
 .subtitle {
     color: var(--gold);
 
     font-size: 11px;
-
     letter-spacing: 8px;
 
     margin-bottom: 28px;
-
     position: relative;
 }
 
-
-/* Hlavní nadpis */
-
 .hero h1 {
     font-size: clamp(43px,9vw,105px);
-
     font-weight: 300;
-
     letter-spacing: 8px;
-
     position: relative;
 }
 
 .hero h1 span {
     color: var(--gold);
-
     font-weight: 800;
 }
-
-
-/* Úvodní text */
 
 .hero > p {
     color: var(--grey);
 
     font-size: 11px;
-
     letter-spacing: 4px;
 
     margin-top: 24px;
-
     line-height: 2;
 
     position: relative;
 }
-
-
-/* Oddělovací čára */
 
 .divider {
     width: 65px;
@@ -225,18 +192,13 @@ nav {
     margin: 35px auto;
 }
 
-
-/* Doplňující text */
-
 .hero .hero-description {
     max-width: 550px;
 
     color: #888;
 
     font-size: 13px;
-
     line-height: 2;
-
     letter-spacing: 1px;
 
     margin-top: 0;
@@ -251,23 +213,16 @@ nav {
     padding: 0 0 110px;
 }
 
-
-/* Nadpis sekce */
-
 .section-heading {
     text-align: center;
 
     font-size: 11px;
-
     letter-spacing: 6px;
 
     color: #888;
 
     margin: 15px 0 45px;
 }
-
-
-/* Kontejner karet */
 
 .cards {
     display: grid;
@@ -281,20 +236,14 @@ nav {
     margin: 0 auto;
 }
 
-
-/* Jednotlivá karta */
-
 .card {
     min-height: 350px;
 
     position: relative;
-
     overflow: hidden;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: flex-end;
 
     padding: 40px;
@@ -312,18 +261,13 @@ nav {
     );
 
     cursor: pointer;
-
     outline: none;
 }
-
-
-/* Zlatá záře */
 
 .card::before {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background: radial-gradient(
@@ -333,12 +277,8 @@ nav {
     );
 
     transition: .5s;
-
     pointer-events: none;
 }
-
-
-/* Hover */
 
 .card:hover,
 .card:focus-visible {
@@ -358,9 +298,6 @@ nav {
     );
 }
 
-
-/* Číslo */
-
 .card-number {
     position: absolute;
 
@@ -370,61 +307,42 @@ nav {
     color: rgba(200,169,110,.65);
 
     font-size: 13px;
-
     letter-spacing: 4px;
 }
 
-
-/* Nadpis karty */
-
 .card h2 {
     font-size: clamp(22px,3vw,35px);
-
     letter-spacing: 2px;
 
     position: relative;
-
     z-index: 2;
 
     font-weight: 500;
 }
 
-
-/* Popis */
-
 .card p {
     color: #999;
 
     font-size: 12px;
-
     margin-top: 15px;
 
     line-height: 1.9;
 
     position: relative;
-
     z-index: 2;
 }
-
-
-/* Odkaz */
 
 .card-link {
     color: var(--gold);
 
     font-size: 9px;
-
     letter-spacing: 3px;
 
     margin-top: 25px;
 
     position: relative;
-
     z-index: 2;
 }
-
-
-/* Šipka */
 
 .arrow {
     position: absolute;
@@ -433,7 +351,6 @@ nav {
     top: 35px;
 
     font-size: 25px;
-
     color: var(--gold);
 
     transition: .3s;
@@ -458,17 +375,10 @@ nav {
     background: var(--black);
 }
 
-
-/* Aktivní podstránka */
-
 .page.active {
     display: block;
-
     animation: enter .7s ease;
 }
-
-
-/* Animace vstupu */
 
 @keyframes enter {
     from {
@@ -482,50 +392,35 @@ nav {
     }
 }
 
-
-/* Označení sekce */
-
 .page-tag {
     color: var(--gold);
 
     font-size: 11px;
-
     letter-spacing: 5px;
 
     margin-bottom: 25px;
-
     line-height: 1.8;
 }
-
-
-/* Hlavní nadpis */
 
 .page h1 {
     font-size: clamp(38px,7vw,80px);
 
     font-weight: 300;
-
     letter-spacing: 4px;
 
     margin-bottom: 35px;
-
     line-height: 1.2;
 }
 
 .page h1 span {
     color: var(--gold);
-
     font-weight: 700;
 }
-
-
-/* Úvodní popis */
 
 .page-intro {
     max-width: 780px;
 
     font-size: 15px;
-
     color: #999;
 
     line-height: 2.2;
@@ -535,102 +430,256 @@ nav {
 
 
 /* =========================================
-   6. PROJEKTOVÉ BLOKY
+   6. GRID PROJEKTŮ
 ========================================= */
 
-.content-block {
+.project-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   7. PROJEKTOVÉ KARTY
+========================================= */
+
+.project-card {
+
     position: relative;
 
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
 
-    padding: 38px 40px;
+    min-width: 0;
+
+    padding: 38px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(24,24,24,.98),
+        rgba(9,9,9,.98)
+    );
 
     border: 1px solid rgba(255,255,255,.07);
 
-    border-left: 2px solid var(--gold);
+    border-radius: 3px;
 
-    background: linear-gradient(
-        110deg,
-        rgba(200,169,110,.065),
-        rgba(15,15,15,.6) 55%,
-        rgba(8,8,8,.4)
-    );
+    overflow: hidden;
 
     transition:
-        border-color .3s,
-        background .3s,
-        transform .3s;
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease,
+        background .4s ease;
 }
 
 
-/* Jemný hover */
+/* Zlatá světelná záře */
 
-.content-block:hover {
-    border-color: rgba(200,169,110,.4);
+.project-card::before {
 
-    border-left-color: var(--light-gold);
+    content: "";
 
-    background: linear-gradient(
-        110deg,
-        rgba(200,169,110,.11),
-        rgba(15,15,15,.7) 55%,
-        rgba(8,8,8,.5)
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -170px;
+    right: -120px;
+
+    background: radial-gradient(
+        circle,
+        rgba(200,169,110,.13),
+        transparent 70%
     );
 
-    transform: translateX(4px);
+    opacity: .5;
+
+    transition: .5s;
+
+    pointer-events: none;
 }
 
 
-/* Číslování projektu */
+/* Spodní zlatá linka */
 
-.content-block .page-tag {
+.project-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: width .4s ease;
+}
+
+
+/* Hover */
+
+.project-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: rgba(200,169,110,.45);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.4),
+        0 5px 25px rgba(200,169,110,.06);
+
+    background: linear-gradient(
+        145deg,
+        #191714,
+        #0b0b0b
+    );
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   8. PIKTOGRAMY
+========================================= */
+
+.project-icon {
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+
     color: var(--gold);
 
-    font-size: 10px;
+    background: rgba(200,169,110,.07);
+
+    border: 1px solid rgba(200,169,110,.28);
+
+    border-radius: 4px;
+
+    transition:
+        background .4s ease,
+        box-shadow .4s ease,
+        transform .4s ease,
+        border-color .4s ease;
+
+    position: relative;
+    z-index: 2;
+}
+
+.project-icon svg {
+
+    width: 32px;
+    height: 32px;
+
+    stroke: currentColor;
+
+    transition: transform .4s ease;
+}
+
+
+/* Zvýraznění ikony při hoveru */
+
+.project-card:hover .project-icon {
+
+    background: rgba(200,169,110,.14);
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 20px rgba(200,169,110,.12),
+        inset 0 0 15px rgba(200,169,110,.05);
+
+    transform: translateY(-3px);
+}
+
+.project-card:hover .project-icon svg {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   9. OBSAH PROJEKTOVÝCH KARET
+========================================= */
+
+.project-content {
+
+    position: relative;
+    z-index: 2;
+}
+
+.project-category {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 600;
 
     letter-spacing: 4px;
+
+    line-height: 1.8;
+
+    margin-bottom: 14px;
+}
+
+.project-content h2 {
+
+    color: white;
+
+    font-size: clamp(19px,2vw,25px);
+
+    font-weight: 500;
+
+    letter-spacing: .5px;
+
+    line-height: 1.5;
 
     margin-bottom: 22px;
 }
 
+.project-content p {
 
-/* Název projektu */
-
-.content-block h2 {
-    font-size: clamp(19px,2.5vw,25px);
-
-    letter-spacing: 1px;
-
-    margin-bottom: 23px;
-
-    font-weight: 500;
-
-    line-height: 1.5;
-
-    color: white;
-}
-
-
-/* Text projektu */
-
-.content-block p {
     color: #999;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    line-height: 2.1;
+    line-height: 2;
 
-    margin-top: 15px;
+    margin-top: 14px;
 
     max-width: 900px;
 }
 
 
 /* =========================================
-   7. NÁVRAT NA HLAVNÍ STRÁNKU
+   10. NÁVRAT NA HLAVNÍ STRÁNKU
 ========================================= */
 
 .back-link {
+
     display: inline-block;
 
     margin-top: 65px;
@@ -649,6 +698,7 @@ nav {
 }
 
 .back-link:hover {
+
     color: white;
 
     transform: translateX(-5px);
@@ -656,10 +706,11 @@ nav {
 
 
 /* =========================================
-   8. PATIČKA
+   11. PATIČKA
 ========================================= */
 
 footer {
+
     border-top: 1px solid rgba(255,255,255,.08);
 
     padding: 30px;
@@ -677,22 +728,30 @@ footer {
 
 
 /* =========================================
-   9. MOBILNÍ ZAŘÍZENÍ
+   12. TABLETY
 ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
     .page {
         padding-left: 7%;
         padding-right: 7%;
     }
 
-    .content-block {
-        padding: 32px;
+    .project-card {
+        padding: 30px;
+    }
+
+    .project-grid {
+        gap: 18px;
     }
 
 }
 
+
+/* =========================================
+   13. MOBILNÍ ZAŘÍZENÍ
+========================================= */
 
 @media (max-width: 700px) {
 
@@ -729,7 +788,7 @@ footer {
     }
 
 
-    /* Karty */
+    /* Hlavní karty */
 
     .cards-section {
         padding-bottom: 75px;
@@ -752,7 +811,6 @@ footer {
 
     .card {
         min-height: 290px;
-
         padding: 30px;
     }
 
@@ -783,35 +841,50 @@ footer {
 
     .page-intro {
         font-size: 13px;
-
         line-height: 2;
 
-        margin-bottom: 45px;
+        margin-bottom: 40px;
     }
 
 
-    /* Projektové bloky */
+    /* Projektová mřížka */
 
-    .content-block {
-        padding: 27px 23px;
-
-        margin-top: 22px;
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
     }
 
-    .content-block h2 {
+
+    /* Projektové karty */
+
+    .project-card {
+        padding: 27px 24px;
+    }
+
+    .project-icon {
+        width: 57px;
+        height: 57px;
+
+        margin-bottom: 23px;
+    }
+
+    .project-icon svg {
+        width: 29px;
+        height: 29px;
+    }
+
+    .project-category {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .project-content h2 {
         font-size: 19px;
     }
 
-    .content-block p {
+    .project-content p {
         font-size: 13px;
-
         line-height: 2;
-    }
-
-    .content-block .page-tag {
-        font-size: 9px;
-
-        letter-spacing: 3px;
     }
 
 
@@ -819,7 +892,6 @@ footer {
 
     .back-link {
         font-size: 10px;
-
         letter-spacing: 2px;
 
         margin-top: 45px;
@@ -827,6 +899,10 @@ footer {
 
 }
 
+
+/* =========================================
+   14. MENŠÍ MOBILY
+========================================= */
 
 @media (max-width: 400px) {
 
@@ -838,8 +914,12 @@ footer {
         font-size: 23px;
     }
 
-    .content-block {
+    .project-card {
         padding: 23px 19px;
+    }
+
+    .project-content h2 {
+        font-size: 18px;
     }
 
     .page-tag {
@@ -850,7 +930,7 @@ footer {
 
 
 /* =========================================
-   10. OMEZENÍ ANIMACÍ
+   15. OMEZENÍ ANIMACÍ
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
