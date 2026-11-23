@@ -1,7 +1,7 @@
 
 /* =========================================
    PETR JAKL – PREMIUM PERSONAL PORTFOLIO
-   COMPLETE DESKTOP CSS
+   COMPLETE CSS – NEW LAYOUT
 ========================================= */
 
 
@@ -37,7 +37,6 @@ body {
     background: var(--black);
     color: white;
     font-family: 'Montserrat', sans-serif;
-
     overflow-x: hidden;
     min-height: 100vh;
 }
@@ -51,8 +50,8 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
+
     padding: 23px 7%;
 
     display: flex;
@@ -96,7 +95,6 @@ nav {
 .home-btn:hover {
     background: var(--gold);
     color: black;
-
     box-shadow: 0 0 25px rgba(200,169,110,.2);
 }
 
@@ -110,8 +108,35 @@ nav {
     min-height: 100vh;
 }
 
-.hero {
-    min-height: auto;
+
+/* =========================================
+   4. ÚVODNÍ ROZLOŽENÍ
+========================================= */
+
+.hero-layout {
+    width: min(1600px, 94%);
+    margin: 0 auto 75px;
+
+    padding-top: 105px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(230px, .85fr)
+        minmax(450px, 1.6fr)
+        minmax(230px, .85fr);
+
+    align-items: stretch;
+    gap: 28px;
+}
+
+
+/* =========================================
+   5. STŘEDNÍ HERO
+========================================= */
+
+.hero-layout .hero {
+    min-height: 350px;
 
     display: flex;
     flex-direction: column;
@@ -121,7 +146,7 @@ nav {
 
     text-align: center;
 
-    padding: 190px 20px 65px;
+    padding: 35px 10px;
 
     position: relative;
     overflow: hidden;
@@ -135,7 +160,7 @@ nav {
     width: 750px;
     height: 750px;
 
-    top: -150px;
+    top: -200px;
     left: 50%;
 
     transform: translateX(-50%);
@@ -156,14 +181,17 @@ nav {
     letter-spacing: 8px;
 
     margin-bottom: 28px;
+
     position: relative;
 }
 
 .hero h1 {
-    font-size: clamp(43px,9vw,105px);
+    font-size: clamp(43px,5vw,85px);
     font-weight: 300;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
+
     position: relative;
+    white-space: nowrap;
 }
 
 .hero h1 span {
@@ -174,8 +202,8 @@ nav {
 .hero > p {
     color: var(--grey);
 
-    font-size: 11px;
-    letter-spacing: 4px;
+    font-size: 10px;
+    letter-spacing: 3px;
 
     margin-top: 24px;
     line-height: 2;
@@ -189,7 +217,7 @@ nav {
 
     background: var(--gold);
 
-    margin: 35px auto;
+    margin: 30px auto;
 }
 
 .hero .hero-description {
@@ -206,38 +234,23 @@ nav {
 
 
 /* =========================================
-   4. PORTFOLIO A UNIVERZITA
+   6. BOČNÍ PANELY
 ========================================= */
 
-.quick-links {
-    display: grid;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 25px;
-
-    width: min(1050px, 90%);
-
-    margin: 0 auto 85px;
-}
-
-
-/* ZÁKLADNÍ KARTY */
-
-.quick-link {
+.side-panel {
     position: relative;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
 
-    align-items: flex-start;
-
-    gap: 25px;
-
-    min-height: 235px;
     min-width: 0;
+    min-height: 350px;
 
-    padding: 32px;
+    padding: 35px 30px;
+
+    color: white;
+    text-decoration: none;
 
     background: linear-gradient(
         145deg,
@@ -246,12 +259,7 @@ nav {
     );
 
     border: 1px solid var(--border);
-
     border-radius: 3px;
-
-    color: white;
-
-    text-decoration: none;
 
     overflow: hidden;
 
@@ -261,10 +269,7 @@ nav {
         box-shadow .4s ease;
 }
 
-
-/* SVĚTELNÝ EFEKT */
-
-.quick-link::before {
+.side-panel::before {
     content: "";
 
     position: absolute;
@@ -273,7 +278,7 @@ nav {
     height: 300px;
 
     top: -170px;
-    right: -100px;
+    right: -120px;
 
     background: radial-gradient(
         circle,
@@ -284,49 +289,10 @@ nav {
     pointer-events: none;
 }
 
-
-/* IKONY */
-
-.quick-link-icon {
-    width: 58px;
-    height: 58px;
-
-    flex: 0 0 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--gold);
-
-    background: rgba(200,169,110,.08);
-
-    border: 1px solid rgba(200,169,110,.3);
-
+.side-panel-content {
     position: relative;
     z-index: 2;
-
-    transition: .4s;
-}
-
-.quick-link-icon svg {
-    display: block;
-
-    width: 30px;
-    height: 30px;
-
-    flex: none;
-}
-
-
-/* OBSAH KARET */
-
-.quick-link-content {
-    position: relative;
-    z-index: 2;
-
-    flex: 1;
-    min-width: 0;
+    width: 100%;
 }
 
 .quick-link-category {
@@ -336,31 +302,27 @@ nav {
     font-weight: 600;
 
     letter-spacing: 3px;
-
-    margin-bottom: 12px;
-
     line-height: 1.8;
+
+    margin-bottom: 14px;
 }
 
-.quick-link-content h2 {
+.side-panel h2 {
     color: white;
 
-    font-size: 24px;
-
+    font-size: clamp(19px,1.7vw,26px);
     font-weight: 500;
 
-    letter-spacing: 1px;
+    letter-spacing: .5px;
+    line-height: 1.5;
 
-    line-height: 1.4;
-
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
-.quick-link-content p {
+.side-panel p {
     color: #999;
 
     font-size: 12px;
-
     line-height: 1.9;
 
     margin-bottom: 15px;
@@ -370,51 +332,26 @@ nav {
     color: var(--light-gold);
 
     font-size: 10px;
-
     font-weight: 600;
 
     letter-spacing: 1.3px;
-
     line-height: 1.8;
 
     margin-bottom: 15px;
 }
 
-
-/* SPODNÍ ODKAZ */
-
 .quick-link-action {
     color: var(--gold);
 
     font-size: 9px;
-
     font-weight: 600;
 
     letter-spacing: 2px;
 
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
-
-/* ŠIPKA */
-
-.quick-link-arrow {
-    position: absolute;
-
-    top: 25px;
-    right: 25px;
-
-    color: var(--gold);
-
-    font-size: 22px;
-
-    transition: .3s;
-}
-
-
-/* HOVER EFEKTY */
-
-a.quick-link:hover {
+.side-panel:hover {
     transform: translateY(-6px);
 
     border-color: var(--gold);
@@ -424,34 +361,14 @@ a.quick-link:hover {
         0 5px 25px rgba(200,169,110,.08);
 }
 
-a.quick-link:hover .quick-link-icon {
-    border-color: var(--gold);
-
-    background: rgba(200,169,110,.15);
-}
-
-a.quick-link:hover .quick-link-arrow {
-    transform: translate(5px,-5px);
-}
-
-
-/* PORTFOLIO – ZATÍM NEAKTIVNÍ */
-
-.quick-link.disabled {
-    cursor: default;
-}
-
-.quick-link.disabled:hover {
-    transform: none;
-
-    border-color: var(--border);
-
-    box-shadow: none;
+.side-panel:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
 }
 
 
 /* =========================================
-   5. HLAVNÍ OBLASTI ZÁJMU
+   7. HLAVNÍ OBLASTI ZÁJMU
 ========================================= */
 
 .cards-section {
@@ -480,6 +397,11 @@ a.quick-link:hover .quick-link-arrow {
 
     margin: 0 auto;
 }
+
+
+/* =========================================
+   8. NAVIGAČNÍ KARTY
+========================================= */
 
 .card {
     min-height: 350px;
@@ -531,8 +453,7 @@ a.quick-link:hover .quick-link-arrow {
 
     border-color: var(--gold);
 
-    box-shadow:
-        0 15px 45px rgba(200,169,110,.09);
+    box-shadow: 0 15px 45px rgba(200,169,110,.09);
 }
 
 .card:hover::before {
@@ -607,7 +528,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   6. PODSTRÁNKY
+   9. PODSTRÁNKY
 ========================================= */
 
 .page {
@@ -679,7 +600,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   7. GRID PROJEKTŮ
+   10. GRID PROJEKTŮ
 ========================================= */
 
 .project-grid {
@@ -694,7 +615,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   8. PROJEKTOVÉ KARTY
+   11. PROJEKTOVÉ KARTY
 ========================================= */
 
 .project-card {
@@ -726,9 +647,6 @@ a.quick-link:hover .quick-link-arrow {
         background .4s ease;
 }
 
-
-/* ZLATÁ ZÁŘE */
-
 .project-card::before {
     content: "";
 
@@ -753,9 +671,6 @@ a.quick-link:hover .quick-link-arrow {
     pointer-events: none;
 }
 
-
-/* SPODNÍ ZLATÁ LINKA */
-
 .project-card::after {
     content: "";
 
@@ -771,9 +686,6 @@ a.quick-link:hover .quick-link-arrow {
 
     transition: width .4s ease;
 }
-
-
-/* HOVER */
 
 .project-card:hover {
     transform: translateY(-6px);
@@ -801,7 +713,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   9. PIKTOGRAMY PROJEKTŮ
+   12. PIKTOGRAMY PROJEKTŮ
 ========================================= */
 
 .project-icon {
@@ -859,7 +771,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   10. OBSAH PROJEKTOVÝCH KARET
+   13. OBSAH PROJEKTOVÝCH KARET
 ========================================= */
 
 .project-content {
@@ -871,11 +783,9 @@ a.quick-link:hover .quick-link-arrow {
     color: var(--gold);
 
     font-size: 9px;
-
     font-weight: 600;
 
     letter-spacing: 4px;
-
     line-height: 1.8;
 
     margin-bottom: 14px;
@@ -889,7 +799,6 @@ a.quick-link:hover .quick-link-arrow {
     font-weight: 500;
 
     letter-spacing: .5px;
-
     line-height: 1.5;
 
     margin-bottom: 22px;
@@ -899,7 +808,6 @@ a.quick-link:hover .quick-link-arrow {
     color: #999;
 
     font-size: 13px;
-
     line-height: 2;
 
     margin-top: 14px;
@@ -909,7 +817,7 @@ a.quick-link:hover .quick-link-arrow {
 
 
 /* =========================================
-   11. NÁVRAT NA HLAVNÍ STRÁNKU
+   14. NÁVRAT NA HLAVNÍ STRÁNKU
 ========================================= */
 
 .back-link {
@@ -932,13 +840,12 @@ a.quick-link:hover .quick-link-arrow {
 
 .back-link:hover {
     color: white;
-
     transform: translateX(-5px);
 }
 
 
 /* =========================================
-   12. PATIČKA
+   15. PATIČKA
 ========================================= */
 
 footer {
@@ -959,7 +866,7 @@ footer {
 
 
 /* =========================================
-   13. OMEZENÍ ANIMACÍ
+   16. OMEZENÍ ANIMACÍ
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -970,324 +877,4 @@ footer {
         transition: none !important;
         scroll-behavior: auto !important;
     }
-}
-
-/* =====================================
-   FINÁLNÍ ÚPRAVA IKON A KARET
-===================================== */
-
-/* Menší ikony portfolia a univerzity */
-
-.quick-link-icon {
-    width: 46px;
-    height: 46px;
-    flex: 0 0 46px;
-    border-radius: 4px;
-}
-
-.quick-link-icon svg {
-    width: 23px;
-    height: 23px;
-}
-
-/* Hlavní oblasti – výraznější ikony */
-
-.card-icon {
-    width: 65px;
-    height: 65px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 28px;
-
-    color: var(--gold);
-
-    background: rgba(200,169,110,.08);
-
-    border: 1px solid rgba(200,169,110,.3);
-
-    border-radius: 4px;
-
-    position: relative;
-    z-index: 2;
-
-    transition: .4s ease;
-}
-
-.card-icon svg {
-    width: 32px;
-    height: 32px;
-}
-
-/* Zvýraznění při najetí */
-
-.card:hover .card-icon {
-    background: rgba(200,169,110,.15);
-    border-color: var(--gold);
-    box-shadow: 0 0 20px rgba(200,169,110,.12);
-    transform: translateY(-3px);
-}
-
-/* Oddělení hlavních oblastí */
-
-.cards-section {
-    padding-top: 15px;
-}
-
-.cards {
-    gap: 28px;
-}
-
-/* Lepší proporce hlavních karet */
-
-.card {
-    min-height: 370px;
-    border-radius: 4px;
-}
-
-/* Rámečky horních odkazů */
-
-.quick-link {
-    border-radius: 4px;
-}
-
-/* Jasně viditelný rámeček při najetí */
-
-.quick-link:hover {
-    border-color: var(--gold);
-}
-
-/* =========================================
-   NOVÁ VIZUÁLNÍ HIERARCHIE
-========================================= */
-
-/* =========================================
-   1. TECHNOLOGIE A MEZINÁRODNÍ VZTAHY
-   HLAVNÍ KARTY
-========================================= */
-
-.cards {
-    width: min(1100px, 90%);
-    gap: 28px;
-}
-
-.card {
-    min-height: 390px;
-    padding: 45px;
-
-    border: 1px solid rgba(200,169,110,.35);
-    border-radius: 4px;
-
-    background: linear-gradient(
-        145deg,
-        #171717,
-        #090909
-    );
-}
-
-.card-icon {
-    width: 72px;
-    height: 72px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 32px;
-
-    color: var(--gold);
-
-    background: rgba(200,169,110,.09);
-    border: 1px solid rgba(200,169,110,.4);
-
-    border-radius: 4px;
-
-    position: relative;
-    z-index: 2;
-
-    transition: .4s ease;
-}
-
-.card-icon svg {
-    width: 36px;
-    height: 36px;
-}
-
-.card:hover .card-icon {
-    background: rgba(200,169,110,.16);
-    border-color: var(--gold);
-    box-shadow: 0 0 22px rgba(200,169,110,.15);
-    transform: translateY(-3px);
-}
-
-.card h2 {
-    font-size: 30px;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.card p {
-    font-size: 13px;
-    line-height: 2;
-}
-
-
-/* =========================================
-   2. PORTFOLIO A UNIVERZITA
-   MENŠÍ DOPLŇKOVÉ KARTY
-========================================= */
-
-.quick-links {
-    width: min(900px, 85%);
-    gap: 18px;
-    margin-bottom: 65px;
-}
-
-.quick-link {
-    min-height: 165px;
-    padding: 23px;
-    gap: 17px;
-
-    border: 1px solid rgba(200,169,110,.16);
-
-    background: linear-gradient(
-        145deg,
-        #121212,
-        #090909
-    );
-}
-
-/* Menší ikonky */
-
-.quick-link-icon {
-    width: 42px;
-    height: 42px;
-    flex: 0 0 42px;
-}
-
-.quick-link-icon svg {
-    width: 21px;
-    height: 21px;
-}
-
-/* Menší text */
-
-.quick-link-category {
-    font-size: 8px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.quick-link-content h2 {
-    font-size: 19px;
-    margin-bottom: 8px;
-}
-
-.quick-link-content p {
-    font-size: 11px;
-    line-height: 1.7;
-    margin-bottom: 8px;
-}
-
-.quick-link-study {
-    font-size: 9px;
-}
-
-.quick-link-action {
-    font-size: 8px;
-}
-
-.quick-link-arrow {
-    font-size: 17px;
-    top: 17px;
-    right: 17px;
-}
-
-
-/* =========================================
-   3. VÍCE PROSTORU MEZI SEKCE
-========================================= */
-
-.cards-section {
-    padding-top: 20px;
-}
-
-.section-heading {
-    margin-bottom: 40px;
-    letter-spacing: 5px;
-}
-
-/* =========================================
-   HORNÍ KARTY – ŠIROKÉ ROZLOŽENÍ
-========================================= */
-
-.quick-link {
-    position: relative;
-    min-height: 190px;
-    padding: 28px 35px;
-    align-items: center;
-    gap: 25px;
-}
-
-/* Velké samostatné ikony */
-
-.quick-link-icon {
-    width: 76px;
-    height: 76px;
-    flex: 0 0 76px;
-    border-radius: 5px;
-}
-
-.quick-link-icon svg {
-    width: 39px;
-    height: 39px;
-}
-
-/* Obsah */
-
-.quick-link-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.quick-link-content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.quick-link-content p {
-    font-size: 12px;
-    line-height: 1.8;
-}
-
-/* Motivační dopis – ikona vlevo */
-
-.quick-link:first-child {
-    flex-direction: row;
-}
-
-/* Univerzita – ikona vpravo */
-
-.quick-link.university-link {
-    flex-direction: row-reverse;
-}
-
-.quick-link.university-link .quick-link-icon {
-    margin-left: auto;
-}
-
-/* Šipka */
-
-.quick-link-arrow {
-    top: 15px;
-    right: 18px;
-}
-
-/* Jemné zvýraznění */
-
-a.quick-link:hover .quick-link-icon {
-    transform: scale(1.04);
-    box-shadow: 0 0 25px rgba(200,169,110,.12);
 }
