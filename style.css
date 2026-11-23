@@ -878,3 +878,71 @@ footer {
         scroll-behavior: auto !important;
     }
 }
+
+/* OPRAVA ÚVODNÍHO ROZLOŽENÍ */
+
+#home .hero-layout {
+    display: grid !important;
+
+    grid-template-columns:
+        minmax(240px, 1fr)
+        minmax(450px, 1.8fr)
+        minmax(240px, 1fr) !important;
+
+    align-items: stretch !important;
+
+    gap: 25px !important;
+
+    width: 94% !important;
+    max-width: 1600px !important;
+
+    margin: 0 auto 75px !important;
+    padding-top: 125px !important;
+}
+
+#home .hero-layout > .side-panel {
+    display: flex !important;
+
+    position: relative !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 350px !important;
+
+    border: 1px solid rgba(200,169,110,.4) !important;
+
+    background: linear-gradient(
+        145deg,
+        #151515,
+        #080808
+    ) !important;
+
+    padding: 35px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#home .hero-layout > .hero {
+    display: flex !important;
+
+    min-width: 0 !important;
+    width: 100% !important;
+
+    padding: 35px 10px !important;
+}
+
+#home .hero-layout > .side-panel h2 {
+    color: white;
+    font-size: 24px;
+}
+
+#home .hero-layout > .side-panel p {
+    color: #999;
+    line-height: 1.9;
+}
+
+#home .hero-layout > .side-panel .quick-link-category,
+#home .hero-layout > .side-panel .quick-link-action {
+    color: var(--gold);
+}
