@@ -1058,3 +1058,163 @@ footer {
 .quick-link:hover {
     border-color: var(--gold);
 }
+
+/* =========================================
+   NOVÁ VIZUÁLNÍ HIERARCHIE
+========================================= */
+
+/* =========================================
+   1. TECHNOLOGIE A MEZINÁRODNÍ VZTAHY
+   HLAVNÍ KARTY
+========================================= */
+
+.cards {
+    width: min(1100px, 90%);
+    gap: 28px;
+}
+
+.card {
+    min-height: 390px;
+    padding: 45px;
+
+    border: 1px solid rgba(200,169,110,.35);
+    border-radius: 4px;
+
+    background: linear-gradient(
+        145deg,
+        #171717,
+        #090909
+    );
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 32px;
+
+    color: var(--gold);
+
+    background: rgba(200,169,110,.09);
+    border: 1px solid rgba(200,169,110,.4);
+
+    border-radius: 4px;
+
+    position: relative;
+    z-index: 2;
+
+    transition: .4s ease;
+}
+
+.card-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.card:hover .card-icon {
+    background: rgba(200,169,110,.16);
+    border-color: var(--gold);
+    box-shadow: 0 0 22px rgba(200,169,110,.15);
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 13px;
+    line-height: 2;
+}
+
+
+/* =========================================
+   2. PORTFOLIO A UNIVERZITA
+   MENŠÍ DOPLŇKOVÉ KARTY
+========================================= */
+
+.quick-links {
+    width: min(900px, 85%);
+    gap: 18px;
+    margin-bottom: 65px;
+}
+
+.quick-link {
+    min-height: 165px;
+    padding: 23px;
+    gap: 17px;
+
+    border: 1px solid rgba(200,169,110,.16);
+
+    background: linear-gradient(
+        145deg,
+        #121212,
+        #090909
+    );
+}
+
+/* Menší ikonky */
+
+.quick-link-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+}
+
+.quick-link-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+/* Menší text */
+
+.quick-link-category {
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.quick-link-content h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.quick-link-content p {
+    font-size: 11px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.quick-link-study {
+    font-size: 9px;
+}
+
+.quick-link-action {
+    font-size: 8px;
+}
+
+.quick-link-arrow {
+    font-size: 17px;
+    top: 17px;
+    right: 17px;
+}
+
+
+/* =========================================
+   3. VÍCE PROSTORU MEZI SEKCE
+========================================= */
+
+.cards-section {
+    padding-top: 20px;
+}
+
+.section-heading {
+    margin-bottom: 40px;
+    letter-spacing: 5px;
+}
