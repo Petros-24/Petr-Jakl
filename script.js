@@ -1,19 +1,21 @@
 
 /* =========================================
    PETR JAKL
-   PREMIUM GEOPOLITICAL ATLAS
-   JAVASCRIPT 1/2
+   PREMIUM PERSONAL PORTFOLIO
+   CLEAN JAVASCRIPT
 ========================================= */
 
 
 /* =========================================
-   1. NAVIGACE
+   1. NAVIGACE NA PODSTRÁNKY
 ========================================= */
 
 function showPage(pageId) {
 
     const home = document.getElementById("home");
+
     const pages = document.querySelectorAll(".page");
+
     const selectedPage = document.getElementById(pageId);
 
     if (!home || !selectedPage) {
@@ -21,23 +23,28 @@ function showPage(pageId) {
         return;
     }
 
+    // Skrytí hlavní stránky
     home.style.display = "none";
 
+    // Skrytí všech podstránek
     pages.forEach(page => {
         page.classList.remove("active");
     });
 
+    // Zobrazení vybrané podstránky
     selectedPage.classList.add("active");
 
+    // Návrat na začátek stránky
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
 /* =========================================
-   2. NÁVRAT DOMŮ
+   2. NÁVRAT NA HLAVNÍ STRÁNKU
 ========================================= */
 
 function showHome() {
@@ -46,21 +53,25 @@ function showHome() {
 
     if (!home) return;
 
+    // Skrytí všech podstránek
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
     });
 
+    // Zobrazení hlavní stránky
     home.style.display = "block";
 
+    // Návrat nahoru
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
 /* =========================================
-   3. KLÁVESNICOVÉ OVLÁDÁNÍ
+   3. KLÁVESNICOVÉ OVLÁDÁNÍ KARET
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -79,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
 
                 event.preventDefault();
+
                 card.click();
 
             }
@@ -100,232 +112,42 @@ const reducedMotion = window.matchMedia(
 
 
 /* =========================================
-   5. INICIALIZACE MAPY
-========================================= */
-
-function initializeWorldMap() {
-
-    const worldMap = document.getElementById("world-map");
-
-    if (!worldMap) {
-        console.warn("Mapa nebyla nalezena.");
-        return;
-    }
-
-    worldMap.classList.add("map-initialized");
-
-    if (reducedMotion) {
-        return;
-    }
-
-    console.log("Geopolitická mapa inicializována.");
-
-}
-
-
-/* =========================================
-   6. GENERÁTOR DATOVÝCH IMPULZŮ
-========================================= */
-
-function initializeDataParticles() {
-
-    const svg = document.querySelector(".map-graphics");
-
-    if (!svg || reducedMotion) return;
-
-    const particleGroup = svg.querySelector(".data-particles");
-
-    if (!particleGroup) return;
-
-    const routes = svg.querySelectorAll(".data-routes path");
-
-    if (!routes.length) return;
-
-    const particleCount = 12;
-
-    for (let i = 0; i < particleCount; i++) {
-
-        const circle = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "circle"
-        );
-
-        circle.setAttribute("r", i % 3 === 0 ? "2.2" : "1.4");
-
-        circle.setAttribute("class", "data-particle");
-
-        circle.style.opacity = "0";
-
-        particleGroup.appendChild(circle);
-
-        const route = routes[i % routes.length];
-
-        const length = route.getTotalLength();
-
-        const duration = 5000 + Math.random() * 7000;
-
-        const delay = Math.random() * duration;
-
-        const start = performance.now() + delay;
-
-        function animateParticle(now) {
-
-            if (!circle.isConnected) return;
-
-            const progress = ((now - start) % duration) / duration;
-
-            const point = route.getPointAtLength(
-                progress * length
-            );
-
-            circle.setAttribute("cx", point.x);
-            circle.setAttribute("cy", point.y);
-
-            circle.style.opacity =
-                progress > 0.05 && progress < 0.95
-                    ? "0.9"
-                    : "0";
-
-            requestAnimationFrame(animateParticle);
-
-        }
-
-        requestAnimationFrame(animateParticle);
-
-    }
-
-}
-
-
-/* =========================================
-   7. START MAPY
+   5. INICIALIZACE PORTFOLIA
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initializeWorldMap();
+    // Kontrola hlavních částí webu
+    const home = document.getElementById("home");
 
-    initializeDataParticles();
+    const technology = document.getElementById("technology");
 
-});
+    const relations = document.getElementById("relations");
 
-/* =========================================
-   PETR JAKL
-   PREMIUM GEOPOLITICAL ATLAS
-   JAVASCRIPT 2/2
-========================================= */
+    if (!home || !technology || !relations) {
 
+        console.warn(
+            "Některá část portfolia nebyla nalezena."
+        );
 
-/* =========================================
-   8. ANIMOVANÉ INDIKÁTORY
-========================================= */
+        return;
 
-function initializeMapIndicators() {
-
-    const status = document.querySelector(".map-status");
-
-    if (!status) return;
-
-    const indicator = status.querySelector(".status-dot");
-
-    if (!indicator) return;
-
-    if (reducedMotion) {
-        indicator.style.animation = "none";
     }
 
-}
+    console.log(
+        "PETR JAKL – PERSONAL PORTFOLIO"
+    );
 
-
-/* =========================================
-   9. RADAROVÝ EFEKT
-========================================= */
-
-function initializeRadar() {
-
-    const radar = document.querySelector(".scan-line");
-
-    if (!radar) return;
-
-    if (reducedMotion) {
-        radar.style.animation = "none";
-        radar.style.transform = "none";
-    }
-
-}
-
-
-/* =========================================
-   10. ANIMACE MAPOVÝCH BODŮ
-========================================= */
-
-function initializeMapMarkers() {
-
-    const markers = document.querySelectorAll(
-        ".map-marker"
+    console.log(
+        "Portfolio bylo úspěšně inicializováno."
     );
 
     if (reducedMotion) {
 
-        markers.forEach(marker => {
-            marker.style.animation = "none";
-        });
-
-        return;
-    }
-
-    markers.forEach((marker, index) => {
-
-        marker.style.animationDelay =
-            `${index * 0.35}s`;
-
-    });
-
-}
-
-
-/* =========================================
-   11. RESPONZIVNÍ MAPA
-========================================= */
-
-function initializeResponsiveMap() {
-
-    const map = document.querySelector(".map-graphics");
-
-    if (!map) return;
-
-    if (!map.hasAttribute("preserveAspectRatio")) {
-
-        map.setAttribute(
-            "preserveAspectRatio",
-            "xMidYMid meet"
+        console.log(
+            "Je aktivní režim omezených animací."
         );
 
     }
-
-}
-
-
-/* =========================================
-   12. FINÁLNÍ INICIALIZACE
-========================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    initializeMapIndicators();
-
-    initializeRadar();
-
-    initializeMapMarkers();
-
-    initializeResponsiveMap();
-
-    console.log(
-        "PETR JAKL – GEOPOLITICAL ATLAS"
-    );
-
-    console.log(
-        "JavaScript byl úspěšně inicializován."
-    );
 
 });
