@@ -1218,3 +1218,76 @@ footer {
     margin-bottom: 40px;
     letter-spacing: 5px;
 }
+
+/* =========================================
+   HORNÍ KARTY – ŠIROKÉ ROZLOŽENÍ
+========================================= */
+
+.quick-link {
+    position: relative;
+    min-height: 190px;
+    padding: 28px 35px;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Velké samostatné ikony */
+
+.quick-link-icon {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    border-radius: 5px;
+}
+
+.quick-link-icon svg {
+    width: 39px;
+    height: 39px;
+}
+
+/* Obsah */
+
+.quick-link-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.quick-link-content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.quick-link-content p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* Motivační dopis – ikona vlevo */
+
+.quick-link:first-child {
+    flex-direction: row;
+}
+
+/* Univerzita – ikona vpravo */
+
+.quick-link.university-link {
+    flex-direction: row-reverse;
+}
+
+.quick-link.university-link .quick-link-icon {
+    margin-left: auto;
+}
+
+/* Šipka */
+
+.quick-link-arrow {
+    top: 15px;
+    right: 18px;
+}
+
+/* Jemné zvýraznění */
+
+a.quick-link:hover .quick-link-icon {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px rgba(200,169,110,.12);
+}
